@@ -1,6 +1,11 @@
 # Octo-Adapter: Belegung und Abnahme
 
-Stand: 13.09.2026. **Vorbereitet; keine realen Ausgangstests durchgeführt.**
+Stand: 13.09.2026. **Firmware vorbereitet; reale optische Abnahme steht aus.**
+
+Der inzwischen bereitgestellte RX32-Quellstand ist manifestgeprüft importiert.
+Der eigene Octo-Build und die vom Nutzer korrigierte ESP-Belegung (4031 LEDs,
+OUT6=536 abU142, OUT7=512 abU146) sind in
+[OCTO_RX32_FIRMWARE.md](OCTO_RX32_FIRMWARE.md) beschrieben.
 
 ## Hardware und Beleglage
 
@@ -9,11 +14,12 @@ LED-RJ45-Buchsen, Ethernet über separates Flachbandmodul. Der Adapter bleibt.
 Die frühere Vorgabe „keine Octo-Platine“ ist damit aufgehoben;
 „keine OctoWS2811-Bibliothek“ gilt weiterhin.
 
-Hersteller, Platinenrevision, Bestückung und Lage der Buchsen am tatsächlichen
-Aufbau sind noch nicht belegt. Das lokal gefundene Foto unter
-`C:/Users/jimmy/Documents/Teensy-ArtNet/WhatsApp Image 2026-08-02 at 05.22.37.jpeg`
-zeigt einen Teensy auf Lochraster mit Flachbandkabel, aber keinen identifizierbaren
-Octo-Adapter mit zwei LED-RJ45. Es genügt nicht zur Verifikation des beschriebenen Aufbaus.
+Alle sechs aktuellen Fotos unter `reference/teensy-rx32-385d5ed/fotos` wurden
+geprüft. Sie zeigen Teensy, zweifache LED-RJ45-Adapterplatine, zentralen
+20-poligen Puffer-IC, Widerstände und getrenntes Ethernet-Flachbandmodul.
+Hersteller, Platinenrevision und genaue HC-/HCT-Chipvariante sind nicht sicher
+lesbar. Die Fertigungsmarkierung „94V0 5017“ belegt kein Boardmodell.
+Die tatsächliche elektrische Durchleitung und Orientierung bleiben zu prüfen.
 
 Die [PJRC-Pintabelle](https://www.pjrc.com/teensy/td_libs_OctoWS2811.html)
 bestätigt die unten angegebene GPIO-Folge auch für Teensy 4.1.
@@ -40,13 +46,16 @@ Jede Buchse führt vier unabhängige LED-Datenausgänge, jeweils mit Masseader.
 | OUT8 | 5 | Bottom | 4 | Braun / Weiß-Braun | 8 / 7 |
 
 Bei T568A ändern sich Orange/Grün; die Kontaktzuordnung bleibt maßgeblich.
+Der Stecker auf Foto06 ist optisch mit **T568A** vereinbar. Erwartete
+DATA-Adern für OUT1–4 bzw. OUT5–8 deshalb **Grün, Blau, Orange, Braun**;
+jeweils zugehörige weiß gestreifte Ader = GND. Zweites Kabel separat prüfen.
 LED-RJ45 führen LED-Signale und sind keine Ethernet-Anschlüsse.
 
 ## Integration in den getesteten Firmwarestand
 
-Das Headerprofil enthält nur unveränderliche Zuordnungen und geprüfte
-Ausgangssuche. Es initialisiert weder GPIO noch DMA noch Netzwerk.
-Die tatsächliche Integration folgt erst mit dem RX32-Quellstand:
+Das Headerprofil enthält unveränderliche Zuordnungen und geprüfte Ausgangssuche.
+Die neue Octo-Firmware verwendet dieses Profil; Web-/Persistenzintegration
+folgt noch. Folgende Anforderungen gelten weiter:
 
 - Treiberpins aus dem Profil ableiten. OUT-Nummern bleiben auch bei deaktivierten
   Ausgängen stabil. Keine arithmetische Zuordnung `pin = output + 1`.
@@ -90,7 +99,8 @@ Die tatsächliche Integration folgt erst mit dem RX32-Quellstand:
 
 ## Einzeltest: OUT1, OUT2, …, OUT8
 
-Geplanter Ablauf; noch keine entsprechenden USB-Kommandos implementiert:
+Prüfablauf mit den inzwischen implementierten USB-Kommandos `TEST n`,
+`TEST ALL` und `STOP` (siehe Firmwarebedienung):
 
 1. Art-Net-Ausgabe stoppen. Auf allen angeschlossenen Testketten einen
    vollständigen Schwarzframe ausgeben und DMA-Abschluss abwarten.
@@ -142,8 +152,9 @@ STOP alte Frames wiedergeben. Prüfung mit aktivem DMA einschließen.
 | PJRC-Standardbelegung dokumentarisch | BESTÄTIGT |
 | Hersteller/Revision der tatsächlichen Platine | OFFEN |
 | Reale Buchsen-/Kabelzuordnung | OFFEN |
-| RX32-Quellstand und Patch lokal verifiziert | OFFEN |
-| Profil in Teensy-Firmware integriert/gebaut | NICHT DURCHGEFÜHRT |
+| RX32-Quellstand und Patch lokal verifiziert | MANIFEST UND PATCHTESTS BESTANDEN |
+| Profil in Teensy-Firmware integriert/gebaut/geflasht | BESTANDEN; USB-PROFIL ZURÜCKGELESEN |
+| Empfang von 29 Universen bei gestoppter Ausgabe | 300/300 BILDER, KEINE QUEUE-DROPS |
 | OUT1–OUT8 optisch einzeln und beschriftet | NICHT DURCHGEFÜHRT |
 | Alle acht Ausgänge parallel | NICHT DURCHGEFÜHRT |
 | Zehn Minuten mit realen LEDs | NICHT DURCHGEFÜHRT |

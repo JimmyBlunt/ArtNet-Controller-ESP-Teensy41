@@ -14,7 +14,8 @@ class VendorPatchTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         root = Path(os.environ.get('PLATFORMIO_LIBDEPS_DIR', 'C:/codex-tools/teensy41-libs'))
-        path = root/'teensy41_unwired_bench/FastLED/src/platforms/arm/teensy/teensy4_common/clockless_objectfled.cpp.hpp'
+        env = os.environ.get('FASTLED_TEST_ENV', 'teensy41_unwired_bench')
+        path = root/env/'FastLED/src/platforms/arm/teensy/teensy4_common/clockless_objectfled.cpp.hpp'
         cls.original = path.read_bytes().replace(patch.INSERT, b'', 1)
 
     def test_exact_audited_source(self):

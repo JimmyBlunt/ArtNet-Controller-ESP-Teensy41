@@ -1,0 +1,269 @@
+Processing teensy41_safe (platform: teensy@6.0.0; board: teensy41; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+CONFIGURATION: https://docs.platformio.org/page/boards/teensy/teensy41.html
+PLATFORM: Teensy (6.0.0) > Teensy 4.1
+HARDWARE: IMXRT1062 600MHz, 512KB RAM, 7.75MB Flash
+DEBUG: Current (jlink) External (jlink)
+PACKAGES: 
+ - framework-arduinoteensy @ 1.162.0 (1.62) 
+ - tool-scons @ 4.40801.0 (4.8.1) 
+ - tool-teensy @ 1.162.0 (1.62) 
+ - toolchain-gccarmnoneeabi-teensy @ 1.150201.0 (15.2.1)
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ off, Compatibility ~ soft
+Found 92 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- SPI @ 1.0
+|-- QNEthernet @ 0.37.0
+Building in release mode
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\src\main.cpp.o
+Linking C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.elf
+Calculating size C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.elf
+Checking size C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+teensy_size: Memory Usage on Teensy 4.1:
+teensy_size:   FLASH: code:118516, data:18376, headers:8512   free for files:7981060
+teensy_size:    RAM1: variables:60160, code:111544, padding:19528   free for local variables:333056
+teensy_size:    RAM2: variables:55712  free for malloc/new:468576
+Building C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.hex
+========================= [SUCCESS] Took 3.86 seconds =========================
+
+Processing teensy41_octo_identify_rx32 (platform: teensy@6.0.0; board: teensy41; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+FastLED modern Channel engine; unmodified legacy source SHA256: 3ff259b7a15b3172fd16dc342e928e1ccfa71f313a54b6bb2b9fbf782a63f2e8
+QNEthernet audited Teensy RX descriptors: 32; SHA256: 9c0febb4f48d73c4be001e777208bcf8368f6b0d8153e41378a486e24dbc6e6e
+CONFIGURATION: https://docs.platformio.org/page/boards/teensy/teensy41.html
+PLATFORM: Teensy (6.0.0) > Teensy 4.1
+HARDWARE: IMXRT1062 600MHz, 512KB RAM, 7.75MB Flash
+DEBUG: Current (jlink) External (jlink)
+PACKAGES: 
+ - framework-arduinoteensy @ 1.162.0 (1.62) 
+ - tool-scons @ 4.40801.0 (4.8.1) 
+ - tool-teensy @ 1.162.0 (1.62) 
+ - toolchain-gccarmnoneeabi-teensy @ 1.150201.0 (15.2.1)
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ off, Compatibility ~ soft
+Found 93 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- SPI @ 1.0
+|-- FastLED @ 3.10.3
+|-- QNEthernet @ 0.37.0
+Building in release mode
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\src\octo_identify.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.audio+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.channels+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.chipsets+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.codec+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.control+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.font+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.fx+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.gfx+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.log+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.math+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.net+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.remote+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.sensors+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.stl+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.system+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.system.sd+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.task+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.test+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.ui+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.video+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\fl.wdt+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\platforms+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\src.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\fl\build\third_party+.cpp.o
+In file included from C:\codex-build\artnet5-rx32\libs\teensy41_octo_identify_rx32\FastLED\src/platforms/arm/teensy/teensy4_common/drivers/flexio/_build.cpp.hpp:7,
+                 from C:\codex-build\artnet5-rx32\libs\teensy41_octo_identify_rx32\FastLED\src/platforms/arm/teensy/teensy4_common/drivers/_build.cpp.hpp:6,
+                 from C:\codex-build\artnet5-rx32\libs\teensy41_octo_identify_rx32\FastLED\src/platforms/arm/teensy/teensy4_common/_build.cpp.hpp:18,
+                 from C:\codex-build\artnet5-rx32\libs\teensy41_octo_identify_rx32\FastLED\src/platforms/arm/teensy/_build.cpp.hpp:25,
+                 from C:\codex-build\artnet5-rx32\libs\teensy41_octo_identify_rx32\FastLED\src/platforms/arm/_build.cpp.hpp:17,
+                 from C:\codex-build\artnet5-rx32\libs\teensy41_octo_identify_rx32\FastLED\src/platforms/_build.cpp.hpp:21,
+                 from C:\codex-build\artnet5-rx32\libs\teensy41_octo_identify_rx32\FastLED\src\fl\build\platforms+.cpp:10:
+C:\codex-build\artnet5-rx32\libs\teensy41_octo_identify_rx32\FastLED\src/platforms/arm/teensy/teensy4_common/drivers/flexio/flexio_driver.cpp.hpp:93:22: warning: 'fl::FLEXIO2_SHIFTBUF' defined but not used [-Wunused-variable]
+   93 | static volatile u32* FLEXIO2_SHIFTBUF  = (volatile u32*)(kFLEXIO2_BASE + 0x200);
+      |                      ^~~~~~~~~~~~~~~~
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\platforms\esp\32\drivers\gpio_isr_rx\fast_isr.S.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\FastLED\third_party\libhelix_mp3\real\arm\asmpoly_gcc.S.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\arch\sys_arch.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\altcp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\altcp_alloc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\altcp_tcp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\api\err.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\apps\altcp_tls\altcp_tls_mbedtls.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\apps\altcp_tls\altcp_tls_mbedtls_mem.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\apps\http\altcp_proxyconnect.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\apps\mdns\mdns.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\apps\mdns\mdns_domain.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\apps\mdns\mdns_out.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\def.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\dns.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\inet_chksum.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\init.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ip.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv4\acd.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv4\autoip.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv4\dhcp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv4\etharp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv4\icmp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv4\igmp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv4\ip4.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv4\ip4_addr.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv4\ip4_frag.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv6\dhcp6.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv6\ethip6.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv6\icmp6.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv6\inet6.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv6\ip6.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv6\ip6_addr.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv6\ip6_frag.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv6\mld6.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\ipv6\nd6.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\mem.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\memp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\netif.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\pbuf.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\raw.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\stats.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\sys.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\tcp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\tcp_in.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\tcp_out.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\timeouts.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\lwip\udp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\main.cpp.o
+Archiving C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\libFastLED.a
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\netif\ethernet.c.o
+Indexing C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib706\libFastLED.a
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\QNDNSClient.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\QNEthernet.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\QNEthernetClient.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\QNEthernetFrame.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\QNEthernetServer.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\QNEthernetUDP.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\QNMDNS.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\QNPing.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\altcp_tls_adapter.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\chrono\chrono_clocks.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\default_altcp_functions.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\drivers\driver_teensy41.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\drivers\driver_unsupported.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\drivers\driver_w5500.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\entropy\entropy.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\entropy\random_device.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\internal\ConnectionManager.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\lwip_driver.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\lwip_hooks.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\qnethernet_hal.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\security\siphash.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\util\PrintUtils.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\QNEthernet\qnethernet\util\ip_tools.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\AudioStream.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\CrashReport.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\DMAChannel.cpp.o
+Archiving C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\libQNEthernet.a
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\EventResponder.cpp.o
+Indexing C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\lib5ff\libQNEthernet.a
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\HardwareSerial.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\HardwareSerial1.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\HardwareSerial2.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\HardwareSerial3.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\HardwareSerial4.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\HardwareSerial5.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\HardwareSerial6.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\HardwareSerial7.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\HardwareSerial8.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\IPAddress.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\IntervalTimer.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\MTP_Storage.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\MTP_Teensy.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\Print.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\Stream.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\Time.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\Tone.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\WMath.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\WString.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\analog.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\bootdata.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\clockspeed.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\debugprintf.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\delay.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\digital.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\eeprom.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\extmem.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\fuse.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\interrupt.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\keylayouts.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\main.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\memcpy-armv7m.S.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\memset.S.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\new.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\nonstd.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\pwm.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\rtc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\serialEvent.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\serialEvent1.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\serialEvent2.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\serialEvent3.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\serialEvent4.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\serialEvent5.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\serialEvent6.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\serialEvent7.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\serialEvent8.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\serialEventUSB1.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\serialEventUSB2.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\sm_alloc_valid.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\sm_calloc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\sm_free.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\sm_hash.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\sm_malloc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\sm_malloc_stats.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\sm_pool.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\sm_realloc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\sm_realloc_i.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\sm_realloc_move.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\sm_szalloc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\sm_util.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\sm_zalloc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\startup.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\tempmon.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb_audio.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb_desc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb_flightsim.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb_inst.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb_joystick.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb_keyboard.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb_midi.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb_mouse.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb_mtp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb_rawhid.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb_seremu.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb_serial.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb_serial2.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb_serial3.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\usb_touch.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\FrameworkArduino\yield.cpp.o
+Archiving C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\libFrameworkArduino.a
+Indexing C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\libFrameworkArduino.a
+Linking C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\firmware.elf
+Calculating size C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\firmware.elf
+Checking size C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+teensy_size: Memory Usage on Teensy 4.1:
+teensy_size:   FLASH: code:213332, data:36120, headers:8592   free for files:7868420
+teensy_size:    RAM1: variables:108800, code:206328, padding:23048   free for local variables:186112
+teensy_size:    RAM2: variables:106464  free for malloc/new:417824
+Building C:\codex-build\artnet5-rx32\build\teensy41_octo_identify_rx32\firmware.hex
+========================= [SUCCESS] Took 85.79 seconds =========================
+
+Environment                  Status    Duration
+---------------------------  --------  ------------
+teensy41_safe                SUCCESS   00:00:03.859
+teensy41_octo_identify_rx32  SUCCESS   00:01:25.787
+========================= 2 succeeded in 00:01:29.646 =========================

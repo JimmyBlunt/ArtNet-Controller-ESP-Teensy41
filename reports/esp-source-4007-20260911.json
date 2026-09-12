@@ -1,0 +1,22 @@
+{
+  "schema": "artnet-led-controller-backup",
+  "version": 1,
+  "exportedAt": "2026-09-11T08:45:00.000Z",
+  "controller": "http://10.0.0.249",
+  "reason": "Automatic backup immediately before OTA update enabling 1200 pixels per output",
+  "config": {
+    "pixelCount": 4007,
+    "startUniverse": 0,
+    "universeCount": 28,
+    "targetFps": 30,
+    "hardwareProfile": "esp32-wroom-flex-8ws-2apa",
+    "outputs": [
+      {"id": 0, "type": "WS2812B", "enabled": true, "startPixel": 0, "pixelCount": 203, "dataPin": 26, "clockPin": -1, "colorOrder": "GRB", "reverse": false, "spiHz": 0, "startUniverse": 120, "targetFps": 30},
+      {"id": 1, "type": "WS2812B", "enabled": true, "startPixel": 203, "pixelCount": 738, "dataPin": 27, "clockPin": -1, "colorOrder": "GRB", "reverse": false, "spiHz": 0, "startUniverse": 122, "targetFps": 30},
+      {"id": 2, "type": "WS2812B", "enabled": true, "startPixel": 941, "pixelCount": 880, "dataPin": 25, "clockPin": -1, "colorOrder": "GRB", "reverse": false, "spiHz": 0, "startUniverse": 127, "targetFps": 30},
+      {"id": 3, "type": "WS2812B", "enabled": true, "startPixel": 1821, "pixelCount": 810, "dataPin": 14, "clockPin": -1, "colorOrder": "GRB", "reverse": false, "spiHz": 0, "startUniverse": 133, "targetFps": 30},
+      {"id": 4, "type": "WS2812B", "enabled": true, "startPixel": 2631, "pixelCount": 352, "dataPin": 19, "clockPin": -1, "colorOrder": "GRB", "reverse": false, "spiHz": 0, "startUniverse": 139, "targetFps": 30},
+      {"id": 5, "type": "WS2812B", "enabled": true, "startPixel": 2983, "pixelCount": 1024, "dataPin": 17, "clockPin": -1, "colorOrder": "GRB", "reverse": false, "spiHz": 0, "startUniverse": 142, "targetFps": 30}
+    ]
+  }
+}

@@ -87,5 +87,12 @@ def main(retry=False):
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--retry',action='store_true')
-    main(parser.parse_args().retry)
+    parser=argparse.ArgumentParser(description='Historical UNWIRED GPIO2-8 image only; never an Octo flasher')
+    parser.add_argument('--retry',action='store_true')
+    parser.add_argument('--confirm-unwired-pins-2-8', action='store_true',
+                        help='Confirm the historical fixture has no LED wiring or Octo adapter connected')
+    args=parser.parse_args()
+    if not args.confirm_unwired_pins_2_8:
+        parser.error('Refusing historical GPIO2-8 image: incompatible with the connected Octo adapter. '
+                     'Build teensy41_octo_identify_rx32 instead; see docs/OCTO_ADAPTER_ABNAHME.md.')
+    main(args.retry)

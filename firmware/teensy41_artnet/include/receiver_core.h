@@ -2,8 +2,46 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
+#ifdef OCTO_ESP_PROFILE
+#include "esp_output_profile.h"
+#endif
 
 namespace artnet {
+#ifdef OCTO_ESP_PROFILE
+constexpr unsigned kPixels = esp_profile::kPixels;
+constexpr unsigned kBytes = kPixels * 3;
+constexpr unsigned kPorts = 7;
+struct Port { uint16_t universe, pixels, offset; };
+constexpr uint16_t profileOffset(unsigned index) {
+    uint16_t offset = 0;
+    for (unsigned i = 0; i < index; ++i) offset += esp_profile::outputs[i].pixels;
+    return offset;
+}
+constexpr Port profilePort(unsigned index) {
+    return {esp_profile::outputs[index].startUniverse,
+            esp_profile::outputs[index].pixels, profileOffset(index)};
+}
+constexpr Port ports[kPorts] = {
+    profilePort(0), profilePort(1), profilePort(2),
+    profilePort(3), profilePort(4), profilePort(5), profilePort(6)};
+static_assert(profileOffset(esp_profile::kOutputCount) == kPixels, "ESP contiguous frame size");
+constexpr uint32_t profileUniverseMask() {
+    uint32_t mask = 0;
+    for (const auto& port : ports) {
+        const unsigned universes = (unsigned(port.pixels) + 169U) / 170U;
+        for (unsigned i = 0; i < universes; ++i) {
+            const unsigned universe = port.universe + i;
+            if (universe < 120U || universe >= 152U) return 0;
+            const uint32_t bit = 1UL << (universe - 120U);
+            if (mask & bit) return 0;  // Overlapping routes cannot complete coherently.
+            mask |= bit;
+        }
+    }
+    return mask;
+}
+constexpr uint32_t kExpectedMask = profileUniverseMask();
+static_assert(kExpectedMask != 0, "ESP universes must be unique and fit the frame mask");
+#else
 constexpr unsigned kPixels = 4105;
 constexpr unsigned kBytes = kPixels * 3;
 constexpr unsigned kPorts = 7;
@@ -12,12 +50,13 @@ constexpr Port ports[kPorts] = {
     {120,203,0}, {122,738,203}, {127,880,941}, {133,810,1821},
     {139,352,2631}, {142,680,2983}, {146,442,3663}};
 constexpr uint32_t kExpectedMask = 0x1fffffffUL & ~(1UL << 18); // U138 unused
+#endif
 struct Counters {
   uint32_t packets=0, rejected=0, ignored=0, complete=0, incomplete=0;
   uint32_t stale=0, duplicate=0, overwritten=0;
 };
 
-// Allocation-free assembly. A frame is published only after all 28 universes.
+// Allocation-free assembly. A frame is published only after all profile universes.
 // Sequence 0 is accepted for legacy senders, but cannot prove frame coherence.
 class Receiver {
  public:

@@ -3,7 +3,8 @@
 Only the reviewed Teensy driver constant changes: 5 -> 32 descriptors.
 The extra 27 receive buffers cost 41472 bytes in RAM2 plus 864 descriptor
 bytes (and alignment) in the default RAM1 ring allocation.
-The unwired build alone applies this patch; other environments stay original.
+The historical unwired and named Octo identification builds apply this patch;
+other environments stay original. Each uses a separate project dependency copy.
 """
 from hashlib import sha256
 from pathlib import Path
@@ -11,6 +12,7 @@ from pathlib import Path
 ORIGINAL_SHA256='24087e449395631bc7a25ec8a71412d4ef63cafa33d41a6c08707ffd5f25baee'
 OLD=b'static constexpr size_t kRxSize = 5;'
 NEW=b'static constexpr size_t kRxSize = 32;  // Art-Net 28-packet burst during FastLED preparation'
+RX32_ENVIRONMENTS = frozenset({'teensy41_unwired_bench', 'teensy41_octo_identify_rx32'})
 
 
 def patch_bytes(source):
@@ -21,7 +23,7 @@ def patch_bytes(source):
 
 
 def apply_build_patch(env):
-    if env.subst('$PIOENV')!='teensy41_unwired_bench':return
+    if env.subst('$PIOENV') not in RX32_ENVIRONMENTS:return
     source=(Path(env.subst('$PROJECT_LIBDEPS_DIR'))/env.subst('$PIOENV')/
             'QNEthernet/src/qnethernet/drivers/driver_teensy41.cpp')
     before=source.read_bytes();after=patch_bytes(before)

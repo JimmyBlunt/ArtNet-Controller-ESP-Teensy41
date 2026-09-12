@@ -2,6 +2,33 @@
 
 Stand: 13.09.2026.
 
+## Aktueller Stand nach Übergabe und Nutzerkorrektur
+
+Die zunächst fehlenden Quellen, Originalberichte und sechs Aufbaufotos sind
+inzwischen vollständig vorhanden. `reference/teensy-rx32-385d5ed` bewahrt den
+Übergabeordner bytegenau; `tools/verify_handover.py` bestätigt alle 80
+Manifestdateien. Herkunft laut Manifest: Firmwarecommit
+`385d5edc906d40a6418a9c26329b9ddb8a6316ba`. Der Snapshot enthält keine Git-Historie.
+
+Ein separater Build `teensy41_octo_identify_rx32` integriert feste Octo-Pins,
+moderne FastLED-Channels/ObjectFLED, RX32, Einzeltests und Art-Net-Ausgabe.
+Auf Nutzerwunsch wurden die ESP-Universen/-Längen übernommen und danach
+OUT6/OUT7 auf **536/512** korrigiert: **4031 Pixel, 29 Universen**, bis U149.
+Details und Grenzen: [OCTO_RX32_FIRMWARE.md](OCTO_RX32_FIRMWARE.md).
+Der Build wurde inzwischen erfolgreich geflasht und per USB zurückgelesen;
+ein realer Empfangstest ohne LED-Ausgabe bestätigte 300/300 vollständige
+29-Universe-Bilder. Protokolle liegen unter `reports/octo-*`.
+
+Teensy neu identifiziert: COM4, USB VID:PID 16C0:0483, Seriennummer 7858800;
+STATUS vor Upload zeigt den alten unverdrahteten RX32-Build, disarmed,
+Ethernet-Link aktiv und IP10.0.0.253. Physische Ausgabe wurde daraus nicht abgeleitet.
+
+Die folgenden Abschnitte dokumentieren die anfängliche Suche und die
+Integrationserkenntnisse; frühere Aussagen über fehlende Übergabequellen sind
+durch diesen aktuellen Abschnitt ersetzt.
+
+## Initialer Stand vor Übergabe
+
 Das aktuelle Repository `C:/Users/jimmy/Documents/ChatGPT/ArtNet-Controller 5`
 war leer (nur `.git`, keine Commits, kein Remote). Die Hardwarekorrektur wird
 hier auf `codex/teensy-octo-profile` versioniert.

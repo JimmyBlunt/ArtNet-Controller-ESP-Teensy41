@@ -1,0 +1,15 @@
+test_build_hook_scopes_rx32_to_named_environments (test_qnethernet_patch.RingPatchTests.test_build_hook_scopes_rx32_to_named_environments) ... ok
+test_only_rx_ring_changes_and_patch_is_idempotent (test_qnethernet_patch.RingPatchTests.test_only_rx_ring_changes_and_patch_is_idempotent) ... ok
+test_unknown_or_modified_vendor_source_is_rejected (test_qnethernet_patch.RingPatchTests.test_unknown_or_modified_vendor_source_is_rejected) ... ok
+test_duplicate_insertion_rejected (test_vendor_patch.VendorPatchTests.test_duplicate_insertion_rejected) ... ok
+test_exact_audited_source (test_vendor_patch.VendorPatchTests.test_exact_audited_source) ... ok
+test_idempotent (test_vendor_patch.VendorPatchTests.test_idempotent) ... ok
+test_modified_original_rejected (test_vendor_patch.VendorPatchTests.test_modified_original_rejected) ... ok
+test_modified_patched_rejected (test_vendor_patch.VendorPatchTests.test_modified_patched_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.026s
+
+OK
+QNEthernet audited Teensy RX descriptors: 32; SHA256: 80ac8cb95c27069a93a20c0380847488ffa0ae9f06534b55912d0b360910ec49
+QNEthernet audited Teensy RX descriptors: 32; SHA256: 80ac8cb95c27069a93a20c0380847488ffa0ae9f06534b55912d0b360910ec49

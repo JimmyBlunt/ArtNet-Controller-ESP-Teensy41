@@ -1,3 +1,5 @@
 # Handover provenance and firmware artifacts are byte-exact SHA-256 inputs.
 reference/** -text
-firmware/teensy41_artnet/artifacts/** -text
+firmware/teensy41_artnet/artifacts/** -text -diff
+# Preserve raw build output while allowing the tool's trailing spaces.
+reports/*-log.txt -whitespace
