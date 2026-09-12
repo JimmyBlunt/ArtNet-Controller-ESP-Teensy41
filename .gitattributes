@@ -1,0 +1,3 @@
+# Handover provenance and firmware artifacts are byte-exact SHA-256 inputs.
+reference/** -text
+firmware/teensy41_artnet/artifacts/** -text

@@ -1,3 +1,6 @@
 /build/
 /.pio/
+**/.pio/
+**/.toolchain/
+**/test/native/*.exe
 __pycache__/
