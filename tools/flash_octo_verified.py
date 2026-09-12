@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 import subprocess
 import time
+from urllib.request import urlopen
 
 import serial
 from serial.tools import list_ports
@@ -60,7 +61,7 @@ def main(args):
     if args.report.exists():
         raise RuntimeError('Refusing to overwrite flash evidence')
     manifest = json.loads(args.manifest.read_text(encoding='utf-8'))
-    if (manifest.get('environment') != 'teensy41_octo_identify_rx32' or
+    if (manifest.get('environment') not in ('teensy41_octo_identify_rx32', 'teensy41_octo_web_rx32') or
             manifest.get('board_profile') != 'PJRC_OCTO_ADAPTER_T41' or
             not manifest.get('modern_objectfled_channel_engine') or manifest.get('octows2811_linked') or
             manifest.get('rx_buffer_bytes') != 49152 or manifest.get('rx_descriptor_bytes') != 1024):
@@ -74,6 +75,15 @@ def main(args):
             raise RuntimeError('Artifact SHA mismatch')
     port = identified_port(args.serial)
     before = status(port)
+    if before.get('firmware') == 'teensy41-octo-web-rx32':
+        ip = before.get('ip')
+        if not ip or ip == '0.0.0.0':
+            raise RuntimeError('Wait for native Ethernet before verifying web firmware state')
+        with urlopen('http://' + ip + '/api/status', timeout=3) as response:
+            fresh = json.load(response)
+        if fresh.get('firmware') != before['firmware'] or fresh.get('board_profile') != before['board_profile']:
+            raise RuntimeError('HTTP identity differs from serial identity')
+        before = fresh  # Device-side USB TX may retain old periodic status JSON.
     if before.get('armed') or before.get('state') in ('ARTNET_RUNNING', 'TEST_RUNNING'):
         raise RuntimeError('Stop the running controller before flashing')
     evidence = {'serial': args.serial, 'port_before': port, 'before': before,

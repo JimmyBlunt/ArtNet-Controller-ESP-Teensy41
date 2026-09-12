@@ -12,6 +12,9 @@ def digest(path):
 
 
 def inspect(build_dir, nm):
+    environment = build_dir.name
+    if environment not in ('teensy41_octo_identify_rx32', 'teensy41_octo_web_rx32'):
+        raise ValueError('Unrecognized Octo build directory')
     elf, hexfile = build_dir / 'firmware.elf', build_dir / 'firmware.hex'
     symbols = subprocess.check_output([str(nm), '-S', str(elf)], text=True)
     rx_buffers = [int(s.split()[1], 16) for s in symbols.splitlines() if 's_rxBufs' in s]
@@ -31,8 +34,10 @@ def inspect(build_dir, nm):
     sources = sorted(p for folder in ('src', 'include', 'tools') for p in (fw / folder).rglob('*')
                      if p.suffix in ('.cpp', '.h', '.py'))
     sources += [fw / 'platformio.ini', root / 'firmware/include/board_profiles/PjrcOctoAdapterT41.h']
+    if environment == 'teensy41_octo_web_rx32':
+        sources += sorted((fw / 'web').glob('*'))
     return {
-        'environment': 'teensy41_octo_identify_rx32',
+        'environment': environment,
         'board_profile': 'PJRC_OCTO_ADAPTER_T41',
         'output_profile': output_profile,
         'rx_buffer_bytes': rx_buffers[0], 'rx_descriptor_bytes': rx_ring[0],

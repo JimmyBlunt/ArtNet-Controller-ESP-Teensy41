@@ -1,0 +1,4 @@
+HTTP framing tests passed: bounds, length overflow, duplicate headers, unsupported framing/methods, embedded NUL.
+runtime_receiver_tests: passed (64 universes, bounds, slots, sequences, latest frame, validation)
+Web config validation and CRC journal passed (100 interrupted-write boundaries); no hardware writes
+Strict ArduinoJson config imports passed; full export 1612 bytes; no partial mutations or free GPIOs

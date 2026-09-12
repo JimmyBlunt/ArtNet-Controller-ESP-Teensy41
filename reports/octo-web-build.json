@@ -1,0 +1,50 @@
+{
+  "environment": "teensy41_octo_web_rx32",
+  "board_profile": "PJRC_OCTO_ADAPTER_T41",
+  "output_profile": "ESP4031_SPLIT_20260913",
+  "rx_buffer_bytes": 49152,
+  "rx_descriptor_bytes": 1024,
+  "modern_objectfled_channel_engine": true,
+  "octows2811_linked": false,
+  "sources_sha256": {
+    "firmware\\teensy41_artnet\\include\\esp_output_profile.h": "a4bed62ec663467962b17803a9745470548239078d3ed5b426df6161e509fce7",
+    "firmware\\teensy41_artnet\\include\\hardware_pins.example.h": "5c5b287d7b388bbf0425a01b4f6dffd5c7f5d0629170645107c6c3f185ec3d4a",
+    "firmware\\teensy41_artnet\\include\\http_request.h": "ea135508d2cbd5da092e06675b5201ce97df469d9da8d9aae782db55a1cacf55",
+    "firmware\\teensy41_artnet\\include\\octo_test_core.h": "21296683007aa33404fe0ecb26eacc6d511e90e5e759b2601625836a4c38c5c3",
+    "firmware\\teensy41_artnet\\include\\receiver_core.h": "62e056a9ea5d0d74420cc48807f0cdd227d1635fc1e69118c9a1cafae3e8afb1",
+    "firmware\\teensy41_artnet\\include\\runtime_receiver.h": "1cf5373d27957128a188e585dc3d0e8ca94969188e499bc0b8b18c380a758eeb",
+    "firmware\\teensy41_artnet\\include\\web_assets.h": "c09f271e02556502d967a66351606538d92325696db32c1f51c0ace9a01c10d0",
+    "firmware\\teensy41_artnet\\include\\web_config.h": "da02f5293145422ddf4e9adcaa020190293bced45c21f99d8930f3b9c137d219",
+    "firmware\\teensy41_artnet\\include\\web_config_json.h": "28b9660e4082509988acd621a85d5227c6123d6343d71ec25a8aaa9dd589b0e6",
+    "firmware\\teensy41_artnet\\include\\web_config_store.h": "b8e4b3e25cae0023eed858d3634dc00c9555bcaeb87e6b1368f3e53cb31e75da",
+    "firmware\\teensy41_artnet\\include\\web_controller.h": "f9da2f52ef94f47026e0dcfa768a9758c19283e91f5a4d47d19e6f76ac5e9585",
+    "firmware\\teensy41_artnet\\include\\web_http.h": "dcd1ebfc82781cabd5bc6ce8397df594cd9f50865be1cadc4ec93e1922e498ca",
+    "firmware\\teensy41_artnet\\src\\main.cpp": "df1d22b7a5027ec1fd53cf407cf6841d2e75ab5f5bc0d298d7b4c617b7fff7a6",
+    "firmware\\teensy41_artnet\\src\\octo_identify.cpp": "ff4d287a8db16fb4463eb0f3206f729eee607315ce1908ae2f9f3d23e25294be",
+    "firmware\\teensy41_artnet\\src\\web_http.cpp": "b672468a98ccb670f803908e5f76258815a49d052e51793113f7a1ee7e4d8a6f",
+    "firmware\\teensy41_artnet\\src\\web_main.cpp": "1f9ff91f538b94b1738bb7fd4f023e4a7c8cbce886041da325a18c9b6af77b16",
+    "firmware\\teensy41_artnet\\tools\\embed_web.py": "9c9e262cd816b533204fc03e4c2373fe70ac65c02348fdcf9012478434fc8d3a",
+    "firmware\\teensy41_artnet\\tools\\ethernet_benchmark.py": "4398cf887e18408bb23380b1f4d3f9fe1a30e8ecc7819dc711ac9d9d15fe1591",
+    "firmware\\teensy41_artnet\\tools\\flash_rx32_verified.py": "93e2d57c148e210806db018c4c9c7918bffe1f6f3fb296aae1bf5a88035f1788",
+    "firmware\\teensy41_artnet\\tools\\patch_fastled.py": "24afaa04ebf091fc13374a638d8e02fcd450451c16b65a709b2364fb5a995b89",
+    "firmware\\teensy41_artnet\\tools\\patch_qnethernet.py": "e43ce56e927bed144d4f3ba6e2f8e51f42bee8690e15d75667e9722644fef416",
+    "firmware\\teensy41_artnet\\platformio.ini": "bceb5c02755b3fb3a9f2f4dc311d07e63ea2a8418d7573f651f95f92b8d8e768",
+    "firmware\\include\\board_profiles\\PjrcOctoAdapterT41.h": "28eb094efde45c4bd8565a51b8ac0b1b6e4378c8b470097a80d43caf0d7b407b",
+    "firmware\\teensy41_artnet\\web\\app.js": "c6dd862bb3d79dab4c319133d0b4a2e2bd47f18b520d4f0f07958c03c241e06e",
+    "firmware\\teensy41_artnet\\web\\index.html": "23349ee60f3190dc0d532b521cea46a5be287cdb854f90d50f249a0353173b94",
+    "firmware\\teensy41_artnet\\web\\styles.css": "4ad657187f2bc48ebfd05696d3f505bd01cc02756826c38d8e4718075336357a"
+  },
+  "artifacts": {
+    "elf": {
+      "path": "C:\\codex-build\\artnet5-rx32\\build\\teensy41_octo_web_rx32\\firmware.elf",
+      "sha256": "339271f9a076be1e6caa3021397991237b403ba6ebc9598f64cb8854c2c63f2d"
+    },
+    "hex": {
+      "path": "C:\\codex-build\\artnet5-rx32\\build\\teensy41_octo_web_rx32\\firmware.hex",
+      "sha256": "263f807bbe8403e5381b051160a7f4426fe0f7bac4b49c6c3691146f2c13761b"
+    }
+  },
+  "hardware_flashed": false,
+  "physical_outputs_verified": false,
+  "note": "Post-build inspection; source hashes are a record, not proof of a reproducible binary."
+}

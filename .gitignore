@@ -4,3 +4,4 @@
 **/.toolchain/
 **/test/native/*.exe
 __pycache__/
+/.playwright-cli/

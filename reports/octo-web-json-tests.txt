@@ -1,0 +1,1 @@
+Strict ArduinoJson config imports passed; full export 1612 bytes; no partial mutations or free GPIOs

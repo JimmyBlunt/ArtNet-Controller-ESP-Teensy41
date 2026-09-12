@@ -1,0 +1,42 @@
+Processing teensy41_octo_web_rx32 (platform: teensy@6.0.0; board: teensy41; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+FastLED modern Channel engine; unmodified legacy source SHA256: 3ff259b7a15b3172fd16dc342e928e1ccfa71f313a54b6bb2b9fbf782a63f2e8
+QNEthernet audited Teensy RX descriptors: 32; SHA256: 9c0febb4f48d73c4be001e777208bcf8368f6b0d8153e41378a486e24dbc6e6e
+Embedded three deterministic gzip web assets
+CONFIGURATION: https://docs.platformio.org/page/boards/teensy/teensy41.html
+PLATFORM: Teensy (6.0.0) > Teensy 4.1
+HARDWARE: IMXRT1062 600MHz, 512KB RAM, 7.75MB Flash
+DEBUG: Current (jlink) External (jlink)
+PACKAGES: 
+ - framework-arduinoteensy @ 1.162.0 (1.62) 
+ - tool-scons @ 4.40801.0 (4.8.1) 
+ - tool-teensy @ 1.162.0 (1.62) 
+ - toolchain-gccarmnoneeabi-teensy @ 1.150201.0 (15.2.1)
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ off, Compatibility ~ soft
+Found 94 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- SPI @ 1.0
+|-- FastLED @ 3.10.3
+|-- QNEthernet @ 0.37.0
+|-- EEPROM @ 2.0
+|-- ArduinoJson @ 6.21.6
+Building in release mode
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\src\web_http.cpp.o
+Linking C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\firmware.elf
+Checking size C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+Calculating size C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\firmware.elf
+teensy_size: Memory Usage on Teensy 4.1:
+teensy_size:   FLASH: code:258580, data:86440, headers:8252   free for files:7773192
+teensy_size:    RAM1: variables:230560, code:251560, padding:10584   free for local variables:31584
+teensy_size:    RAM2: variables:106464  free for malloc/new:417824
+Building C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\firmware.hex
+========================= [SUCCESS] Took 13.87 seconds =========================
+
+Environment             Status    Duration
+----------------------  --------  ------------
+teensy41_octo_web_rx32  SUCCESS   00:00:13.865
+========================= 1 succeeded in 00:00:13.865 =========================

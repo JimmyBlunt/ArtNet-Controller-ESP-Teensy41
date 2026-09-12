@@ -12,7 +12,7 @@ from pathlib import Path
 ORIGINAL_SHA256='24087e449395631bc7a25ec8a71412d4ef63cafa33d41a6c08707ffd5f25baee'
 OLD=b'static constexpr size_t kRxSize = 5;'
 NEW=b'static constexpr size_t kRxSize = 32;  // Art-Net 28-packet burst during FastLED preparation'
-RX32_ENVIRONMENTS = frozenset({'teensy41_unwired_bench', 'teensy41_octo_identify_rx32'})
+RX32_ENVIRONMENTS = frozenset({'teensy41_unwired_bench', 'teensy41_octo_identify_rx32', 'teensy41_octo_web_rx32'})
 
 
 def patch_bytes(source):

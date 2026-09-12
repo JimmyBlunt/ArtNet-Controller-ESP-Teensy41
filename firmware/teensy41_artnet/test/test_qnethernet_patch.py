@@ -16,7 +16,7 @@ class RingPatchTests(unittest.TestCase):
             def subst(self, key):
                 return self.name if key=='$PIOENV' else self.root
         with TemporaryDirectory() as root, patch.object(mod,'ORIGINAL_SHA256',mod.sha256(source).hexdigest()):
-            for name in ('teensy41_unwired_bench','teensy41_octo_identify_rx32','teensy41_safe','teensy41_hardware'):
+            for name in ('teensy41_unwired_bench','teensy41_octo_identify_rx32','teensy41_octo_web_rx32','teensy41_safe','teensy41_hardware'):
                 path=Path(root)/name/'QNEthernet/src/qnethernet/drivers/driver_teensy41.cpp'
                 path.parent.mkdir(parents=True)
                 path.write_bytes(source)

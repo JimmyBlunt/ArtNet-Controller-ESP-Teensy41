@@ -2,6 +2,14 @@
 
 Stand: 13.09.2026.
 
+## Web-Port
+
+`teensy41_octo_web_rx32` ergänzt eingebettete Bedienoberfläche, begrenztes HTTP,
+dynamische Ausgangsrouten und CRC-geschützte dauerhafte Konfiguration. Die
+USB-Identifikationsfirmware bleibt unverändert als Rückfallstand erhalten.
+Bedienung, Prüfwerkzeuge und Grenzen: [OCTO_WEB.md](OCTO_WEB.md).
+Aktuelle Build-/Test-/Flashbelege werden getrennt unter `reports/octo-web-*` geführt.
+
 ## Aktueller Stand nach Übergabe und Nutzerkorrektur
 
 Die zunächst fehlenden Quellen, Originalberichte und sechs Aufbaufotos sind
