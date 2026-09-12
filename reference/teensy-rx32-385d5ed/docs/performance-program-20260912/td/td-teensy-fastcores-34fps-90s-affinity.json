@@ -1,0 +1,12 @@
+{
+  "pid": 7876,
+  "before": 4095,
+  "selected": 15,
+  "logical_cpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "restored": 4095
+}

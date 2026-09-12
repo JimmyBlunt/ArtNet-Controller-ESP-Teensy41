@@ -1,0 +1,6 @@
+{
+  "method": "Teensyduino USB CDC 134 baud reboot (usb.c line 841)",
+  "serial": "7858800",
+  "preceded_by": "STOP",
+  "reason": "loader -s timed out while safe firmware remained running"
+}

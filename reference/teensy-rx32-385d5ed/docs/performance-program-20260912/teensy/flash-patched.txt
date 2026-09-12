@@ -1,0 +1,5 @@
+Teensy Loader, Command Line, Version 2.2
+Read "artifacts/teensy41_unwired_bench_patched.hex": 181248 bytes, 2.2% usage
+Found HalfKay Bootloader
+Programming..............................................................................................................................................................................
+Booting

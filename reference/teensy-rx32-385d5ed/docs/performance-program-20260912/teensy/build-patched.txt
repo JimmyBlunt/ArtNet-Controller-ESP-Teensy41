@@ -1,0 +1,236 @@
+Processing teensy41_unwired_bench (platform: teensy@6.0.0; board: teensy41; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+FastLED ObjectFLED audited patch SHA256: d4a85d931c7d170cc9ebac72811b0d524edf171af3a428f90ba226d325630e30
+CONFIGURATION: https://docs.platformio.org/page/boards/teensy/teensy41.html
+PLATFORM: Teensy (6.0.0) > Teensy 4.1
+HARDWARE: IMXRT1062 600MHz, 512KB RAM, 7.75MB Flash
+DEBUG: Current (jlink) External (jlink)
+PACKAGES: 
+ - framework-arduinoteensy @ 1.162.0 (1.62) 
+ - tool-scons @ 4.40801.0 (4.8.1) 
+ - tool-teensy @ 1.162.0 (1.62) 
+ - toolchain-gccarmnoneeabi-teensy @ 1.150201.0 (15.2.1)
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ off, Compatibility ~ soft
+Found 93 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- SPI @ 1.0
+|-- FastLED @ 3.10.3
+|-- QNEthernet @ 0.37.0
+Building in release mode
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\src\main.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib9a8\SPI\SPI.cpp.o
+Archiving C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib9a8\libSPI.a
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\extras+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.asset+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.audio+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.channels+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.chipsets+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.codec+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.control+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.font+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.fx+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.gfx+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.log+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.math+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.net+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.remote+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.sensors+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.stl+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.system+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.system.sd+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.task+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.test+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.ui+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.video+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\fl.wdt+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\platforms+.cpp.o
+In file included from C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src/platforms/arm/teensy/teensy4_common/drivers/flexio/_build.cpp.hpp:7,
+                 from C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src/platforms/arm/teensy/teensy4_common/drivers/_build.cpp.hpp:6,
+                 from C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src/platforms/arm/teensy/teensy4_common/_build.cpp.hpp:18,
+                 from C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src/platforms/arm/teensy/_build.cpp.hpp:25,
+                 from C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src/platforms/arm/_build.cpp.hpp:17,
+                 from C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src/platforms/_build.cpp.hpp:21,
+                 from C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src\fl\build\platforms+.cpp:10:
+C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src/platforms/arm/teensy/teensy4_common/drivers/flexio/flexio_driver.cpp.hpp:93:22: warning: 'fl::FLEXIO2_SHIFTBUF' defined but not used [-Wunused-variable]
+   93 | static volatile u32* FLEXIO2_SHIFTBUF  = (volatile u32*)(kFLEXIO2_BASE + 0x200);
+      |                      ^~~~~~~~~~~~~~~~
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\src.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\third_party+.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\platforms\esp\32\drivers\gpio_isr_rx\fast_isr.S.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\third_party\libhelix_mp3\real\arm\asmpoly_gcc.S.o
+Archiving C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\libFastLED.a
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\arch\sys_arch.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\altcp.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\altcp_alloc.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\altcp_tcp.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\api\err.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\apps\altcp_tls\altcp_tls_mbedtls.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\apps\altcp_tls\altcp_tls_mbedtls_mem.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\apps\http\altcp_proxyconnect.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\apps\mdns\mdns.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\apps\mdns\mdns_domain.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\apps\mdns\mdns_out.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\def.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\dns.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\inet_chksum.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\init.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ip.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv4\acd.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv4\autoip.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv4\dhcp.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv4\etharp.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv4\icmp.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv4\igmp.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv4\ip4.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv4\ip4_addr.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv4\ip4_frag.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv6\dhcp6.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv6\ethip6.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv6\icmp6.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv6\inet6.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv6\ip6.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv6\ip6_addr.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv6\ip6_frag.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv6\mld6.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\ipv6\nd6.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\mem.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\memp.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\netif.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\pbuf.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\raw.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\stats.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\sys.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\tcp.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\tcp_in.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\tcp_out.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\timeouts.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\lwip\udp.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\main.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\netif\ethernet.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\QNDNSClient.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\QNEthernet.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\QNEthernetClient.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\QNEthernetFrame.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\QNEthernetServer.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\QNEthernetUDP.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\QNMDNS.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\QNPing.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\altcp_tls_adapter.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\chrono\chrono_clocks.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\default_altcp_functions.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\drivers\driver_teensy41.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\drivers\driver_unsupported.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\drivers\driver_w5500.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\entropy\entropy.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\entropy\random_device.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\internal\ConnectionManager.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\lwip_driver.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\lwip_hooks.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\qnethernet_hal.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\security\siphash.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\util\PrintUtils.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\QNEthernet\qnethernet\util\ip_tools.cpp.o
+Archiving C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib384\libQNEthernet.a
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\AudioStream.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\CrashReport.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\DMAChannel.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\EventResponder.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\HardwareSerial.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\HardwareSerial1.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\HardwareSerial2.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\HardwareSerial3.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\HardwareSerial4.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\HardwareSerial5.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\HardwareSerial6.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\HardwareSerial7.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\HardwareSerial8.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\IPAddress.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\IntervalTimer.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\MTP_Storage.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\MTP_Teensy.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\Print.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\Stream.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\Time.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\Tone.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\WMath.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\WString.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\analog.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\bootdata.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\clockspeed.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\debugprintf.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\delay.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\digital.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\eeprom.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\extmem.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\fuse.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\interrupt.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\keylayouts.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\main.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\memcpy-armv7m.S.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\memset.S.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\new.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\nonstd.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\pwm.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\rtc.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\serialEvent.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\serialEvent1.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\serialEvent2.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\serialEvent3.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\serialEvent4.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\serialEvent5.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\serialEvent6.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\serialEvent7.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\serialEvent8.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\serialEventUSB1.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\serialEventUSB2.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\sm_alloc_valid.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\sm_calloc.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\sm_free.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\sm_hash.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\sm_malloc.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\sm_malloc_stats.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\sm_pool.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\sm_realloc.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\sm_realloc_i.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\sm_realloc_move.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\sm_szalloc.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\sm_util.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\sm_zalloc.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\startup.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\tempmon.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb_audio.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb_desc.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb_flightsim.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb_inst.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb_joystick.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb_keyboard.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb_midi.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb_mouse.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb_mtp.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb_rawhid.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb_seremu.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb_serial.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb_serial2.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb_serial3.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\usb_touch.c.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\FrameworkArduino\yield.cpp.o
+Archiving C:\codex-tools\teensy41-build\teensy41_unwired_bench\libFrameworkArduino.a
+Linking C:\codex-tools\teensy41-build\teensy41_unwired_bench\firmware.elf
+Checking size C:\codex-tools\teensy41-build\teensy41_unwired_bench\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+Building C:\codex-tools\teensy41-build\teensy41_unwired_bench\firmware.hex
+Calculating size C:\codex-tools\teensy41-build\teensy41_unwired_bench\firmware.elf
+teensy_size: Memory Usage on Teensy 4.1:
+teensy_size:   FLASH: code:147916, data:24520, headers:8808   free for files:7945220
+teensy_size:    RAM1: variables:68192, code:140920, padding:22920   free for local variables:292256
+teensy_size:    RAM2: variables:60896  free for malloc/new:463392
+======================== [SUCCESS] Took 498.86 seconds ========================
+
+Environment             Status    Duration
+----------------------  --------  ------------
+teensy41_unwired_bench  SUCCESS   00:08:18.855
+========================= 1 succeeded in 00:08:18.855 =========================

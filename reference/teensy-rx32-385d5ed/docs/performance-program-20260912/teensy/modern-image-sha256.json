@@ -1,0 +1,22 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "6955D7E864D24F774C0FD353C82108F5132AC865CFD70DDA20085E30153EE794",
+    "Path": "C:\\Users\\jbhtz\\OneDrive\\Desktop\\Pictures\\Documents\\ChatGPT\\LED-Touchdesigner-Controller\\PixelblazeMapper\\firmware\\teensy41_artnet\\artifacts\\teensy41_unwired_bench_modern.hex"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "C5B84492C578A5A7E8C0D1C833EF7C2F236890C7B9DABB2701CB21868CD1DAC2",
+    "Path": "C:\\Users\\jbhtz\\OneDrive\\Desktop\\Pictures\\Documents\\ChatGPT\\LED-Touchdesigner-Controller\\PixelblazeMapper\\firmware\\teensy41_artnet\\artifacts\\teensy41_unwired_bench_modern.elf"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "DF1D22B7A5027EC1FD53CF407CF6841D2E75AB5F5BC0D298D7B4C617B7FFF7A6",
+    "Path": "C:\\Users\\jbhtz\\OneDrive\\Desktop\\Pictures\\Documents\\ChatGPT\\LED-Touchdesigner-Controller\\PixelblazeMapper\\firmware\\teensy41_artnet\\src\\main.cpp"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "24AFAA04EBF091FC13374A638D8E02FCD450451C16B65A709B2364FB5A995B89",
+    "Path": "C:\\Users\\jbhtz\\OneDrive\\Desktop\\Pictures\\Documents\\ChatGPT\\LED-Touchdesigner-Controller\\PixelblazeMapper\\firmware\\teensy41_artnet\\tools\\patch_fastled.py"
+  }
+]

@@ -1,0 +1,10 @@
+
+0000550c T fl::ObjectFLEDGroupBase::onQueuingStart()
+000059a4 T fl::ObjectFLEDGroupBase::rebuildObjectFLED()
+00005b60 T fl::ObjectFLEDGroupBase::flush()
+00005520 T fl::ObjectFLEDGroupBase::addStrip(unsigned char, fl::PixelIterator&)
+00005460 T fl::ObjectFLEDGroupBase::ObjectFLEDGroupBase(fl::ObjectFLEDTimingConfig const&)
+00005460 T fl::ObjectFLEDGroupBase::ObjectFLEDGroupBase(fl::ObjectFLEDTimingConfig const&)
+0000637c T fl::ObjectFLEDDmaManager::isBusy()
+
+

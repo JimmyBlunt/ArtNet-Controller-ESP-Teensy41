@@ -1,0 +1,12 @@
+--- a/src/platforms/arm/teensy/teensy4_common/clockless_objectfled.cpp.hpp
++++ b/src/platforms/arm/teensy/teensy4_common/clockless_objectfled.cpp.hpp
+@@ -215,6 +215,9 @@ void ObjectFLEDGroupBase::rebuildObjectFLED() {
+         0  // No serpentine
+     );
+ 
++    // Local fix: show() reads drawBuffer; FastLED already filled frameBufferLocal.
++    objectfled->drawBuffer = objectfled->frameBufferLocal;
++
+     // Configure timing at runtime
+     objectfled->begin(mTiming.T1, mTiming.T2, mTiming.T3, mTiming.RESET);
+ 

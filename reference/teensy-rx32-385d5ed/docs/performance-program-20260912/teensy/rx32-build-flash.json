@@ -1,0 +1,24 @@
+{
+  "rx_buffer_bytes": 49152,
+  "rx_descriptor_bytes": 1024,
+  "sources": {
+    "src\\main.cpp": "df1d22b7a5027ec1fd53cf407cf6841d2e75ab5f5bc0d298d7b4c617b7fff7a6",
+    "platformio.ini": "1801d9dd4977b0748a2eaff5fa71da77d6ca93ff1ca080d33331a2883d95698e",
+    "tools\\patch_qnethernet.py": "1a7aba326aea5ee4ef004506cdf8c209b6d6292b3d91a943262efd506896fc3d"
+  },
+  "artifacts": {
+    "hex": {
+      "path": "C:\\Users\\jbhtz\\OneDrive\\Desktop\\Pictures\\Documents\\ChatGPT\\LED-Touchdesigner-Controller\\PixelblazeMapper\\firmware\\teensy41_artnet\\artifacts\\teensy41_unwired_bench_rx32.hex",
+      "sha256": "faefa8abf2c9819555a8442b97347b5bacf7804039cf84ff5553cd86087b0733"
+    },
+    "elf": {
+      "path": "C:\\Users\\jbhtz\\OneDrive\\Desktop\\Pictures\\Documents\\ChatGPT\\LED-Touchdesigner-Controller\\PixelblazeMapper\\firmware\\teensy41_artnet\\artifacts\\teensy41_unwired_bench_rx32.elf",
+      "sha256": "4e4ed88e98f6ff3a2f71c0288f96bd05b0da32ea8aff9c371570a96ed9b87a8a"
+    }
+  },
+  "unwired_only": true,
+  "bootloader_ids": [
+    "USB\\VID_16C0&PID_0478\\000BFDD8"
+  ],
+  "flash_returncode": 1
+}

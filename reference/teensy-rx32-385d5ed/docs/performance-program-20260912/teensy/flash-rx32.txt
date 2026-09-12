@@ -1,0 +1,5 @@
+Teensy Loader, Command Line, Version 2.2
+Read "C:\Users\jbhtz\OneDrive\Desktop\Pictures\Documents\ChatGPT\LED-Touchdesigner-Controller\PixelblazeMapper\firmware\teensy41_artnet\artifacts\teensy41_unwired_bench_rx32.hex": 253952 bytes, 3.1% usage
+Found HalfKay Bootloader
+Programming...error writing to Teensy
+

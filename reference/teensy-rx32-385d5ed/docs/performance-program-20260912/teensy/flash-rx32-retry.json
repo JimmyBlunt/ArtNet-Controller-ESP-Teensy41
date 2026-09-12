@@ -1,0 +1,7 @@
+{
+  "bootloader_ids": [
+    "USB\\VID_16C0&PID_0478\\000BFDD8"
+  ],
+  "returncode": 0,
+  "hex_sha256": "faefa8abf2c9819555a8442b97347b5bacf7804039cf84ff5553cd86087b0733"
+}

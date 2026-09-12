@@ -1,0 +1,50 @@
+Processing teensy41_unwired_bench (platform: teensy@6.0.0; board: teensy41; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+FastLED modern Channel engine; unmodified legacy source SHA256: 3ff259b7a15b3172fd16dc342e928e1ccfa71f313a54b6bb2b9fbf782a63f2e8
+CONFIGURATION: https://docs.platformio.org/page/boards/teensy/teensy41.html
+PLATFORM: Teensy (6.0.0) > Teensy 4.1
+HARDWARE: IMXRT1062 600MHz, 512KB RAM, 7.75MB Flash
+DEBUG: Current (jlink) External (jlink)
+PACKAGES: 
+ - framework-arduinoteensy @ 1.162.0 (1.62) 
+ - tool-scons @ 4.40801.0 (4.8.1) 
+ - tool-teensy @ 1.162.0 (1.62) 
+ - toolchain-gccarmnoneeabi-teensy @ 1.150201.0 (15.2.1)
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ off, Compatibility ~ soft
+Found 93 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- SPI @ 1.0
+|-- FastLED @ 3.10.3
+|-- QNEthernet @ 0.37.0
+Building in release mode
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\src\main.cpp.o
+Compiling C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\FastLED\fl\build\platforms+.cpp.o
+In file included from C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src/platforms/arm/teensy/teensy4_common/drivers/flexio/_build.cpp.hpp:7,
+                 from C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src/platforms/arm/teensy/teensy4_common/drivers/_build.cpp.hpp:6,
+                 from C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src/platforms/arm/teensy/teensy4_common/_build.cpp.hpp:18,
+                 from C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src/platforms/arm/teensy/_build.cpp.hpp:25,
+                 from C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src/platforms/arm/_build.cpp.hpp:17,
+                 from C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src/platforms/_build.cpp.hpp:21,
+                 from C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src\fl\build\platforms+.cpp:10:
+C:\codex-tools\teensy41-libs\teensy41_unwired_bench\FastLED\src/platforms/arm/teensy/teensy4_common/drivers/flexio/flexio_driver.cpp.hpp:93:22: warning: 'fl::FLEXIO2_SHIFTBUF' defined but not used [-Wunused-variable]
+   93 | static volatile u32* FLEXIO2_SHIFTBUF  = (volatile u32*)(kFLEXIO2_BASE + 0x200);
+      |                      ^~~~~~~~~~~~~~~~
+Archiving C:\codex-tools\teensy41-build\teensy41_unwired_bench\lib505\libFastLED.a
+Linking C:\codex-tools\teensy41-build\teensy41_unwired_bench\firmware.elf
+Checking size C:\codex-tools\teensy41-build\teensy41_unwired_bench\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+Building C:\codex-tools\teensy41-build\teensy41_unwired_bench\firmware.hex
+Calculating size C:\codex-tools\teensy41-build\teensy41_unwired_bench\firmware.elf
+teensy_size: Memory Usage on Teensy 4.1:
+teensy_size:   FLASH: code:210940, data:34072, headers:8936   free for files:7872516
+teensy_size:    RAM1: variables:77632, code:203944, padding:25432   free for local variables:217280
+teensy_size:    RAM2: variables:64992  free for malloc/new:459296
+======================== [SUCCESS] Took 662.95 seconds ========================
+
+Environment             Status    Duration
+----------------------  --------  ------------
+teensy41_unwired_bench  SUCCESS   00:11:02.948
+========================= 1 succeeded in 00:11:02.948 =========================

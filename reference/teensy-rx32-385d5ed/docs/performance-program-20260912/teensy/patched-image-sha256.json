@@ -1,0 +1,12 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "9BB1700808DDB9441FEFEE5841CABBF375D596F522CC82759C777A5B080D0DC3",
+    "Path": "C:\\Users\\jbhtz\\OneDrive\\Desktop\\Pictures\\Documents\\ChatGPT\\LED-Touchdesigner-Controller\\PixelblazeMapper\\firmware\\teensy41_artnet\\artifacts\\teensy41_unwired_bench_patched.hex"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "CC4F9C6AC0F1740E6B94557B0E7685EE1BE69435D5547C8B840910A5A713D4B0",
+    "Path": "C:\\Users\\jbhtz\\OneDrive\\Desktop\\Pictures\\Documents\\ChatGPT\\LED-Touchdesigner-Controller\\PixelblazeMapper\\firmware\\teensy41_artnet\\artifacts\\teensy41_unwired_bench_patched.elf"
+  }
+]

@@ -1,0 +1,13 @@
+0001200c T fl::ChannelEngineObjectFLED::show()
+00010eec W fl::ObjectFLEDPeripheralReal::createInstance(int, bool, unsigned long, unsigned char const*, unsigned long, unsigned long, unsigned long, unsigned long)
+000104d8 W fl::ObjectFLEDPeripheralReal::~ObjectFLEDPeripheralReal()
+000102a0 W fl::ObjectFLEDPeripheralReal::~ObjectFLEDPeripheralReal()
+000102a0 W fl::ObjectFLEDPeripheralReal::~ObjectFLEDPeripheralReal()
+00010f68 W fl::detail::InlinedControlBlock<fl::ObjectFLEDPeripheralReal>::destroy_object()
+000102b4 W fl::detail::InlinedControlBlock<fl::ObjectFLEDPeripheralReal>::destroy_control_block()
+00010370 W fl::detail::InlinedControlBlock<fl::ObjectFLEDPeripheralReal>::~InlinedControlBlock()
+000102f0 W fl::detail::InlinedControlBlock<fl::ObjectFLEDPeripheralReal>::~InlinedControlBlock()
+000102f0 W fl::detail::InlinedControlBlock<fl::ObjectFLEDPeripheralReal>::~InlinedControlBlock()
+00011600 W fl::ObjectFLEDPeripheralReal::validatePin(unsigned char) const
+200062a4 V vtable for fl::ObjectFLEDPeripheralReal
+200063ac V vtable for fl::detail::InlinedControlBlock<fl::ObjectFLEDPeripheralReal>

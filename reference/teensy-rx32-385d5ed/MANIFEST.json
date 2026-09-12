@@ -1,0 +1,726 @@
+{
+  "firmware_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+  "report_snapshot_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+  "created": "20260913-053637",
+  "files": [
+    {
+      "path": "firmware/teensy41_artnet/.gitignore",
+      "bytes": 97,
+      "sha256": "8e7e1839798744acdd7b6c984fa1cd8f379b0164913a62e22d43403d00594e6c",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/.gitignore"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/README_DE.md",
+      "bytes": 10520,
+      "sha256": "cd06e15ade95c3863c6ac23e7697211b9439ebd97781fb221b9b1f8927b45baf",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/README_DE.md"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/artifacts/teensy41_safe.hex",
+      "bytes": 388748,
+      "sha256": "ece3f4146897ddfa04bd3c7ec18cf6406cc27d6797cf47d731c9a383da79c3d3",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/artifacts/teensy41_safe.hex"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/artifacts/teensy41_unwired_bench.hex",
+      "bytes": 481652,
+      "sha256": "e67327ca87d8f12b22df54773b13499225b63d8c92c04936caeee674426ca472",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/artifacts/teensy41_unwired_bench.hex"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/artifacts/teensy41_unwired_bench_modern.elf",
+      "bytes": 497224,
+      "sha256": "c5b84492c578a5a7e8c0d1c833ef7c2f236890c7b9dabb2701cb21868cd1dac2",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/artifacts/teensy41_unwired_bench_modern.elf"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/artifacts/teensy41_unwired_bench_modern.hex",
+      "bytes": 698512,
+      "sha256": "ac1179d121cb0c4fd2bb99629c8824e5dd3515296b13ebf53316e62f2d5157aa",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/artifacts/teensy41_unwired_bench_modern.hex"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/artifacts/teensy41_unwired_bench_patched.elf",
+      "bytes": 332168,
+      "sha256": "cc4f9c6ac0f1740e6b94557b0e7685ee1be69435d5547c8b840910a5a713d4b0",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/artifacts/teensy41_unwired_bench_patched.elf"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/artifacts/teensy41_unwired_bench_patched.hex",
+      "bytes": 498560,
+      "sha256": "5c47193f70698cf2e19d6f299057e6ff2ccda877e87d1f32621ec919b39d9c4d",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/artifacts/teensy41_unwired_bench_patched.hex"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/artifacts/teensy41_unwired_bench_rx32.elf",
+      "bytes": 497224,
+      "sha256": "4e4ed88e98f6ff3a2f71c0288f96bd05b0da32ea8aff9c371570a96ed9b87a8a",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/artifacts/teensy41_unwired_bench_rx32.elf"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/artifacts/teensy41_unwired_bench_rx32.hex",
+      "bytes": 698500,
+      "sha256": "01391b144077ea6e15812418215a2acf1e4876bf0cfcbf910282459b1a2742b1",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/artifacts/teensy41_unwired_bench_rx32.hex"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/build.ps1",
+      "bytes": 1326,
+      "sha256": "fd479df413032d7811b019bff7727c353d24c71ae8ad3d3d93bacc9c29965cf9",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/build.ps1"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/include/hardware_pins.example.h",
+      "bytes": 489,
+      "sha256": "5c5b287d7b388bbf0425a01b4f6dffd5c7f5d0629170645107c6c3f185ec3d4a",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/include/hardware_pins.example.h"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/include/receiver_core.h",
+      "bytes": 3784,
+      "sha256": "d47ab07738120d0677fa9c99488fa0d888d0ce1395e61205466ac9a0913bf5e0",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/include/receiver_core.h"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/patches/fastled-3.10.4-objectfled-drawbuffer.patch",
+      "bytes": 517,
+      "sha256": "fb736158b55c0fb3bae3f24612fab4a2b6dc501050e413715865520626735978",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/patches/fastled-3.10.4-objectfled-drawbuffer.patch"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/platformio.ini",
+      "bytes": 1566,
+      "sha256": "1801d9dd4977b0748a2eaff5fa71da77d6ca93ff1ca080d33331a2883d95698e",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/platformio.ini"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/requirements-build.txt",
+      "bytes": 35,
+      "sha256": "af76f2dfd8fea37dd9a2429a1e089aa2a698962612d0f6803c5bb8f5f6883201",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/requirements-build.txt"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/src/main.cpp",
+      "bytes": 8981,
+      "sha256": "df1d22b7a5027ec1fd53cf407cf6841d2e75ab5f5bc0d298d7b4c617b7fff7a6",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/src/main.cpp"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/test/native/receiver_tests.cpp",
+      "bytes": 3971,
+      "sha256": "afb87ec2a93509e010d5e502cc406a68e405bdc58a94680af660ec9e3758f337",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/test/native/receiver_tests.cpp"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/test/test_qnethernet_patch.py",
+      "bytes": 993,
+      "sha256": "1640bff6a573cb2ca26ef1b0281cc3dcce823cec33cffc078523a34bd588749d",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/test/test_qnethernet_patch.py"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/test/test_vendor_patch.py",
+      "bytes": 1691,
+      "sha256": "78d5a7b3a6289645665c60f65320d33c256542e178a9ca2a06d7c9c0d3477145",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/test/test_vendor_patch.py"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/tools/ethernet_benchmark.py",
+      "bytes": 8798,
+      "sha256": "4398cf887e18408bb23380b1f4d3f9fe1a30e8ecc7819dc711ac9d9d15fe1591",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/tools/ethernet_benchmark.py"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/tools/flash_rx32_verified.py",
+      "bytes": 5486,
+      "sha256": "0e6edf37b7c2999f458086103707133f2155c6b6d966fdc41962d33f5e077cbd",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/tools/flash_rx32_verified.py"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/tools/patch_fastled.py",
+      "bytes": 2220,
+      "sha256": "24afaa04ebf091fc13374a638d8e02fcd450451c16b65a709b2364fb5a995b89",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/tools/patch_fastled.py"
+      }
+    },
+    {
+      "path": "firmware/teensy41_artnet/tools/patch_qnethernet.py",
+      "bytes": 1448,
+      "sha256": "1a7aba326aea5ee4ef004506cdf8c209b6d6292b3d91a943262efd506896fc3d",
+      "source": {
+        "git_commit": "385d5edc906d40a6418a9c26329b9ddb8a6316ba",
+        "git_path": "firmware/teensy41_artnet/tools/patch_qnethernet.py"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/td/td-teensy-fastcores-34fps-90s-affinity.json",
+      "bytes": 126,
+      "sha256": "7757c8c79154f50323c1e93c39cf44491d3a3d5d214f971d903ed6bcbe6e1796",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/td/td-teensy-fastcores-34fps-90s-affinity.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/td/td-teensy-fastcores-34fps-90s-sync.json",
+      "bytes": 648,
+      "sha256": "7240a5f5599fae4f09c73d6e36b84bc0a2db6d0a6ff42dbefd0e7b20067d2823",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/td/td-teensy-fastcores-34fps-90s-sync.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/td/td-teensy-fastcores-34fps-90s.json",
+      "bytes": 97273,
+      "sha256": "7217fa54bb7d4d4baad056146ba2c8ec77cc6a47dbc7363b5cc24a2fc47c87f9",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/td/td-teensy-fastcores-34fps-90s.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/RX32_ERGEBNISSE_DE.md",
+      "bytes": 3869,
+      "sha256": "2a2875597a6e7724326a547f6d7780e41841df509f4e3f0240fa8eafd21d7a8a",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/RX32_ERGEBNISSE_DE.md"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/STATUS.md",
+      "bytes": 2088,
+      "sha256": "b94e503d9c8dd20b05a1ad7772f51712b0d2e0387fbe173998154b133704a843",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/STATUS.md"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/STATUS_ZWISCHENSTAND_MODERN.md",
+      "bytes": 4641,
+      "sha256": "2ef5d3815b2afeeb446e09be154b201960af45b060624893f947e6a384baba93",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/STATUS_ZWISCHENSTAND_MODERN.md"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/arm-without-frames.json",
+      "bytes": 2925,
+      "sha256": "47fd95bdfd9a6362e0fab47414706504f136493bc8d72bba2001e6ba115d4345",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/arm-without-frames.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/bench-image-sha256.json",
+      "bytes": 299,
+      "sha256": "8696ac959d103d93fd582e2906ff8d72efc2a56d7044b98bf1622108c76fdcdd",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/bench-image-sha256.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/bench-recovery-attempt.json",
+      "bytes": 19,
+      "sha256": "babe4d73dad529d5a8bf9bb391fcc38bf8727a88b967c5344b9e35990873cf94",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/bench-recovery-attempt.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/bench-usb-before-test.json",
+      "bytes": 4490,
+      "sha256": "412a7b78d526e68301aebf82c1d94b02927ef24e62bad0b3537d5974e208f51e",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/bench-usb-before-test.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/bench-usb-status.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/bench-usb-status.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/bootloader-transition.json",
+      "bytes": 190,
+      "sha256": "e10a9016e2e28c8c0a77977a34957770c5e218cafde00ce2ff6a25ff895a4334",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/bootloader-transition.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/build-modern.txt",
+      "bytes": 3529,
+      "sha256": "b5df90234c67948416e6cbf18d7ef8dc81f7520ed9980a6bc7c1013048230275",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/build-modern.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/build-patched.txt",
+      "bytes": 22160,
+      "sha256": "bbe20ef3485a1c1db611fabed20997f478ca079f54306d9295771b3901a3ad51",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/build-patched.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/build-safe-and-bench.txt",
+      "bytes": 38310,
+      "sha256": "e482ff5572687baaefc68acd3885ead8c576040a4e5828711b0f77446f389c43",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/build-safe-and-bench.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/driver-decision.md",
+      "bytes": 3516,
+      "sha256": "cf45527dd6152ad62c643d166515df1c0f07e9f7cef3b171dbb3c9c60a8bd053",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/driver-decision.md"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/ethernet-safe-smoke.json",
+      "bytes": 64767,
+      "sha256": "b7684451df723e46e21b2f975a7e41ace504eacecfadba46651b3df3c896c0b5",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/ethernet-safe-smoke.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/flash-bench.txt",
+      "bytes": 324,
+      "sha256": "e0b7195ac2a598e29864a50149f4cf81bbd552e5bb7c07d56ebc1176ccb60f1c",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/flash-bench.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/flash-modern.txt",
+      "bytes": 408,
+      "sha256": "fda81024a998541ae6d7f410ad6303c8f426df6441e4bc53cde787dae11e79b6",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/flash-modern.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/flash-patched.txt",
+      "bytes": 338,
+      "sha256": "ce86ba14e63654e5214c595786c82dcd49219ca032dad3da819ffb4931529957",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/flash-patched.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/flash-rx32-retry.json",
+      "bytes": 171,
+      "sha256": "ca3970a3d9eabee186ef2467edc97737b55897cf074363f7796f0f101a0c84d3",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/flash-rx32-retry.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/flash-rx32-retry.txt",
+      "bytes": 406,
+      "sha256": "5602d7c08f406ae57102ac3cd2d00394ed00e378047ead370ad66cb616d6b243",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/flash-rx32-retry.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/flash-rx32.txt",
+      "bytes": 310,
+      "sha256": "1e31a855cf04a9459690a177d8f15a6b19f3e7207cf461da28f8e8b2418e4aac",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/flash-rx32.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/flash-safe.txt",
+      "bytes": 282,
+      "sha256": "07f6668e541e96d020eb3a02acf59e945f172a2afbf16457d19008fa59b2db97",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/flash-safe.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/linked-driver-symbols.txt",
+      "bytes": 464,
+      "sha256": "c152979076a3e9ff78c0c06627b06130535a84a3c34d8c45dc129f7e63f2e2a3",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/linked-driver-symbols.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/modern-dma-smoke.json",
+      "bytes": 14270,
+      "sha256": "15b804cacac8a46daf627eb0f09ee270db88b020d099bd937a455987040b4d42",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/modern-dma-smoke.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/modern-image-sha256.json",
+      "bytes": 1219,
+      "sha256": "0c2acc056b79eeebd06ace3b69178ddcd28911de988952bab6803216d9cd98ef",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/modern-image-sha256.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/modern-linked-driver-symbols.txt",
+      "bytes": 1107,
+      "sha256": "4cdf181a0e915858f89fd6333b1b24801f49f98f5dc5fc98b09496d627c33aea",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/modern-linked-driver-symbols.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/modern-memory-free-armed30.json",
+      "bytes": 34561,
+      "sha256": "fa5a46ab0b6275316920c763a194b7921326c5d47a7283d7b38596bfd77a6912",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/modern-memory-free-armed30.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/modern-memory-free-disarmed30.json",
+      "bytes": 24166,
+      "sha256": "a72be816704dc99e5330fa4c70df5f787260959d6a67e05788405f670d02fe7d",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/modern-memory-free-disarmed30.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/modern-stop-verified.json",
+      "bytes": 3102,
+      "sha256": "81d71106bd8fe9c73c708f66417f0a25ed7c1d7eb6fddebc0baac09ff1187189",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/modern-stop-verified.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/native-tests-modern.json",
+      "bytes": 111,
+      "sha256": "d916cd7d4ae3dff814ee2ada0b49a522001d96cc424d8653f77dad49e480ecc2",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/native-tests-modern.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/native-tests.json",
+      "bytes": 111,
+      "sha256": "0977f1830290c40fa6596ef7610f29207b955e604ca148396f2138131deebaf9",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/native-tests.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/patched-boot-raw.txt",
+      "bytes": 3258,
+      "sha256": "b886bbb9c333f131251098faf87f45fe9c831f60128d61d13d1dc56feb740b0b",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/patched-boot-raw.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/patched-boot-status.json",
+      "bytes": 4388,
+      "sha256": "13f6468f94ff0497eaaa0152bea4ba9404c4eec2440debe567530ea0eadfa9fe",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/patched-boot-status.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/patched-dma-smoke.json",
+      "bytes": 1402,
+      "sha256": "85bc33dd62b845e02e2d2b30aa866872863b4e8979363cc7f61962ea3aa0140c",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/patched-dma-smoke.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/patched-first-arm-crash.txt",
+      "bytes": 2715,
+      "sha256": "5b6f3a033b49afc0e48e6a9dec0f4001d0c69a6015c4aefaee4f8d34f4e33f5b",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/patched-first-arm-crash.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/patched-image-sha256.json",
+      "bytes": 639,
+      "sha256": "75c2fd1dfc6b5670097cb5725dc5ae817f0f8f119ea7a086cbd41a27a96473f3",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/patched-image-sha256.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/patched-wrapper-disassembly.txt",
+      "bytes": 7125,
+      "sha256": "c6f51c1e272e9996cf81ad06e33bd818a6f47f10af1419666c74512b612596f9",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/patched-wrapper-disassembly.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/restore-safe-after-first-bench.txt",
+      "bytes": 282,
+      "sha256": "07f6668e541e96d020eb3a02acf59e945f172a2afbf16457d19008fa59b2db97",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/restore-safe-after-first-bench.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/rx32-armed30-60s.json",
+      "bytes": 65669,
+      "sha256": "3fc6c177d628d1dc63245b3fca74debcb48bbe51a591908bf7a17ec21ac07a31",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/rx32-armed30-60s.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/rx32-armed34-120s.json",
+      "bytes": 128728,
+      "sha256": "8a30e406c487cf61efc0dcdf1ed0fe74eb8d78cb2a904c84f7e6dab4e1889fc6",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/rx32-armed34-120s.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/rx32-build-flash.json",
+      "bytes": 1107,
+      "sha256": "8be79ceeb97fd5e22b9fefd676554fcb4ff33c088a08b26809dcb6e069c0e777",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/rx32-build-flash.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/safe-image-sha256.json",
+      "bytes": 290,
+      "sha256": "5ae1471379564bb94e45c4c39ec6e543c5764537ebf35ea5d4af2921c0b77e88",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/safe-image-sha256.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/safe-restored-status.json",
+      "bytes": 666,
+      "sha256": "23ea96de5a5b83e0f476f97dcb9f066d4d2fdd2326cc3fd6354162b79de86b2e",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/safe-restored-status.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/safe-usb-status.json",
+      "bytes": 5866,
+      "sha256": "bc1209a84a191d7887809b7612728a601523e061eab8dc1f14ace6c5ad010e78",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/safe-usb-status.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/usb-before-flash.json",
+      "bytes": 112,
+      "sha256": "224417d018d80a39dd438cfba06f3f129359f6c55c7ab6f5de8f5382c4c5224a",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/usb-before-flash.json"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/vendor-patch-tests-modern.txt",
+      "bytes": 103,
+      "sha256": "9f169aa04896ef0203477ff61d8d57406ec0dab00b71ec15cf38cdae22509147",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/vendor-patch-tests-modern.txt"
+      }
+    },
+    {
+      "path": "docs/performance-program-20260912/teensy/vendor-patch-tests.txt",
+      "bytes": 596,
+      "sha256": "cec1289af01867cb2db87bc2432c9748cc2d0709a67a5914a8f2fc2b03251079",
+      "source": {
+        "git_commit": "26d430464ccaeeddb3d410c30251469b189c0126",
+        "git_path": "docs/performance-program-20260912/teensy/vendor-patch-tests.txt"
+      }
+    },
+    {
+      "path": "fotos/01_Aufbau_Unterseite.jpg",
+      "bytes": 1019308,
+      "sha256": "58395268ed62ea4a6af84116abbbf690db255501a2b09e42951bdc37e2d1878d",
+      "source": {
+        "original_path": "C:\\Users\\jbhtz\\AppData\\Local\\Temp\\codex-clipboard-3c7b4fc8-5419-4d35-bc6d-f5288cef22ec.jpg",
+        "user_supplied": true
+      }
+    },
+    {
+      "path": "fotos/02_Teensy_Octo_Ethernet.jpg",
+      "bytes": 1396250,
+      "sha256": "465d51d28be788fc5bb06db6973472a5f8b3be92b81f05cb41d696a96635bf30",
+      "source": {
+        "original_path": "C:\\Users\\jbhtz\\AppData\\Local\\Temp\\codex-clipboard-52c2c0c4-2697-47c0-a009-1ce00f8bd940.jpg",
+        "user_supplied": true
+      }
+    },
+    {
+      "path": "fotos/03_Adapter_Oberseite.jpg",
+      "bytes": 2165068,
+      "sha256": "3940a24405632f77987866bc9970a4d7952a54fde30c81f23ad2e93449a46b31",
+      "source": {
+        "original_path": "C:\\Users\\jbhtz\\AppData\\Local\\Temp\\codex-clipboard-8e625d46-8380-4b61-bc73-9f9ebe7a2f8a.jpg",
+        "user_supplied": true
+      }
+    },
+    {
+      "path": "fotos/04_Adapter_Oberseite_Gegenrichtung.jpg",
+      "bytes": 2079301,
+      "sha256": "af07e4fe2d4977984af8a607b84a732bf44f2a224647225283dd1139af533f00",
+      "source": {
+        "original_path": "C:\\Users\\jbhtz\\AppData\\Local\\Temp\\codex-clipboard-e2c777f4-5c43-4b66-b5bb-7035ac242f21.jpg",
+        "user_supplied": true
+      }
+    },
+    {
+      "path": "fotos/05_Adapter_Unterseite.jpg",
+      "bytes": 1946085,
+      "sha256": "bf1a5ac8eeb389a41a8685477ac94591df726aa98a11f7759302244a83b4952f",
+      "source": {
+        "original_path": "C:\\Users\\jbhtz\\AppData\\Local\\Temp\\codex-clipboard-2a18b7ff-0f51-461f-9428-484b0f5460fb.jpg",
+        "user_supplied": true
+      }
+    },
+    {
+      "path": "fotos/06_RJ45_Stecker_T568A.jpg",
+      "bytes": 277540,
+      "sha256": "a086ae09f2dd665f54b56d55489927c7b77eaa0a40b83614f3997934125d94eb",
+      "source": {
+        "original_path": "C:\\Users\\jbhtz\\AppData\\Local\\Temp\\codex-clipboard-b35f959e-14e9-4f99-9f3c-557ae2f17bc2.jpg",
+        "user_supplied": true
+      }
+    },
+    {
+      "path": "README_UEBERGABE_DE.md",
+      "bytes": 4322,
+      "sha256": "c915957f1b864898559d26099c270123a1e3563c382f0ca4441423e12157e834",
+      "source": {
+        "generated": "Handoff note from conversation and recorded results"
+      }
+    }
+  ]
+}

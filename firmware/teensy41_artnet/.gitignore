@@ -1,0 +1,7 @@
+.pio/
+.pio-core/
+.toolchain/
+test/native/receiver_tests.exe
+test/native/*.pdb
+*.log
+__pycache__/
