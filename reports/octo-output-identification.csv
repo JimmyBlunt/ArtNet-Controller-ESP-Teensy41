@@ -1,0 +1,9 @@
+profile,revision,output,expected_gpio,expected_pjrc_jack,expected_pair,expected_data_contact,expected_ground_contact,observed_jack,observed_pair,led_type,led_count,color_order,label_applied,evidence,result,test_date,observed_data_contact,observed_ground_contact,parallel_test_reference
+PJRC_OCTO_ADAPTER_T41,1,1,2,Top,1,2,1,,,,,,no,,NOT_RUN,,,,
+PJRC_OCTO_ADAPTER_T41,1,2,14,Top,2,4,5,,,,,,no,,NOT_RUN,,,,
+PJRC_OCTO_ADAPTER_T41,1,3,7,Top,3,6,3,,,,,,no,,NOT_RUN,,,,
+PJRC_OCTO_ADAPTER_T41,1,4,8,Top,4,8,7,,,,,,no,,NOT_RUN,,,,
+PJRC_OCTO_ADAPTER_T41,1,5,6,Bottom,1,2,1,,,,,,no,,NOT_RUN,,,,
+PJRC_OCTO_ADAPTER_T41,1,6,20,Bottom,2,4,5,,,,,,no,,NOT_RUN,,,,
+PJRC_OCTO_ADAPTER_T41,1,7,21,Bottom,3,6,3,,,,,,no,,NOT_RUN,,,,
+PJRC_OCTO_ADAPTER_T41,1,8,5,Bottom,4,8,7,,,,,,no,,NOT_RUN,,,,
