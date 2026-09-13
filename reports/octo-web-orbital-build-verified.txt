@@ -1,0 +1,127 @@
+Requirement already satisfied: platformio==6.1.18 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from -r requirements-build.txt (line 1)) (6.1.18)
+Requirement already satisfied: pyserial==3.5 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from -r requirements-build.txt (line 2)) (3.5)
+Requirement already satisfied: bottle==0.13.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (0.13.4)
+Requirement already satisfied: click<8.1.8,>=8.0.4 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (8.1.7)
+Requirement already satisfied: colorama in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (0.4.6)
+Requirement already satisfied: marshmallow==3.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (3.26.2)
+Requirement already satisfied: pyelftools<1,>=0.27 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (0.33)
+Requirement already satisfied: requests==2.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (2.34.2)
+Requirement already satisfied: semantic_version==2.10.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (2.10.0)
+Requirement already satisfied: tabulate==0.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (0.10.0)
+Requirement already satisfied: ajsonrpc==1.2.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (1.2.0)
+Requirement already satisfied: starlette<0.47,>=0.19 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (0.46.2)
+Requirement already satisfied: uvicorn<0.35,>=0.16 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (0.34.3)
+Requirement already satisfied: wsproto==1.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (1.3.2)
+Requirement already satisfied: packaging>=17.0 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from marshmallow==3.*->platformio==6.1.18->-r requirements-build.txt (line 1)) (26.3)
+Requirement already satisfied: charset_normalizer<4,>=2 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from requests==2.*->platformio==6.1.18->-r requirements-build.txt (line 1)) (3.5.1)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from requests==2.*->platformio==6.1.18->-r requirements-build.txt (line 1)) (3.19)
+Requirement already satisfied: urllib3<3,>=1.26 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from requests==2.*->platformio==6.1.18->-r requirements-build.txt (line 1)) (2.7.0)
+Requirement already satisfied: certifi>=2023.5.7 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from requests==2.*->platformio==6.1.18->-r requirements-build.txt (line 1)) (2026.7.22)
+Requirement already satisfied: anyio<5,>=3.6.2 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from starlette<0.47,>=0.19->platformio==6.1.18->-r requirements-build.txt (line 1)) (4.15.1)
+Requirement already satisfied: typing_extensions>=4.16.0 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from anyio<5,>=3.6.2->starlette<0.47,>=0.19->platformio==6.1.18->-r requirements-build.txt (line 1)) (4.16.0)
+Requirement already satisfied: h11>=0.8 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from uvicorn<0.35,>=0.16->platformio==6.1.18->-r requirements-build.txt (line 1)) (0.16.0)
+
+[notice] A new release of pip is available: 25.3 -> 26.2.1
+[notice] To update, run: C:\Users\jimmy\Documents\ChatGPT\ArtNet-Controller 5\firmware\teensy41_artnet\.toolchain\Scripts\python.exe -m pip install --upgrade pip
+Processing teensy41_safe (platform: teensy@6.0.0; board: teensy41; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+CONFIGURATION: https://docs.platformio.org/page/boards/teensy/teensy41.html
+PLATFORM: Teensy (6.0.0) > Teensy 4.1
+HARDWARE: IMXRT1062 600MHz, 512KB RAM, 7.75MB Flash
+DEBUG: Current (jlink) External (jlink)
+PACKAGES: 
+ - framework-arduinoteensy @ 1.162.0 (1.62) 
+ - tool-scons @ 4.40801.0 (4.8.1) 
+ - tool-teensy @ 1.162.0 (1.62) 
+ - toolchain-gccarmnoneeabi-teensy @ 1.150201.0 (15.2.1)
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ off, Compatibility ~ soft
+Found 92 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- SPI @ 1.0
+|-- QNEthernet @ 0.37.0
+Building in release mode
+Linking C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.elf
+Calculating size C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.elf
+Checking size C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+teensy_size: Memory Usage on Teensy 4.1:
+teensy_size:   FLASH: code:118516, data:18376, headers:8512   free for files:7981060
+teensy_size:    RAM1: variables:60160, code:111544, padding:19528   free for local variables:333056
+teensy_size:    RAM2: variables:55712  free for malloc/new:468576
+Building C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.hex
+========================= [SUCCESS] Took 9.81 seconds =========================
+
+Processing teensy41_octo_web_rx32 (platform: teensy@6.0.0; board: teensy41; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+FastLED modern Channel engine; unmodified legacy source SHA256: 3ff259b7a15b3172fd16dc342e928e1ccfa71f313a54b6bb2b9fbf782a63f2e8
+QNEthernet audited Teensy RX descriptors: 32; SHA256: 9c0febb4f48d73c4be001e777208bcf8368f6b0d8153e41378a486e24dbc6e6e
+Embedded 4 deterministic gzip web assets in flash
+CONFIGURATION: https://docs.platformio.org/page/boards/teensy/teensy41.html
+PLATFORM: Teensy (6.0.0) > Teensy 4.1
+HARDWARE: IMXRT1062 600MHz, 512KB RAM, 7.75MB Flash
+DEBUG: Current (jlink) External (jlink)
+PACKAGES: 
+ - framework-arduinoteensy @ 1.162.0 (1.62) 
+ - tool-scons @ 4.40801.0 (4.8.1) 
+ - tool-teensy @ 1.162.0 (1.62) 
+ - toolchain-gccarmnoneeabi-teensy @ 1.150201.0 (15.2.1)
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ off, Compatibility ~ soft
+Found 94 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- SPI @ 1.0
+|-- FastLED @ 3.10.3
+|-- QNEthernet @ 0.37.0
+|-- EEPROM @ 2.0
+|-- ArduinoJson @ 6.21.6
+Building in release mode
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\src\web_main.cpp.o
+Linking C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\firmware.elf
+Calculating size C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\firmware.elf
+Checking size C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+Building C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\firmware.hex
+teensy_size: Memory Usage on Teensy 4.1:
+teensy_size:   FLASH: code:258900, data:265056, headers:8516   free for files:7593992
+teensy_size:    RAM1: variables:217248, code:251880, padding:10264   free for local variables:44896
+teensy_size:    RAM2: variables:106464  free for malloc/new:417824
+========================= [SUCCESS] Took 15.42 seconds =========================
+
+Environment             Status    Duration
+----------------------  --------  ------------
+teensy41_safe           SUCCESS   00:00:09.814
+teensy41_octo_web_rx32  SUCCESS   00:00:15.421
+========================= 2 succeeded in 00:00:25.235 =========================
+{"test_cases":15,"stress_frames":10000,"complete":10000,"host_elapsed_us":19000,"hardware_fps_measured":false}
+Octo parser, physical identity, pulse identification and STOP transition tests passed; ESP4031 routing passed: 7 active outputs, 29 universes, 4031 pixels
+HTTP framing tests passed: bounds, length overflow, duplicate headers, unsupported framing/methods, embedded NUL.
+runtime_receiver_tests: passed (64 universes, bounds, slots, sequences, latest frame, validation)
+Web config validation and CRC journal passed (100 interrupted-write boundaries); no hardware writes
+Art-Net boot/wait/loss/recovery/manual STOP tests passed
+Strict ArduinoJson config imports passed; full export 1612 bytes; no partial mutations or free GPIOs
+test_build_hook_scopes_rx32_to_named_environments (test_qnethernet_patch.RingPatchTests.test_build_hook_scopes_rx32_to_named_environments) ... ok
+test_only_rx_ring_changes_and_patch_is_idempotent (test_qnethernet_patch.RingPatchTests.test_only_rx_ring_changes_and_patch_is_idempotent) ... ok
+test_unknown_or_modified_vendor_source_is_rejected (test_qnethernet_patch.RingPatchTests.test_unknown_or_modified_vendor_source_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.028s
+
+OK
+QNEthernet audited Teensy RX descriptors: 32; SHA256: 80ac8cb95c27069a93a20c0380847488ffa0ae9f06534b55912d0b360910ec49
+QNEthernet audited Teensy RX descriptors: 32; SHA256: 80ac8cb95c27069a93a20c0380847488ffa0ae9f06534b55912d0b360910ec49
+QNEthernet audited Teensy RX descriptors: 32; SHA256: 80ac8cb95c27069a93a20c0380847488ffa0ae9f06534b55912d0b360910ec49
+test_duplicate_insertion_rejected (test_vendor_patch.VendorPatchTests.test_duplicate_insertion_rejected) ... ok
+test_exact_audited_source (test_vendor_patch.VendorPatchTests.test_exact_audited_source) ... ok
+test_idempotent (test_vendor_patch.VendorPatchTests.test_idempotent) ... ok
+test_modified_original_rejected (test_vendor_patch.VendorPatchTests.test_modified_original_rejected) ... ok
+test_modified_patched_rejected (test_vendor_patch.VendorPatchTests.test_modified_patched_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK

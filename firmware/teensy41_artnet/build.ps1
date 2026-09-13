@@ -37,7 +37,7 @@ try {
         if ($LASTEXITCODE) { throw 'Octo test compilation failed' }
         & './test/native/octo_tests.exe'
         if ($LASTEXITCODE) { throw 'Octo tests failed' }
-        foreach ($native in @('http_request_tests', 'runtime_receiver_tests', 'web_config_tests')) {
+        foreach ($native in @('http_request_tests', 'runtime_receiver_tests', 'web_config_tests', 'artnet_run_policy_tests')) {
             & $Cxx -std=c++17 -Wall -Wextra -Werror -pedantic "test/native/$native.cpp" -o "test/native/$native.exe"
             if ($LASTEXITCODE) { throw "$native compilation failed" }
             & "./test/native/$native.exe"

@@ -9,10 +9,14 @@ Buchsenzuordnung sind weiter elektrisch beziehungsweise optisch zu bestätigen.
 
 ## Bedienung
 
-- **Art-Net starten** aktiviert die Ausgabe ausdrücklich. Boot und Neustart
-  bleiben gestoppt, ohne LED-Kanalinitialisierung.
+- Boot und Neustart aktivieren Art-Net **automatisch AN** mit der gespeicherten
+  Konfiguration. Ein initiales Schwarzbild wird abgeschlossen; vollständige
+  Daten eines später startenden Senders werden ohne manuellen Klick ausgegeben.
+- **Art-Net starten** aktiviert die Ausgabe nach einem manuellen Stop erneut.
 - **Stop** wartet laufende DMA, sendet Schwarz und wartet dessen Abschluss plus
   Latchzeit. Die Zustandsanzeige unterscheidet beide Wartephasen von `STOPPED`.
+  Ein manueller Stop bleibt auch bei eintreffenden Daten wirksam; der nächste
+  ausdrückliche Start oder Neustart aktiviert die Ausgabe wieder.
 - Einzeltests identifizieren OUT1–OUT8 anhand von Blinkanzahl und wechselndem
   Rot/Grün/Blau; bei jeder Ausgabe leuchten höchstens so viele Pixel wie die
   Ausgangsnummer. Tests enden automatisch nach 30 Sekunden, Helligkeit maximal
@@ -76,7 +80,10 @@ ausdrücklichen Bestätigung durch Anwenden oder Speichern.
 Art-Net empfängt weiter im gestoppten Zustand, emittiert dabei aber keine LED-Daten.
 Nur vollständige Frames werden freigegeben. Ein neuer vollständiger Frame ersetzt
 einen älteren wartenden. Es gibt keine nachholenden Ausgabebursts. Netzverlust oder
-mehr als eine Sekunde ohne vollständiges Bild stoppen laufendes Art-Net mit Schwarz.
+mehr als eine Sekunde ohne vollständiges Bild schalten die Ausgabe einmal auf Schwarz.
+Art-Net bleibt AN und wartet auf vollständige neue Daten. Die Wiederkehr des
+Senders benötigt keinen Startklick. Die Zustandsanzeige nennt diesen Wartezustand;
+`armed=true` und `artnet_waiting=true` beschreiben ihn in der API.
 Sequenz 0 kann keine vollständige zeitliche Kohärenz verschiedener Universen garantieren.
 Es wird ein aktiver Art-Net-Sender auf dem Netz angenommen.
 
@@ -108,10 +115,10 @@ Die unveränderte Vorgängerfirmware mit USB-Konfiguration bleibt als
 `teensy41_octo_identify_rx32` und in ihren bisherigen HEX-/ELF-Artefakten erhalten.
 Die historische GPIO2–8-Testfirmware darf nicht auf den angeschlossenen Octo-Aufbau.
 
-## Abnahme am 13.09.2026
+## Frühere Abnahme am 13.09.2026 (vor Orbital/Autostart)
 
 Der Release-Build wurde auf Teensy-Seriennummer **7858800**, HalfKay **000BFDD8**
-übertragen. Aktuell **10.0.0.253**, Boot `DISARMED`, ohne initialisierte LED-Ausgänge.
+übertragen. Damals **10.0.0.253**, Boot `DISARMED`, ohne initialisierte LED-Ausgänge.
 `reports/octo-web-build-release.json` und `octo-web-flash-release-20260913.json`
 halten Binary-/Quell-SHAs, RX32-Symbole und Geräteidentität fest. Aktuelle Kopien:
 `artifacts/octo-web-4031-rx32-20260913.hex` beziehungsweise `.elf`.
@@ -149,4 +156,51 @@ null Nutzbytes den Anwendungs-Slot; der Ort dieser Verzögerung ist nicht bestim
 Ein vollständig gesendeter übergroßer Body wird mit HTTP 413 beantwortet.
 
 Die physische Abnahme der Adapterbuchsen, LED-Ketten und parallelen Ausgabe bleibt
-offen; sämtliche hier automatisierten Gerätetests liefen ohne LED-Ausgabe.
+offen; sämtliche Gerätetests dieser früheren Abnahme liefen ohne LED-Ausgabe.
+
+## Orbital Prism und Autostart – aktueller Build
+
+`orbital-prism-autostart-20260913` wurde auf denselben Teensy übertragen.
+Autostart ist AN, mit den unveränderten gespeicherten 4031 LEDs und 29 Universen.
+Ein Boot-Schwarzbild wird vollständig einschließlich DMA/Latch abgeschlossen.
+Danach wartet der Controller auf vollständige Daten. Senderpause und Linkverlust
+behalten den AN-Modus bei; ein manueller Stop hebt ihn bis zum nächsten Start auf.
+Beschädigte Konfigurationen und Initialisierungsfehler bleiben Start-Hindernisse.
+
+Orbital Prism liegt als 178766 Byte großes WebP direkt im Firmware-Flash. Alle
+vier Web-Assets sind deterministisch gzip-komprimiert. Die Bildstärke beträgt
+100 Prozent; Screen-Mischung erhält das Blau-Lila-Farbschema. Der linke Scheitel
+des unteren Bogens ist über die CSS-Skalierung etwa 2 Pixel innerhalb des linken
+Bildschirmrands verankert. Bild und Glow sind statisch. Konvertierung des Originals:
+`python tools/prepare_orbital_asset.py` (Pillow 12.2.0, WebP quality 92/method 6).
+
+Aktuelle Prüfnachweise:
+
+- `reports/octo-web-orbital-build-verified.txt`: Safe-/Web-Build, alle nativen
+  Receiver-/Konfigurations-/HTTP-/Journal-/JSON-Tests und acht Patchtests bestanden.
+  Zusätzliche Tests prüfen Wartezustand, Link-/Senderverlust, manuelles STOP während
+  Schwarz-DMA sowie den ersten über mehrere Schleifendurchläufe aufgebauten Frame.
+- `reports/octo-web-orbital-build-verified.json` und
+  `reports/octo-web-orbital-flash-verified.json`: Quell-/Binary-SHAs, RX32-Symbole,
+  modernes ObjectFLED, Geräteidentität und bestätigter AN-Boot.
+- `reports/octo-web-orbital-acceptance-verified.json`: 60/60 vollständige Bilder,
+  1740/1740 Pakete, keine Queue-Drops bei gleichzeitigem Hintergrund-Download
+  (268 ms, vollständig und SHA-geprüft). Reale Ausgabesubmits/DMA-Abschlüsse mit
+  ausschließlich schwarzen RGB-Daten; verspäteter Sender, Timeout-Schwarzbild,
+  automatische Wiederaufnahme, fehlendes U149, Stop trotz eintreffender Daten,
+  ausdrücklicher Wiederstart und AN-Modus nach API-Neustart bestanden.
+  Konfiguration vor/nach der Prüfung identisch. Gerät bleibt AN und wartet auf Daten.
+- `reports/octo-web-orbital-layout-verified.txt`: reales Webinterface bei
+  1440×900, 1920×1080 und 390×844 geprüft, Bild decodiert, Opazität 1,
+  Bogenverankerung rund 2 Pixel, kein horizontaler Überlauf.
+
+Physisches Kabelziehen und die optische LED-/Buchsenabnahme sind damit nicht
+nachgewiesen; Linkverlust ist zusätzlich im nativen Zustandstest geprüft.
+Release-Kopien: `artifacts/octo-web-orbital-autostart-20260913.hex` und `.elf`;
+`reports/octo-web-orbital-release.json` verbindet sie mit den Nachweisen.
+
+Die ersten Orbital-Berichte ohne `verified` dokumentieren den Zwischenstand:
+Das zu frühe Leeren eines Teilframes beim Warten auf den ersten Sender wurde
+im endgültigen Build korrigiert. Historische Prüfprogramme mit der Voraussetzung
+„DISARMED, keine initialisierten Kanäle“ bleiben für die älteren Builds erhalten;
+für den aktuellen Build gilt `tools/check_octo_autostart.py`.

@@ -1,6 +1,10 @@
 # Octo RX32: Firmware und ESP-Belegung
 
-## Verifizierter Gerätestand am 13.09.2026
+Aktueller Web-Build mit Orbital Prism und automatischem Art-Net-Start:
+siehe [OCTO_WEB.md](OCTO_WEB.md). Die folgenden Angaben betreffen den früheren
+USB-Identifikationsbuild, der weiterhin getrennt erhalten bleibt.
+
+## Frühere Abnahme am 13.09.2026
 
 `teensy41_octo_identify_rx32` wurde erfolgreich gebaut, im ELF auf RX32,
 modernes Channel/ObjectFLED und fehlende OctoWS2811-Symbole geprüft und auf

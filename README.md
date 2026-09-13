@@ -9,7 +9,10 @@ Das Repository enthält den SHA-geprüften RX32-Übergabestand als unveränderte
 Referenz und einen eigenen Teensy-Build `teensy41_octo_web_rx32` mit dem
 festen Profil `PJRC_OCTO_ADAPTER_T41`, Revision 1. Der Build bietet lokale
 Einzel-/Paralleltests und Art-Net-Ausgabe mit der vom Nutzer verlangten
-ESP-Belegung. Boot bleibt gestoppt, ohne Initialisierung der LED-Ausgänge.
+ESP-Belegung. Der Web-Build startet automatisch mit Art-Net **AN**, wartet auf
+vollständige Daten und setzt die Ausgabe nach Signalverlust automatisch fort.
+Ein manueller Stop gilt bis zum nächsten Start oder Neustart. Orbital Prism ist
+mit 100 % Bildstärke und dem unteren Bogen am linken Bildschirmrand eingebettet.
 Das Webinterface bietet Konfiguration, Start/Stopp, Einzel-/Paralleltests,
 Netzwerk, Diagnose und dauerhafte Einstellungen einschließlich JSON-Import/Export.
 Letzte bekannte Geräteadresse: [http://10.0.0.253](http://10.0.0.253).

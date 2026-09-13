@@ -23,8 +23,10 @@ Für die Umsetzung im nächsten Firmware-Build:
 - Boot, verspäteten Netzwerk-Link, Senderstart und Wiederverbindung praktisch
   prüfen; UI und Bedienungsdokumentation auf den neuen Startzustand aktualisieren.
 
-**Status:** vorgemerkt, noch nicht implementiert oder geflasht. Die aktuell
-installierte Firmware startet weiterhin mit gestoppter Ausgabe.
+**Status:** im Build `orbital-prism-autostart-20260913` umgesetzt und geflasht.
+Boot initialisiert die gespeicherten Ausgänge, sendet Schwarz und wartet im
+AN-Modus auf vollständige Daten. Signalverlust beendet den AN-Modus nicht;
+manueller Stop bleibt bis zum nächsten Start oder Neustart wirksam.
 
 ## Hintergrundgestaltung
 
@@ -33,8 +35,9 @@ Leiterbahnstrukturen aus Violet Circuit, Cyan Glass und Iridescent Etch. Breiter
 über die Bildfläche verteilt, nach außen auslaufend, Blau-Lila/Cyan beibehalten.
 Hauchfeine Strukturen auch hinter etwa 40–50 Prozent der LED-Flächenbereiche,
 mit vereinzelten helleren Pixel-/Leiterbahn-Glanzpunkten. Fünf Bildvarianten
-werden getrennt zur Auswahl erstellt. Erst den ausgewählten Hintergrund später
-für den Controller-Build komprimieren und einbetten.
+wurden getrennt zur Auswahl erstellt. Gewählt wurde **Orbital Prism**; im Build
+als WebP eingebettet, 100 % Bildstärke. Die CSS-Position hält den linken Scheitel
+des unteren Bogens etwa 2 Pixel innerhalb des linken Bildschirmrands.
 
 Ein PNG zeigt statische Glanzpunkte. Zeitliches Aufglitzern/Schimmern kann bei
 der späteren UI-Integration als dezente Animation ergänzt werden.

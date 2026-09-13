@@ -212,8 +212,8 @@ function renderStatus(next) {
   $("connectionStatus").textContent = next.ip || "Verbunden"; $("connectionStatus").className = "badge online";
   $("railState").textContent = "Verbunden"; $("railState").className = "signal online";
   const states = {DISARMED: "Ausgabe nicht gestartet", STOPPED: "Ausgabe gestoppt · Schwarzbild abgeschlossen", ARTNET_RUNNING: "Art-Net-Ausgabe aktiv", TEST_RUNNING: "Ausgangstest aktiv", STOP_WAIT_PREVIOUS_DMA: "Stopp läuft · vorherige Übertragung abwarten", STOP_WAIT_BLACK_DMA: "Stopp läuft · Schwarzbild wird übertragen"};
-  $("runtimeState").textContent = states[next.state] || `Ausgabestatus: ${next.state || "unbekannt"}`;
-  $("runtimeDetail").textContent = `Ethernet ${next.link ? "verbunden" : "ohne Link"} · ${next.initialized ? "LED-Ausgabe initialisiert" : "LED-Ausgabe noch nicht initialisiert"}`;
+  $("runtimeState").textContent = next.armed && next.artnet_waiting ? "Art-Net AN · wartet auf vollständige Daten" : states[next.state] || `Ausgabestatus: ${next.state || "unbekannt"}`;
+  $("runtimeDetail").textContent = `Ethernet ${next.link ? "verbunden" : "ohne Link"} · ${next.initialized ? "LED-Ausgabe initialisiert" : "LED-Ausgabe noch nicht initialisiert"}${next.boot_mode === "ARTNET_ON" ? " · Autostart AN" : ""}`;
   $("rebootNotice").hidden = !next.reboot_required;
   $("storageState").textContent = `${next.unsaved ? "Ungespeicherte Änderungen" : "RAM / Speicher"} · ${next.storage_state || "unbekannt"}`;
   $("statDma").textContent = format(next.dma_fps, 2); $("statIncomplete").textContent = format(next.artnet_incomplete);

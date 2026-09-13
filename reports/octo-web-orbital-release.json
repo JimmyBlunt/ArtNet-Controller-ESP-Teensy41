@@ -1,0 +1,30 @@
+{
+  "artifacts": {
+    "hex": {
+      "sha256": "858bc75e3504a840ef457dc9195eb6b3ba709fee06a3dcde91adcb22a4e32f6a",
+      "path": "firmware/teensy41_artnet/artifacts/octo-web-orbital-autostart-20260913.hex"
+    },
+    "elf": {
+      "sha256": "6932420e1bfca00065670f098d04fbbeb7280a97eec9bd1b2f07dc1c23f254b2",
+      "path": "firmware/teensy41_artnet/artifacts/octo-web-orbital-autostart-20260913.elf"
+    }
+  },
+  "flashed": true,
+  "build_revision": "orbital-prism-autostart-20260913",
+  "evidence_sha256": {
+    "octo-web-orbital-layout-verified.txt": "946c33cac672c1fe91e2c0c90aa620b9b172c1ccaaa0629ff9aac2a139706510",
+    "octo-web-orbital-acceptance-verified.json": "ba75753da17fc193b5433bcb7eac85e94b65146b81d510499864780187298d35",
+    "octo-web-orbital-flash-verified.json": "151a2b27707bf185aad79cf9ac0428243fb1e013e79185d1e8f43d4fd704bc15",
+    "octo-web-orbital-build-verified.json": "0a513cf7bfd30a20210cfe3028f544b9eacd108b832e09b4d729c53b3a01f40b"
+  },
+  "ip": "10.0.0.253",
+  "serial": "7858800",
+  "halfkay": "000BFDD8",
+  "background": {
+    "lower_arc_left_px": 2,
+    "opacity": 1,
+    "file": "firmware/teensy41_artnet/web/orbital-prism.webp"
+  },
+  "optical_output_verified": false,
+  "boot_mode": "ARTNET_ON"
+}

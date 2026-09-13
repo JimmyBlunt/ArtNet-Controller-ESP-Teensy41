@@ -1,0 +1,326 @@
+Collecting platformio==6.1.18 (from -r requirements-build.txt (line 1))
+  Using cached platformio-6.1.18-py3-none-any.whl.metadata (7.1 kB)
+Collecting pyserial==3.5 (from -r requirements-build.txt (line 2))
+  Using cached pyserial-3.5-py2.py3-none-any.whl.metadata (1.6 kB)
+Collecting bottle==0.13.* (from platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached bottle-0.13.4-py2.py3-none-any.whl.metadata (1.6 kB)
+Collecting click<8.1.8,>=8.0.4 (from platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached click-8.1.7-py3-none-any.whl.metadata (3.0 kB)
+Collecting colorama (from platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting marshmallow==3.* (from platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached marshmallow-3.26.2-py3-none-any.whl.metadata (7.3 kB)
+Collecting pyelftools<1,>=0.27 (from platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached pyelftools-0.33-py3-none-any.whl.metadata (1.0 kB)
+Collecting requests==2.* (from platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting semantic_version==2.10.* (from platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached semantic_version-2.10.0-py2.py3-none-any.whl.metadata (9.7 kB)
+Collecting tabulate==0.* (from platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached tabulate-0.10.0-py3-none-any.whl.metadata (40 kB)
+Collecting ajsonrpc==1.2.* (from platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached ajsonrpc-1.2.0-py3-none-any.whl.metadata (6.9 kB)
+Collecting starlette<0.47,>=0.19 (from platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached starlette-0.46.2-py3-none-any.whl.metadata (6.2 kB)
+Collecting uvicorn<0.35,>=0.16 (from platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached uvicorn-0.34.3-py3-none-any.whl.metadata (6.5 kB)
+Collecting wsproto==1.* (from platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached wsproto-1.3.2-py3-none-any.whl.metadata (5.2 kB)
+Collecting packaging>=17.0 (from marshmallow==3.*->platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting charset_normalizer<4,>=2 (from requests==2.*->platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached charset_normalizer-3.5.1-cp314-cp314-win_amd64.whl.metadata (46 kB)
+Collecting idna<4,>=2.5 (from requests==2.*->platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached idna-3.19-py3-none-any.whl.metadata (9.2 kB)
+Collecting urllib3<3,>=1.26 (from requests==2.*->platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+Collecting certifi>=2023.5.7 (from requests==2.*->platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+Collecting anyio<5,>=3.6.2 (from starlette<0.47,>=0.19->platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting typing_extensions>=4.16.0 (from anyio<5,>=3.6.2->starlette<0.47,>=0.19->platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting h11>=0.8 (from uvicorn<0.35,>=0.16->platformio==6.1.18->-r requirements-build.txt (line 1))
+  Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Using cached platformio-6.1.18-py3-none-any.whl (420 kB)
+Using cached pyserial-3.5-py2.py3-none-any.whl (90 kB)
+Using cached ajsonrpc-1.2.0-py3-none-any.whl (22 kB)
+Using cached bottle-0.13.4-py2.py3-none-any.whl (103 kB)
+Using cached click-8.1.7-py3-none-any.whl (97 kB)
+Using cached marshmallow-3.26.2-py3-none-any.whl (50 kB)
+Using cached pyelftools-0.33-py3-none-any.whl (201 kB)
+Using cached requests-2.34.2-py3-none-any.whl (73 kB)
+Using cached charset_normalizer-3.5.1-cp314-cp314-win_amd64.whl (204 kB)
+Using cached idna-3.19-py3-none-any.whl (68 kB)
+Using cached semantic_version-2.10.0-py2.py3-none-any.whl (15 kB)
+Using cached starlette-0.46.2-py3-none-any.whl (72 kB)
+Using cached anyio-4.15.1-py3-none-any.whl (132 kB)
+Using cached tabulate-0.10.0-py3-none-any.whl (39 kB)
+Using cached urllib3-2.7.0-py3-none-any.whl (131 kB)
+Using cached uvicorn-0.34.3-py3-none-any.whl (62 kB)
+Using cached wsproto-1.3.2-py3-none-any.whl (24 kB)
+Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Using cached certifi-2026.7.22-py3-none-any.whl (136 kB)
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Installing collected packages: pyserial, bottle, urllib3, typing_extensions, tabulate, semantic_version, pyelftools, packaging, idna, h11, colorama, charset_normalizer, certifi, ajsonrpc, wsproto, requests, marshmallow, click, anyio, uvicorn, starlette, platformio
+
+Successfully installed ajsonrpc-1.2.0 anyio-4.15.1 bottle-0.13.4 certifi-2026.7.22 charset_normalizer-3.5.1 click-8.1.7 colorama-0.4.6 h11-0.16.0 idna-3.19 marshmallow-3.26.2 packaging-26.3 platformio-6.1.18 pyelftools-0.33 pyserial-3.5 requests-2.34.2 semantic_version-2.10.0 starlette-0.46.2 tabulate-0.10.0 typing_extensions-4.16.0 urllib3-2.7.0 uvicorn-0.34.3 wsproto-1.3.2
+
+[notice] A new release of pip is available: 25.3 -> 26.2.1
+[notice] To update, run: C:\Users\jimmy\Documents\ChatGPT\ArtNet-Controller 5\firmware\teensy41_artnet\.toolchain\Scripts\python.exe -m pip install --upgrade pip
+Processing teensy41_safe (platform: teensy@6.0.0; board: teensy41; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+CONFIGURATION: https://docs.platformio.org/page/boards/teensy/teensy41.html
+PLATFORM: Teensy (6.0.0) > Teensy 4.1
+HARDWARE: IMXRT1062 600MHz, 512KB RAM, 7.75MB Flash
+DEBUG: Current (jlink) External (jlink)
+PACKAGES: 
+ - framework-arduinoteensy @ 1.162.0 (1.62) 
+ - tool-scons @ 4.40801.0 (4.8.1) 
+ - tool-teensy @ 1.162.0 (1.62) 
+ - toolchain-gccarmnoneeabi-teensy @ 1.150201.0 (15.2.1)
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ off, Compatibility ~ soft
+Found 92 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- SPI @ 1.0
+|-- QNEthernet @ 0.37.0
+Building in release mode
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\src\main.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\lib4b6\SPI\SPI.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\arch\sys_arch.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\altcp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\altcp_alloc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\altcp_tcp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\api\err.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\apps\altcp_tls\altcp_tls_mbedtls.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\apps\altcp_tls\altcp_tls_mbedtls_mem.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\apps\http\altcp_proxyconnect.c.o
+Archiving C:\codex-build\artnet5-rx32\build\teensy41_safe\lib4b6\libSPI.a
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\apps\mdns\mdns.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\apps\mdns\mdns_domain.c.o
+Indexing C:\codex-build\artnet5-rx32\build\teensy41_safe\lib4b6\libSPI.a
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\apps\mdns\mdns_out.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\def.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\dns.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\inet_chksum.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\init.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ip.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv4\acd.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv4\autoip.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv4\dhcp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv4\etharp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv4\icmp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv4\igmp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv4\ip4.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv4\ip4_addr.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv4\ip4_frag.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv6\dhcp6.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv6\ethip6.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv6\icmp6.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv6\inet6.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv6\ip6.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv6\ip6_addr.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv6\ip6_frag.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv6\mld6.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\ipv6\nd6.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\mem.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\memp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\netif.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\pbuf.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\raw.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\stats.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\sys.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\tcp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\tcp_in.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\tcp_out.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\timeouts.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\lwip\udp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\main.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\netif\ethernet.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\QNDNSClient.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\QNEthernet.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\QNEthernetClient.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\QNEthernetFrame.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\QNEthernetServer.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\QNEthernetUDP.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\QNMDNS.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\QNPing.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\altcp_tls_adapter.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\chrono\chrono_clocks.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\default_altcp_functions.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\drivers\driver_teensy41.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\drivers\driver_unsupported.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\drivers\driver_w5500.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\entropy\entropy.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\entropy\random_device.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\internal\ConnectionManager.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\lwip_driver.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\lwip_hooks.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\qnethernet_hal.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\security\siphash.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\util\PrintUtils.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\QNEthernet\qnethernet\util\ip_tools.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\AudioStream.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\CrashReport.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\DMAChannel.cpp.o
+Archiving C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\libQNEthernet.a
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\EventResponder.cpp.o
+Indexing C:\codex-build\artnet5-rx32\build\teensy41_safe\libe29\libQNEthernet.a
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\HardwareSerial.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\HardwareSerial1.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\HardwareSerial2.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\HardwareSerial3.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\HardwareSerial4.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\HardwareSerial5.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\HardwareSerial6.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\HardwareSerial7.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\HardwareSerial8.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\IPAddress.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\IntervalTimer.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\MTP_Storage.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\MTP_Teensy.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\Print.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\Stream.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\Time.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\Tone.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\WMath.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\WString.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\analog.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\bootdata.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\clockspeed.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\debugprintf.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\delay.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\digital.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\eeprom.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\extmem.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\fuse.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\interrupt.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\keylayouts.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\main.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\memcpy-armv7m.S.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\memset.S.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\new.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\nonstd.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\pwm.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\rtc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\serialEvent.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\serialEvent1.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\serialEvent2.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\serialEvent3.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\serialEvent4.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\serialEvent5.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\serialEvent6.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\serialEvent7.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\serialEvent8.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\serialEventUSB1.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\serialEventUSB2.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\sm_alloc_valid.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\sm_calloc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\sm_free.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\sm_hash.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\sm_malloc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\sm_malloc_stats.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\sm_pool.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\sm_realloc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\sm_realloc_i.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\sm_realloc_move.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\sm_szalloc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\sm_util.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\sm_zalloc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\startup.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\tempmon.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb_audio.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb_desc.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb_flightsim.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb_inst.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb_joystick.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb_keyboard.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb_midi.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb_mouse.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb_mtp.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb_rawhid.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb_seremu.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb_serial.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb_serial2.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb_serial3.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\usb_touch.c.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_safe\FrameworkArduino\yield.cpp.o
+Archiving C:\codex-build\artnet5-rx32\build\teensy41_safe\libFrameworkArduino.a
+Indexing C:\codex-build\artnet5-rx32\build\teensy41_safe\libFrameworkArduino.a
+Linking C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.elf
+Checking size C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+Calculating size C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.elf
+teensy_size: Memory Usage on Teensy 4.1:
+teensy_size:   FLASH: code:118516, data:18376, headers:8512   free for files:7981060
+teensy_size:    RAM1: variables:60160, code:111544, padding:19528   free for local variables:333056
+teensy_size:    RAM2: variables:55712  free for malloc/new:468576
+Building C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.hex
+========================= [SUCCESS] Took 39.09 seconds =========================
+
+Processing teensy41_octo_web_rx32 (platform: teensy@6.0.0; board: teensy41; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+FastLED modern Channel engine; unmodified legacy source SHA256: 3ff259b7a15b3172fd16dc342e928e1ccfa71f313a54b6bb2b9fbf782a63f2e8
+QNEthernet audited Teensy RX descriptors: 32; SHA256: 9c0febb4f48d73c4be001e777208bcf8368f6b0d8153e41378a486e24dbc6e6e
+Embedded 4 deterministic gzip web assets in flash
+CONFIGURATION: https://docs.platformio.org/page/boards/teensy/teensy41.html
+PLATFORM: Teensy (6.0.0) > Teensy 4.1
+HARDWARE: IMXRT1062 600MHz, 512KB RAM, 7.75MB Flash
+DEBUG: Current (jlink) External (jlink)
+PACKAGES: 
+ - framework-arduinoteensy @ 1.162.0 (1.62) 
+ - tool-scons @ 4.40801.0 (4.8.1) 
+ - tool-teensy @ 1.162.0 (1.62) 
+ - toolchain-gccarmnoneeabi-teensy @ 1.150201.0 (15.2.1)
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ off, Compatibility ~ soft
+Found 94 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- SPI @ 1.0
+|-- FastLED @ 3.10.3
+|-- QNEthernet @ 0.37.0
+|-- EEPROM @ 2.0
+|-- ArduinoJson @ 6.21.6
+Building in release mode
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\src\web_http.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\src\web_main.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\lib4b6\SPI\SPI.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\lib840\FastLED\fl\build\extras+.cpp.o
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\lib840\FastLED\fl\build\fl.asset+.cpp.o
+Archiving C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\lib4b6\libSPI.a
+Indexing C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\lib4b6\libSPI.a
+In file included from src\web_http.cpp:8:
+include/web_assets.h:424:15: error: 'web_assets::asset3' causes a section type conflict with 'factors' in section '.progmem'
+  424 | const uint8_t asset3[] PROGMEM = {
+      |               ^~~~~~
+In file included from C:\codex-build\artnet5-rx32\libs\teensy41_octo_web_rx32\ArduinoJson\src/ArduinoJson/Numbers/FloatTraits.hpp:13,
+                 from C:\codex-build\artnet5-rx32\libs\teensy41_octo_web_rx32\ArduinoJson\src/ArduinoJson/Numbers/convertNumber.hpp:15,
+                 from C:\codex-build\artnet5-rx32\libs\teensy41_octo_web_rx32\ArduinoJson\src/ArduinoJson/Variant/VariantData.hpp:9,
+                 from C:\codex-build\artnet5-rx32\libs\teensy41_octo_web_rx32\ArduinoJson\src/ArduinoJson/Variant/VariantFunctions.hpp:9,
+                 from C:\codex-build\artnet5-rx32\libs\teensy41_octo_web_rx32\ArduinoJson\src/ArduinoJson/Variant/JsonVariantConst.hpp:15,
+                 from C:\codex-build\artnet5-rx32\libs\teensy41_octo_web_rx32\ArduinoJson\src/ArduinoJson/Variant/VariantRefBase.hpp:9,
+                 from C:\codex-build\artnet5-rx32\libs\teensy41_octo_web_rx32\ArduinoJson\src/ArduinoJson/Array/ElementProxy.hpp:7,
+                 from C:\codex-build\artnet5-rx32\libs\teensy41_octo_web_rx32\ArduinoJson\src/ArduinoJson/Array/JsonArray.hpp:7,
+                 from C:\codex-build\artnet5-rx32\libs\teensy41_octo_web_rx32\ArduinoJson\src/ArduinoJson.hpp:29,
+                 from C:\codex-build\artnet5-rx32\libs\teensy41_octo_web_rx32\ArduinoJson\src/ArduinoJson.h:9,
+                 from src\web_http.cpp:2:
+C:\codex-build\artnet5-rx32\libs\teensy41_octo_web_rx32\ArduinoJson\src/ArduinoJson/Numbers/FloatTraits.hpp:52:5: note: 'factors' was declared here
+   52 |     ARDUINOJSON_DEFINE_PROGMEM_ARRAY(  //
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\lib840\FastLED\fl\build\fl.audio+.cpp.o
+*** [C:\codex-build\artnet5-rx32\build\teensy41_octo_web_rx32\src\web_http.cpp.o] Error 1
+
+========================= [FAILED] Took 26.30 seconds =========================
+Environment             Status    Duration
+----------------------  --------  ------------
+teensy41_safe           SUCCESS   00:00:39.085
+teensy41_octo_web_rx32  FAILED    00:00:26.300
+==================== 1 failed, 1 succeeded in 00:01:05.385 ====================

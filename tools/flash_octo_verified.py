@@ -1,6 +1,7 @@
 """Flash only the inspected Octo artifact onto one freshly identified Teensy 4.1.
 
-No ARM or TEST is sent. The resulting firmware must boot disarmed.
+No ARM or TEST is sent. Disarmed boot is the default expectation; the web
+autostart build requires the explicit --expect-artnet-on option.
 """
 import argparse
 import hashlib
@@ -61,6 +62,8 @@ def main(args):
     if args.report.exists():
         raise RuntimeError('Refusing to overwrite flash evidence')
     manifest = json.loads(args.manifest.read_text(encoding='utf-8'))
+    if args.expect_artnet_on and manifest.get('environment') != 'teensy41_octo_web_rx32':
+        raise RuntimeError('Autostart verification is only valid for the web firmware')
     if (manifest.get('environment') not in ('teensy41_octo_identify_rx32', 'teensy41_octo_web_rx32') or
             manifest.get('board_profile') != 'PJRC_OCTO_ADAPTER_T41' or
             not manifest.get('modern_objectfled_channel_engine') or manifest.get('octows2811_linked') or
@@ -84,7 +87,8 @@ def main(args):
         if fresh.get('firmware') != before['firmware'] or fresh.get('board_profile') != before['board_profile']:
             raise RuntimeError('HTTP identity differs from serial identity')
         before = fresh  # Device-side USB TX may retain old periodic status JSON.
-    if before.get('armed') or before.get('state') in ('ARTNET_RUNNING', 'TEST_RUNNING'):
+    if (before.get('armed') or before.get('dma_pending') or
+            before.get('state') not in ('DISARMED', 'STOPPED')):
         raise RuntimeError('Stop the running controller before flashing')
     evidence = {'serial': args.serial, 'port_before': port, 'before': before,
                 'manifest_sha256': sha(args.manifest), 'attempts': [], 'flash_complete': False}
@@ -127,9 +131,16 @@ def main(args):
         else:
             raise RuntimeError('Octo firmware did not report after flashing')
         evidence['after'] = after
-        if after.get('state') != 'DISARMED' or after.get('initialized'):
-            raise RuntimeError('Expected boot disarmed with no LED initialization')
-        evidence['verified_disarmed_boot'] = True
+        if args.expect_artnet_on:
+            if (after.get('boot_mode') != 'ARTNET_ON' or not after.get('armed') or
+                    not after.get('initialized') or after.get('configuration_fault') or
+                    after.get('build_revision') != 'orbital-prism-autostart-20260913'):
+                raise RuntimeError('Expected inspected Orbital web build with initialized Art-Net ON boot')
+            evidence['verified_artnet_on_boot'] = True
+        else:
+            if after.get('state') != 'DISARMED' or after.get('initialized'):
+                raise RuntimeError('Expected boot disarmed with no LED initialization')
+            evidence['verified_disarmed_boot'] = True
     except Exception as error:
         evidence['error'] = str(error)
         raise
@@ -145,4 +156,6 @@ if __name__ == '__main__':
     parser.add_argument('--halfkay', required=True, help='Previously verified target HalfKay ID')
     parser.add_argument('--loader', required=True, type=Path)
     parser.add_argument('--report', required=True, type=Path)
+    parser.add_argument('--expect-artnet-on', action='store_true',
+                        help='Explicitly expect the user-requested web Art-Net ON boot')
     main(parser.parse_args())

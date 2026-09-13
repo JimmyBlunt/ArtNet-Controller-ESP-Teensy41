@@ -9,6 +9,7 @@
 #include "web_config_store.h"
 #include "web_http.h"
 #include "runtime_receiver.h"
+#include "artnet_run_policy.h"
 #include "octo_test_core.h"
 #include "esp_output_profile.h"
 #include "../../include/board_profiles/PjrcOctoAdapterT41.h"
@@ -20,6 +21,7 @@ using qindesign::network::Ethernet;
 webcfg::Config desired, active, stored, bootNetwork;
 webcfg::LoadResult storageState = webcfg::LoadResult::Defaults;
 ot::State state = ot::State::Dormant;
+artnet_run::Policy artnetMode;
 runtime_artnet::Receiver receiver;
 CRGB pixels[webcfg::kOutputs][webcfg::kMaxLength];
 CRGB receivedPixels[webcfg::kOutputs * webcfg::kMaxLength];
@@ -29,7 +31,7 @@ bool initialized = false, udpStarted = false, dmaPending = false;
 bool dmaEndSeen = false, blackLatched = false, rebootScheduled = false;
 bool configurationFault = false;
 uint32_t rebootAtMs = 0, lastSubmitUs = 0, dmaEndSeenUs = 0;
-uint32_t wireGuardUs = 300, framePeriodUs = 33334, armedAtMs = 0;
+uint32_t wireGuardUs = 300, framePeriodUs = 33334;
 uint32_t testStartedMs = 0, testLimitMs = 30000, lastTestDurationMs = 0;
 unsigned selection = 0;
 uint8_t outputBrightness = 8;
@@ -283,7 +285,9 @@ bool start(char* error, size_t size) {
     outputBrightness = active.brightness;
     if (!initialized && !registerOutputs()) return fail(error, size, "CHANNEL_CREATION_FAILED");
     else FastLED.setBrightness(outputBrightness);
-    receiver.clear(); armedAtMs = millis(); state = ot::State::RunningArtNet;
+    receiver.clear(); artnetMode.start();
+    // Establish black on boot/start before accepting complete live frames.
+    state = ot::State::WaitBlackout;
     return success(error, size);
 }
 bool test(unsigned output, unsigned seconds, char* error, size_t size) {
@@ -297,11 +301,13 @@ bool test(unsigned output, unsigned seconds, char* error, size_t size) {
     outputBrightness = active.brightness < 8 ? active.brightness : 8;
     if (!initialized && !registerOutputs()) return fail(error, size, "CHANNEL_CREATION_FAILED");
     else FastLED.setBrightness(outputBrightness);
+    artnetMode.stop();
     selection = output; testStartedMs = millis(); testLimitMs = seconds * 1000U;
     lastTestDurationMs = 0; state = ot::State::Running;
     return success(error, size);
 }
 void stop() {
+    artnetMode.stop();
     if (state == ot::State::Running) lastTestDurationMs = millis() - testStartedMs;
     state = ot::requestStop(state); receiver.clear();
     if (state == ot::State::Dormant) reply("OK STOP NO_OUTPUT_INITIALIZED");
@@ -316,8 +322,11 @@ bool reboot(char* error, size_t size) {
 void status(JsonObject out) {
     sampleRates();
     out["firmware"] = "teensy41-octo-web-rx32";
+    out["build_revision"] = "orbital-prism-autostart-20260913";
+    out["boot_mode"] = "ARTNET_ON";
+    out["artnet_waiting"] = artnetMode.waiting();
     out["board_profile"] = board::kId; out["source_profile"] = esp_profile::kId;
-    out["state"] = ot::stateName(state); out["armed"] = state == ot::State::RunningArtNet;
+    out["state"] = ot::stateName(state); out["armed"] = artnetMode.enabled();
     out["configured"] = true; out["initialized"] = initialized;
     out["config_locked"] = !isStopped() || rebootScheduled; out["channels_locked"] = initialized;
     out["configuration_fault"] = configurationFault;
@@ -369,7 +378,6 @@ void setup() {
     active = stored = bootNetwork = desired;
     configureReceiver(active); timing(); outputBrightness = active.brightness;
     if (storageState == webcfg::LoadResult::Corrupt) snprintf(lastError, sizeof(lastError), "EEPROM_CORRUPT_DEFAULTS_LOADED");
-    // Driver channels and LED GPIO remain untouched until explicit ARM or TEST.
     Ethernet.setHostname("teensy-octo-controller");
     if (active.dhcp) Ethernet.begin();
     else {
@@ -378,6 +386,9 @@ void setup() {
     }
     udpStarted = udp.begin(6454);
     http::begin();
+    // No network wait: normal boot is ON and accepts a sender arriving later.
+    // start() retains all configuration/driver checks and reports failures.
+    if (!configurationFault) controller::start(nullptr, 0);
 }
 
 void loop() {
@@ -392,16 +403,27 @@ void loop() {
     http::poll();
     const uint32_t now = millis(); receiver.expire(now);
     if (state == ot::State::Running && uint32_t(now - testStartedMs) >= testLimitMs) controller::stop();
-    if (state == ot::State::RunningArtNet && (!Ethernet.linkState() ||
-        (uint32_t(now - armedAtMs) > 1000U && uint32_t(now - receiver.lastComplete()) > 1000U))) controller::stop();
+    artnet_run::Action streamAction = artnet_run::Action::Wait;
+    if (state == ot::State::RunningArtNet) {
+        const bool link = Ethernet.linkState();
+        const bool fresh = uint32_t(now - receiver.lastComplete()) <= 1000U;
+        streamAction = artnetMode.observe(link, fresh, receiver.ready());
+        if (streamAction == artnet_run::Action::Discard ||
+            streamAction == artnet_run::Action::Blackout) receiver.clear();
+        if (streamAction == artnet_run::Action::Blackout)
+            state = ot::requestStop(state); // Keep ON intent during loss/black DMA.
+    }
     const bool ready = transferReady();
     const bool due = !frames || uint32_t(micros() - lastSubmitUs) >= framePeriodUs;
     if (state == ot::State::WaitBlackout && ready && due) {
         clearPixels(); submit(true); state = ot::State::WaitBlackoutCompletion;
     } else if (state == ot::State::WaitBlackoutCompletion && ready) {
-        blackLatched = true; state = ot::State::Stopped; reply("OK STOP BLACK_DMA_COMPLETE");
+        blackLatched = true;
+        state = artnetMode.enabled() ? ot::State::RunningArtNet : ot::State::Stopped;
+        reply(artnetMode.enabled() ? "OK ARTNET ON WAITING_FOR_DATA" : "OK STOP BLACK_DMA_COMPLETE");
     } else if (state == ot::State::Running && ready && due) renderTest();
-    else if (state == ot::State::RunningArtNet && ready && due) renderArtNet();
+    else if (state == ot::State::RunningArtNet && ready && due &&
+             streamAction == artnet_run::Action::Render) renderArtNet();
     if (rebootScheduled && controller::isStopped() && int32_t(now - rebootAtMs) >= 0) {
         __asm__ volatile("dsb" ::: "memory");
         SCB_AIRCR = 0x05FA0004;
