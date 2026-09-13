@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARTNET · Hintergrundvarianten</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0b0d19;color:#eef0ff;font:15px/1.5 system-ui,sans-serif}button,input{font:inherit}button{cursor:pointer;color:inherit}header{padding:24px 32px;background:#0b0d19;position:relative;z-index:2;border-bottom:1px solid #343447}h1{font-size:23px;margin:0 0 6px}p{color:#a7adc9;margin:5px 0}.options{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.option{background:#171929;border:1px solid #38394f;border-radius:12px;padding:6px;width:150px;text-align:left}.option[aria-pressed=true]{border-color:#b5a1ff;box-shadow:0 0 0 1px #b5a1ff}.option img{width:100%;aspect-ratio:1;object-fit:contain;border-radius:8px;background:linear-gradient(130deg,#0d132b,#221732)}.option span{display:block;padding:5px;font-size:12px}.settings{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-top:20px}.settings label{display:flex;align-items:center;gap:12px}input{accent-color:#a99bfd}.settings button,.settings a{padding:8px 13px;border:1px solid #414258;border-radius:8px;background:#171929;color:#d8d7f9;text-decoration:none}.stage{--strength:.4;position:relative;min-height:900px;overflow:hidden;background:radial-gradient(ellipse at 16% 10%,#15274888,transparent 56%),radial-gradient(ellipse at 83% 35%,#381b5277,transparent 68%),#0b0d19}.art{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:var(--strength);mix-blend-mode:screen;pointer-events:none}.demo{position:relative;z-index:1;padding:50px clamp(20px,7vw,120px);max-width:1450px;margin:auto}.tag{color:#b8acff;font-size:12px;letter-spacing:.15em}.demo h2{font-size:36px;margin:12px 0 30px}.bar,.card{border:1px solid #51516d66;background:#171a2cbb;border-radius:17px;padding:23px;backdrop-filter:blur(3px)}.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:25px}.pill{padding:8px 14px;background:#a99bfd;color:#101326;border-radius:8px;font-weight:650}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card strong{font-size:31px;display:block;margin:20px 0 6px}.card small{color:#b7bbd3}.stage.clean .demo{visibility:hidden}.caption{position:absolute;bottom:16px;left:25px;color:#a7adc9;font-size:12px}.footer{padding:18px 32px;color:#a7adc9;font-size:13px}@media(max-width:650px){header{padding:20px}.option{width:calc(33.333% - 8px)}.grid{grid-template-columns:1fr}.demo{padding:35px 20px}.demo h2{font-size:27px}.bar{flex-direction:column;align-items:flex-start}.stage{min-height:1200px}}
+</style>
+<header>
+<h1>Fünf Hintergründe für deinen ArtNet-Controller</h1>
+<p>Lokale Designvorschau · auf Basis deines LED-Bildes · noch nicht auf den Teensy übertragen.</p>
+<div class="options" id="options"></div>
+<div class="settings">
+<label>Bildstärke <input id="strength" type="range" min="10" max="100" value="40"><output id="amount">40 %</output></label>
+<button id="toggle" aria-pressed="false">Nur Hintergrund zeigen</button>
+<a id="original" href="01-violet-circuit.png" target="_blank">PNG in voller Größe öffnen ↗</a>
+</div>
+</header>
+<section class="stage" id="stage">
+<img class="art" id="art" src="01-violet-circuit.png" alt="Variante 1 – feine violette Leiterbahnen">
+<div class="demo">
+<div class="tag">ARTNET · DESIGNVORSCHAU</div>
+<h2>LED control desk.</h2>
+<div class="bar"><div><b>Dein Licht. Im Blick.</b><p>Beispieloberfläche zur Beurteilung der Lesbarkeit</p></div><span class="pill">Vorschau</span></div>
+<div class="grid">
+<article class="card"><small>LEDs · deine Konfiguration</small><strong>4.031</strong><p>29 Universen · Teensy 4.1</p></article>
+<article class="card"><small>Ausgänge</small><strong>7 aktiv</strong><p>Feste Octo-Belegung</p></article>
+<article class="card"><b>OUT 6 · Pin 20</b><strong>536 <small>LEDs</small></strong><p>Universe 142–145 · GRB</p></article>
+<article class="card"><b>OUT 7 · Pin 21</b><strong>512 <small>LEDs</small></strong><p>Universe 146–149 · GRB</p></article>
+</div>
+</div><div class="caption" id="caption">01 · Violet Circuit</div>
+</section>
+<div class="footer">Die dunklen Varianten werden hier mit „screen“ über dem Blau-Lila-Verlauf gemischt. Die Bildstärke lässt sich unabhängig einstellen. Es werden keine Controller-Befehle gesendet.</div>
+<script>
+const variants=[['01-violet-circuit','Violet Circuit'],['02-cyan-glass','Cyan Glass'],['03-orbital-traces','Orbital Traces'],['04-iridescent-etch','Iridescent Etch'],['05-ghost-circuit','Ghost Circuit']];
+const options=document.getElementById('options'),stage=document.getElementById('stage'),art=document.getElementById('art');
+variants.forEach(([file,name],i)=>{const button=document.createElement('button');button.className='option';button.setAttribute('aria-pressed',i===0?'true':'false');const img=document.createElement('img');img.src=file+'.png';img.alt='';const label=document.createElement('span');label.textContent=(i+1)+' · '+name;button.append(img,label);button.onclick=()=>{options.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed','false'));button.setAttribute('aria-pressed','true');art.src=file+'.png';art.alt=name;document.getElementById('original').href=file+'.png';document.getElementById('caption').textContent=(i+1)+' · '+name;};options.append(button);});
+document.getElementById('strength').oninput=e=>{stage.style.setProperty('--strength',Number(e.target.value)/100);document.getElementById('amount').textContent=e.target.value+' %';};
+document.getElementById('toggle').onclick=e=>{const clean=stage.classList.toggle('clean');e.target.textContent=clean?'Mit Beispieloberfläche zeigen':'Nur Hintergrund zeigen';e.target.setAttribute('aria-pressed',String(clean));};
+</script>
+</html>
