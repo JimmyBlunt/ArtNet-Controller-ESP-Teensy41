@@ -1,0 +1,54 @@
+{
+  "environment": "teensy41_octo_web_rx32",
+  "build_revision": "orbital-port-tests-20260913",
+  "board_profile": "PJRC_OCTO_ADAPTER_T41",
+  "output_profile": "ESP4031_SPLIT_20260913",
+  "rx_buffer_bytes": 49152,
+  "rx_descriptor_bytes": 1024,
+  "modern_objectfled_channel_engine": true,
+  "octows2811_linked": false,
+  "sources_sha256": {
+    "firmware\\teensy41_artnet\\include\\artnet_run_policy.h": "1d19058105ccf8712a7dcab8fb8945068ce6cf5be5528f1f1505fa880ba176bb",
+    "firmware\\teensy41_artnet\\include\\esp_output_profile.h": "a4bed62ec663467962b17803a9745470548239078d3ed5b426df6161e509fce7",
+    "firmware\\teensy41_artnet\\include\\esp_test_pattern.h": "2b6e0384f4753c94feca54d7b8cc7450d7af134b87459c20c662b97fe3ce34ec",
+    "firmware\\teensy41_artnet\\include\\hardware_pins.example.h": "5c5b287d7b388bbf0425a01b4f6dffd5c7f5d0629170645107c6c3f185ec3d4a",
+    "firmware\\teensy41_artnet\\include\\http_request.h": "ea135508d2cbd5da092e06675b5201ce97df469d9da8d9aae782db55a1cacf55",
+    "firmware\\teensy41_artnet\\include\\octo_test_core.h": "21296683007aa33404fe0ecb26eacc6d511e90e5e759b2601625836a4c38c5c3",
+    "firmware\\teensy41_artnet\\include\\receiver_core.h": "62e056a9ea5d0d74420cc48807f0cdd227d1635fc1e69118c9a1cafae3e8afb1",
+    "firmware\\teensy41_artnet\\include\\runtime_receiver.h": "1cf5373d27957128a188e585dc3d0e8ca94969188e499bc0b8b18c380a758eeb",
+    "firmware\\teensy41_artnet\\include\\web_assets.h": "c8d71fcf9a97dacdd624ed20b6b907675dd1834a725312474e07798403be0da8",
+    "firmware\\teensy41_artnet\\include\\web_config.h": "da02f5293145422ddf4e9adcaa020190293bced45c21f99d8930f3b9c137d219",
+    "firmware\\teensy41_artnet\\include\\web_config_json.h": "28b9660e4082509988acd621a85d5227c6123d6343d71ec25a8aaa9dd589b0e6",
+    "firmware\\teensy41_artnet\\include\\web_config_store.h": "b8e4b3e25cae0023eed858d3634dc00c9555bcaeb87e6b1368f3e53cb31e75da",
+    "firmware\\teensy41_artnet\\include\\web_controller.h": "930b2e3ffc0d87af59e0160d57fa59d5e3f78899ea372c8d4711bd4ff783c9cc",
+    "firmware\\teensy41_artnet\\include\\web_http.h": "dcd1ebfc82781cabd5bc6ce8397df594cd9f50865be1cadc4ec93e1922e498ca",
+    "firmware\\teensy41_artnet\\src\\main.cpp": "df1d22b7a5027ec1fd53cf407cf6841d2e75ab5f5bc0d298d7b4c617b7fff7a6",
+    "firmware\\teensy41_artnet\\src\\octo_identify.cpp": "ff4d287a8db16fb4463eb0f3206f729eee607315ce1908ae2f9f3d23e25294be",
+    "firmware\\teensy41_artnet\\src\\web_http.cpp": "cf4e205f3f6b04f5c2c74dedca45d51151e4fbbfde24783cb444602a803092fd",
+    "firmware\\teensy41_artnet\\src\\web_main.cpp": "576bbe1ab64f0d73e15fadca8c940b460ae13c138a9e86cbf14843e3606259d1",
+    "firmware\\teensy41_artnet\\tools\\embed_web.py": "ce041c1869a5f19ce283f0bf12a4e0b2924e379112fcae07a88370c72b5ed949",
+    "firmware\\teensy41_artnet\\tools\\ethernet_benchmark.py": "4398cf887e18408bb23380b1f4d3f9fe1a30e8ecc7819dc711ac9d9d15fe1591",
+    "firmware\\teensy41_artnet\\tools\\flash_rx32_verified.py": "93e2d57c148e210806db018c4c9c7918bffe1f6f3fb296aae1bf5a88035f1788",
+    "firmware\\teensy41_artnet\\tools\\patch_fastled.py": "24afaa04ebf091fc13374a638d8e02fcd450451c16b65a709b2364fb5a995b89",
+    "firmware\\teensy41_artnet\\tools\\patch_qnethernet.py": "e43ce56e927bed144d4f3ba6e2f8e51f42bee8690e15d75667e9722644fef416",
+    "firmware\\teensy41_artnet\\platformio.ini": "f86bac5a204bcfc63dd417232e0218e3b7057357e8124cca65ec9306da3fba7b",
+    "firmware\\include\\board_profiles\\PjrcOctoAdapterT41.h": "28eb094efde45c4bd8565a51b8ac0b1b6e4378c8b470097a80d43caf0d7b407b",
+    "firmware\\teensy41_artnet\\web\\app.js": "8776e9024cc346e30ca3b35cb44601c5d8c7c0ae7dad3acb2ea5065a47ea8556",
+    "firmware\\teensy41_artnet\\web\\index.html": "141dd7e3985d8e0e095fceb638d64a2bf7bb9445cdbb5e7901fc6d9f084f57ee",
+    "firmware\\teensy41_artnet\\web\\orbital-prism.webp": "b4c8fa2e64357b95541509f430a0799301b410abf5d43823dba5e825d924be35",
+    "firmware\\teensy41_artnet\\web\\styles.css": "eba0ef79fbe7c1863b86830ef618e6bfb01c91c6c1450ef33fe043ecf70729f2"
+  },
+  "artifacts": {
+    "elf": {
+      "path": "C:\\codex-build\\artnet5-rx32\\build\\teensy41_octo_web_rx32\\firmware.elf",
+      "sha256": "4f0bf3970f06785e60d58721f0890b184e09fdb7d7a210a889c2f5db09526ad9"
+    },
+    "hex": {
+      "path": "C:\\codex-build\\artnet5-rx32\\build\\teensy41_octo_web_rx32\\firmware.hex",
+      "sha256": "a7a14c2130b03ae33cd6ec62faac006ab305a361ccb675c9d5e9fc04d60acae2"
+    }
+  },
+  "hardware_flashed": false,
+  "physical_outputs_verified": false,
+  "note": "Post-build inspection; source hashes are a record, not proof of a reproducible binary."
+}

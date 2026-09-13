@@ -10,6 +10,7 @@
 #include "web_http.h"
 #include "runtime_receiver.h"
 #include "artnet_run_policy.h"
+#include "esp_test_pattern.h"
 #include "octo_test_core.h"
 #include "esp_output_profile.h"
 #include "../../include/board_profiles/PjrcOctoAdapterT41.h"
@@ -34,6 +35,8 @@ uint32_t rebootAtMs = 0, lastSubmitUs = 0, dmaEndSeenUs = 0;
 uint32_t wireGuardUs = 300, framePeriodUs = 33334;
 uint32_t testStartedMs = 0, testLimitMs = 30000, lastTestDurationMs = 0;
 unsigned selection = 0;
+bool patternTest = false, patternLoop = false, patternPending = false, testReturnToArtNet = false;
+uint32_t patternFrameIndex = 0, lastPatternFrameMs = 0;
 uint8_t outputBrightness = 8;
 uint32_t frames = 0, blackouts = 0, completed = 0;
 uint32_t showCallUs = 0, maxShowCallUs = 0, dmaElapsedUs = 0, maxDmaElapsedUs = 0;
@@ -162,8 +165,23 @@ void renderArtNet() {
     submit(false);
 }
 void renderTest() {
+    if (patternTest && uint32_t(millis() - lastPatternFrameMs) < esp_test::kFrameMs) return;
     clearPixels();
     const uint32_t elapsed = millis() - testStartedMs;
+    if (patternTest) {
+        lastPatternFrameMs = millis(); ++patternFrameIndex;
+        const auto phase = esp_test::phase(elapsed, patternLoop);
+        for (unsigned i = 0; i < webcfg::kOutputs; ++i) {
+            const auto& output = active.outputs[i];
+            if (!esp_test::selected(selection, board::kOutputs[i].number, output.enabled)) continue;
+            for (unsigned j = 0; j < output.pixelCount; ++j) {
+                const auto color = esp_test::pixel(phase, j, patternFrameIndex);
+                pixels[i][output.reverse ? output.pixelCount - 1 - j : j] = CRGB(color.r, color.g, color.b);
+            }
+        }
+        submit(false);
+        return;
+    }
     const unsigned color = ot::colorIndex(elapsed);
     for (unsigned i = 0; i < webcfg::kOutputs; ++i) {
         const auto& output = active.outputs[i];
@@ -198,7 +216,7 @@ void sampleRates() {
 }
 void serialReport() {
     static StaticJsonDocument<6144> document;
-    static char line[2000];
+    static char line[2800];
     document.clear();
     controller::status(document.to<JsonObject>());
     document.remove("dma_fps"); document.remove("show_us_max");
@@ -302,12 +320,40 @@ bool test(unsigned output, unsigned seconds, char* error, size_t size) {
     if (!initialized && !registerOutputs()) return fail(error, size, "CHANNEL_CREATION_FAILED");
     else FastLED.setBrightness(outputBrightness);
     artnetMode.stop();
+    patternTest = patternLoop = patternPending = testReturnToArtNet = false;
     selection = output; testStartedMs = millis(); testLimitMs = seconds * 1000U;
     lastTestDurationMs = 0; state = ot::State::Running;
     return success(error, size);
 }
+bool pattern(unsigned output, bool loop, char* error, size_t size) {
+    if (output > webcfg::kOutputs) return fail(error, size, "OUTPUT_RANGE_0_8");
+    if (rebootScheduled) return fail(error, size, "REBOOT_PENDING");
+    if (configurationFault) return fail(error, size, "CONFIGURATION_FAULT_ACKNOWLEDGE_WITH_APPLY_OR_SAVE");
+    if (rebootRequired()) return fail(error, size, "SAVE_AND_REBOOT_REQUIRED");
+    if (!webcfg::totalPixels(active)) return fail(error, size, "NO_ENABLED_OUTPUTS");
+    if (output && !active.outputs[output - 1].enabled) return fail(error, size, "OUTPUT_NOT_CONFIGURED");
+    if (!initialized && !registerOutputs()) return fail(error, size, "CHANNEL_CREATION_FAILED");
+    testReturnToArtNet = artnetMode.enabled() || testReturnToArtNet;
+    artnetMode.stop(); receiver.clear();
+    selection = output; patternLoop = loop; patternPending = patternTest = true;
+    testLimitMs = loop ? 0 : esp_test::kCycleMs;
+    lastTestDurationMs = 0;
+    // Change ownership only after previous DMA and a complete black frame.
+    if (!ot::stopping(state)) state = ot::State::WaitBlackout;
+    return success(error, size);
+}
+void endPattern() {
+    if (!patternTest && !patternPending) return;
+    if (state == ot::State::Running) lastTestDurationMs = millis() - testStartedMs;
+    patternTest = patternLoop = patternPending = false;
+    receiver.clear();
+    if (testReturnToArtNet) artnetMode.start();
+    testReturnToArtNet = false;
+    state = ot::requestStop(state);
+}
 void stop() {
     artnetMode.stop();
+    patternTest = patternLoop = patternPending = testReturnToArtNet = false;
     if (state == ot::State::Running) lastTestDurationMs = millis() - testStartedMs;
     state = ot::requestStop(state); receiver.clear();
     if (state == ot::State::Dormant) reply("OK STOP NO_OUTPUT_INITIALIZED");
@@ -322,7 +368,7 @@ bool reboot(char* error, size_t size) {
 void status(JsonObject out) {
     sampleRates();
     out["firmware"] = "teensy41-octo-web-rx32";
-    out["build_revision"] = "orbital-prism-autostart-20260913";
+    out["build_revision"] = "orbital-port-tests-20260913";
     out["boot_mode"] = "ARTNET_ON";
     out["artnet_waiting"] = artnetMode.waiting();
     out["board_profile"] = board::kId; out["source_profile"] = esp_profile::kId;
@@ -353,6 +399,13 @@ void status(JsonObject out) {
     out["udp_listening"] = udpStarted; out["udp_received"] = udp.totalReceiveCount();
     out["udp_queue_drops"] = udp.droppedReceiveCount(); out["udp_drained"] = udpDrained;
     out["queue_peak"] = queuePeak; out["selection"] = selection;
+    out["test_pattern"] = patternTest;
+    out["test_loop"] = patternLoop;
+    out["test_pending"] = patternPending;
+    out["test_frame_index"] = patternFrameIndex;
+    out["test_resume_artnet"] = testReturnToArtNet;
+    out["test_phase"] = patternPending ? "starting" : patternTest ?
+        esp_test::name(esp_test::phase(millis() - testStartedMs, patternLoop)) : "stopped";
     out["test_duration_ms"] = state == ot::State::Running ? millis() - testStartedMs : lastTestDurationMs;
     out["test_limit_ms"] = testLimitMs; out["frames_submitted"] = frames;
     out["blackouts_submitted"] = blackouts; out["dma_completed"] = completed;
@@ -402,7 +455,10 @@ void loop() {
     }
     http::poll();
     const uint32_t now = millis(); receiver.expire(now);
-    if (state == ot::State::Running && uint32_t(now - testStartedMs) >= testLimitMs) controller::stop();
+    if (state == ot::State::Running && (!patternTest || !patternLoop) &&
+        uint32_t(now - testStartedMs) >= testLimitMs) {
+        if (patternTest) controller::endPattern(); else controller::stop();
+    }
     artnet_run::Action streamAction = artnet_run::Action::Wait;
     if (state == ot::State::RunningArtNet) {
         const bool link = Ethernet.linkState();
@@ -419,8 +475,20 @@ void loop() {
         clearPixels(); submit(true); state = ot::State::WaitBlackoutCompletion;
     } else if (state == ot::State::WaitBlackoutCompletion && ready) {
         blackLatched = true;
-        state = artnetMode.enabled() ? ot::State::RunningArtNet : ot::State::Stopped;
-        reply(artnetMode.enabled() ? "OK ARTNET ON WAITING_FOR_DATA" : "OK STOP BLACK_DMA_COMPLETE");
+        if (patternPending) {
+            patternPending = false; testStartedMs = now;
+            patternFrameIndex = 0; lastPatternFrameMs = now - esp_test::kFrameMs;
+            outputBrightness = active.brightness < 36 ? active.brightness : 36;
+            FastLED.setBrightness(outputBrightness);
+            state = ot::State::Running;
+        } else {
+            if (artnetMode.enabled()) {
+                receiver.clear(); outputBrightness = active.brightness;
+                FastLED.setBrightness(outputBrightness);
+            }
+            state = artnetMode.enabled() ? ot::State::RunningArtNet : ot::State::Stopped;
+            reply(artnetMode.enabled() ? "OK ARTNET ON WAITING_FOR_DATA" : "OK STOP BLACK_DMA_COMPLETE");
+        }
     } else if (state == ot::State::Running && ready && due) renderTest();
     else if (state == ot::State::RunningArtNet && ready && due &&
              streamAction == artnet_run::Action::Render) renderArtNet();

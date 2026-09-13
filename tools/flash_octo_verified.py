@@ -6,6 +6,7 @@ autostart build requires the explicit --expect-artnet-on option.
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 import subprocess
 import time
@@ -30,11 +31,11 @@ def identified_port(number):
 
 
 def halfkay_ids():
-    command = "@(Get-PnpDevice -PresentOnly | Where-Object { $_.InstanceId -like 'USB\\VID_16C0&PID_0478\\*' } | Select-Object -ExpandProperty InstanceId) | ConvertTo-Json -Compress"
-    result = subprocess.run(['powershell', '-NoProfile', '-Command', command],
-                            capture_output=True, text=True, timeout=15, check=True)
-    value = json.loads(result.stdout) if result.stdout.strip() else []
-    return [value] if isinstance(value, str) else value
+    # Native present-device enumeration avoids intermittent PowerShell/WMI
+    # module timeouts. Match complete instance IDs, independent of UI language.
+    result = subprocess.run(['pnputil.exe', '/enum-devices', '/connected'],
+                            capture_output=True, text=True, errors='replace', timeout=20, check=True)
+    return re.findall(r'(?im)^\s*[^:\r\n]+:\s*(USB\\VID_16C0&PID_0478\\[^\s]+)\s*$', result.stdout)
 
 
 def require_halfkay(expected):
@@ -134,7 +135,7 @@ def main(args):
         if args.expect_artnet_on:
             if (after.get('boot_mode') != 'ARTNET_ON' or not after.get('armed') or
                     not after.get('initialized') or after.get('configuration_fault') or
-                    after.get('build_revision') != 'orbital-prism-autostart-20260913'):
+                    after.get('build_revision') != (manifest.get('build_revision') or 'orbital-prism-autostart-20260913')):
                 raise RuntimeError('Expected inspected Orbital web build with initialized Art-Net ON boot')
             evidence['verified_artnet_on_boot'] = True
         else:

@@ -16,7 +16,7 @@ async page => {
         runtime: document.getElementById('runtimeState').textContent
       };
     });
-    if (metrics.opacity !== '1' || metrics.overflow ||
+    if (metrics.opacity !== '0.5' || metrics.overflow ||
         Math.abs(metrics.tangent - 2) > 1 || metrics.imageWidth !== 1672)
       throw new Error(JSON.stringify(metrics));
     results.push(metrics);

@@ -36,7 +36,8 @@ Leiterbahnstrukturen aus Violet Circuit, Cyan Glass und Iridescent Etch. Breiter
 Hauchfeine Strukturen auch hinter etwa 40–50 Prozent der LED-Flächenbereiche,
 mit vereinzelten helleren Pixel-/Leiterbahn-Glanzpunkten. Fünf Bildvarianten
 wurden getrennt zur Auswahl erstellt. Gewählt wurde **Orbital Prism**; im Build
-als WebP eingebettet, 100 % Bildstärke. Die CSS-Position hält den linken Scheitel
+als WebP eingebettet, inzwischen 50 % Bildstärke im Build `orbital-port-tests-20260913`.
+Die CSS-Position hält den linken Scheitel
 des unteren Bogens etwa 2 Pixel innerhalb des linken Bildschirmrands.
 
 Ein PNG zeigt statische Glanzpunkte. Zeitliches Aufglitzern/Schimmern kann bei

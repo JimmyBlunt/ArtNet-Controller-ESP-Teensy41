@@ -12,7 +12,9 @@ Einzel-/Paralleltests und Art-Net-Ausgabe mit der vom Nutzer verlangten
 ESP-Belegung. Der Web-Build startet automatisch mit Art-Net **AN**, wartet auf
 vollständige Daten und setzt die Ausgabe nach Signalverlust automatisch fort.
 Ein manueller Stop gilt bis zum nächsten Start oder Neustart. Orbital Prism ist
-mit 100 % Bildstärke und dem unteren Bogen am linken Bildschirmrand eingebettet.
+mit 50 % Bildstärke und dem unteren Bogen am linken Bildschirmrand eingebettet.
+RGB-Lauflichttests lassen sich pro Port oder für alle aktiven Ports einmal bzw.
+im Loop starten; animierte Portvorschauen zeigen Farbe und Muster.
 Das Webinterface bietet Konfiguration, Start/Stopp, Einzel-/Paralleltests,
 Netzwerk, Diagnose und dauerhafte Einstellungen einschließlich JSON-Import/Export.
 Letzte bekannte Geräteadresse: [http://10.0.0.253](http://10.0.0.253).

@@ -1,0 +1,39 @@
+### Result
+{"port6Animation":{"first":[12,13,14,15],"second":[9,10,11,12],"nonSelectedLit":0},"allSevenPreviews":true,"layout":{"opacity":"0.5","overflow":false}}
+### Ran Playwright code
+```js
+await (async page => {
+  await page.waitForFunction(() => document.getElementById('statPixels').textContent === '4.031');
+  await page.setViewportSize({width:1440,height:1000});
+  await page.getByRole('button', {name:'OUT 6: Im Loop', exact:true}).click();
+  await page.waitForFunction(() => {
+    const p = document.querySelector('[data-preview="6"]');
+    return p?.dataset.color === 'red' && p.querySelectorAll('.lit').length === 4;
+  });
+  const first = await page.locator('[data-preview="6"] .preview-leds').evaluate(el =>
+    [...el.children].map((p,i)=>p.classList.contains('lit') ? i : -1).filter(i=>i>=0));
+  await page.waitForTimeout(160);
+  const second = await page.locator('[data-preview="6"] .preview-leds').evaluate(el =>
+    [...el.children].map((p,i)=>p.classList.contains('lit') ? i : -1).filter(i=>i>=0));
+  if (JSON.stringify(first) === JSON.stringify(second)) throw new Error('Preview did not animate');
+  const nonSelectedLit = await page.locator('[data-preview]:not([data-preview="6"]) .lit').count();
+  if (nonSelectedLit) throw new Error('Unselected port preview lit');
+  await page.screenshot({path:'output/playwright/port-test-animation.png'});
+  await page.getByRole('button', {name:'Test beenden',exact:true}).click();
+  await page.waitForFunction(() => document.getElementById('runtimeState').textContent.startsWith('Art-Net'));
+  await page.getByRole('button', {name:'Alle · Einmal',exact:true}).click();
+  await page.waitForFunction(() => document.querySelectorAll('[data-color="red"]').length === 7);
+  await page.screenshot({path:'output/playwright/port-test-all.png'});
+  await page.getByRole('button', {name:'Test beenden',exact:true}).click();
+  await page.waitForFunction(() => document.getElementById('runtimeState').textContent.startsWith('Art-Net'));
+  await page.setViewportSize({width:390,height:844});
+  await page.evaluate(() => scrollTo(0,0));
+  await page.screenshot({path:'output/playwright/port-test-mobile.png'});
+  const layout = await page.evaluate(() => ({opacity:getComputedStyle(document.body,'::before').opacity,
+    overflow:document.documentElement.scrollWidth > innerWidth}));
+  if (layout.opacity !== '0.5' || layout.overflow) throw new Error(JSON.stringify(layout));
+  await page.setViewportSize({width:1440,height:1000});
+  return {port6Animation:{first,second,nonSelectedLit},allSevenPreviews:true,layout};
+}
+)(page);
+```

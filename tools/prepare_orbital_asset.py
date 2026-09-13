@@ -1,6 +1,6 @@
 """Encode the selected original for embedded HTTP without cropping/repainting it.
 
-Requires Pillow (created with 12.2.0). CSS handles positioning and 100% strength.
+Requires Pillow (created with 12.2.0). CSS handles positioning and opacity.
 """
 from pathlib import Path
 from PIL import Image

@@ -1,0 +1,33 @@
+{
+  "build_revision": "orbital-port-tests-20260913",
+  "flashed": true,
+  "serial": "7858800",
+  "ip": "10.0.0.253",
+  "boot_mode": "ARTNET_ON",
+  "artifacts": {
+    "elf": {
+      "path": "firmware\\teensy41_artnet\\artifacts\\octo-web-port-tests-20260913.elf",
+      "sha256": "4f0bf3970f06785e60d58721f0890b184e09fdb7d7a210a889c2f5db09526ad9"
+    },
+    "hex": {
+      "path": "firmware\\teensy41_artnet\\artifacts\\octo-web-port-tests-20260913.hex",
+      "sha256": "a7a14c2130b03ae33cd6ec62faac006ab305a361ccb675c9d5e9fc04d60acae2"
+    }
+  },
+  "evidence_sha256": {
+    "octo-web-port-tests-build-final.json": "627ae74563670b2ea59bc6ee31dee0933cca9372f03a99f2e219fac671992add",
+    "octo-web-port-tests-flash-release.json": "1c3e7a52fca95d6fe0b74e83260bebd2cde6fc458ed779f1a09747e60e695136",
+    "octo-web-port-tests-acceptance.json": "badfba0e17473b58e1e99fb461aad66c385a84f15d09a276631d9c34d797c5ad",
+    "octo-web-port-tests-autostart.json": "937082723c4ec189947e83e6119a5e0716b85b76e8df71f2a89b8e4b440b723e",
+    "octo-web-port-tests-ui.txt": "3cda6ed219aab3c51c146f22d315bde96e7695c69d2b690e1d8abb9df9b93f01",
+    "octo-web-port-tests-final-status.json": "b681986d5ea50aa0d45391b18f3c87d6b95939747abe3342a23e40845596359a"
+  },
+  "background_opacity": 0.5,
+  "optical_output_verified": false,
+  "final_changes_since_full_acceptance": [
+    "firmware\\teensy41_artnet\\include\\web_assets.h",
+    "firmware\\teensy41_artnet\\web\\index.html",
+    "firmware\\teensy41_artnet\\web\\styles.css"
+  ],
+  "note": "Final packaging removes trailing blank lines in HTML/CSS only; runtime sources unchanged. All final HTTP assets verified byte-for-byte."
+}

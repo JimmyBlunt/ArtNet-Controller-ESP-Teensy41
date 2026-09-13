@@ -136,6 +136,16 @@ void dispatch(Slot& slot) {
             error(slot, 400, "TEST_RANGE_OUTPUT_0_8_SECONDS_1_600"); return;
         }
         ok = controller::test(json["output"].as<unsigned>(), json["seconds"].as<unsigned>(), detail, sizeof(detail));
+    } else if (!strcmp(path, "/api/test-pattern")) {
+        if (!json["action"].is<const char*>()) { error(slot, 400, "TEST_ACTION_REQUIRED"); return; }
+        const char* action = json["action"];
+        if (!strcmp(action, "stop")) { controller::endPattern(); ok = true; }
+        else if (!strcmp(action, "start") || !strcmp(action, "loop")) {
+            if (!json["output"].is<unsigned>() || json["output"].as<unsigned>() > 8) {
+                error(slot, 400, "OUTPUT_RANGE_0_8"); return;
+            }
+            ok = controller::pattern(json["output"].as<unsigned>(), !strcmp(action, "loop"), detail, sizeof(detail));
+        } else { error(slot, 400, "UNKNOWN_TEST_ACTION"); return; }
     } else if (!strcmp(path, "/api/reboot")) {
         ok = controller::reboot(detail, sizeof(detail));
     } else { error(slot, 404, "NOT_FOUND"); return; }

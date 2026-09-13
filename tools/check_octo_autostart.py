@@ -71,7 +71,7 @@ def main(args):
             assert on(before) and before['artnet_waiting'] and before['black_latched']
             assert before['lengths'] == LENGTHS and before['pins'] == PINS
             assert before['start_universes'] == STARTS
-            assert before['build_revision'] == 'orbital-prism-autostart-20260913'
+            assert before['build_revision'] == args.revision
             # Confirm a quiet sender interval before injecting an isolated stream.
             time.sleep(1.2)
             quiet = snapshot('delayed_sender_wait')
@@ -162,4 +162,5 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--ip', required=True)
     parser.add_argument('--report', type=Path, required=True)
+    parser.add_argument('--revision', default='orbital-prism-autostart-20260913')
     main(parser.parse_args())

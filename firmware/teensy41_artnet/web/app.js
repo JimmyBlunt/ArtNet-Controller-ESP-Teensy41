@@ -7,6 +7,8 @@ const $ = id => document.getElementById(id);
 const clone = value => JSON.parse(JSON.stringify(value));
 let config = null, status = null, dirty = false, connected = false, busy = false;
 let packetSample = null, pollTimer = null, requestQueue = Promise.resolve();
+let testSampleAt = 0;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const events = [];
 
 function log(message) {
@@ -180,8 +182,21 @@ function buildCards() {
     const badge = document.createElement("span"); badge.className = "badge"; badge.textContent = out.enabled ? "Aktiv konfiguriert" : "Deaktiviert"; top.append(title, badge);
     const count = document.createElement("div"); count.className = "led-count"; count.textContent = out.pixelCount + " "; const suffix = document.createElement("small"); suffix.textContent = "LEDs"; count.append(suffix);
     const detail = document.createElement("p"); detail.className = "muted"; detail.textContent = out.enabled ? `Universe ${out.startUniverse}–${out.startUniverse + Math.ceil(out.pixelCount / 170) - 1} · ${out.colorOrder} · ${out.reverse ? "umgekehrt" : "vorwärts"}` : "Zum Aktivieren unter Ausgänge konfigurieren.";
-    const button = document.createElement("button"); button.dataset.test = String(id + 1); button.textContent = `OUT ${id + 1} identifizieren · 30 s`; button.disabled = true;
-    card.append(top, count, detail, button); fragment.append(card);
+    const buttons = document.createElement("div"); buttons.className = "actions";
+    for (const [mode, label] of [["start", "Einmal · 20 s"], ["loop", "Im Loop"]]) {
+      const button = document.createElement("button"); button.dataset.test = String(id + 1);
+      button.dataset.mode = mode; button.textContent = label;
+      button.setAttribute("aria-label", `OUT ${id + 1}: ${label}`); button.disabled = true; buttons.append(button);
+    }
+    const identify = document.createElement("button"); identify.dataset.identify = String(id + 1);
+    identify.textContent = "Portnummer blinken"; identify.className = "quiet"; identify.disabled = true;
+    identify.setAttribute("aria-label", `OUT ${id + 1}: Portnummer blinken`); buttons.append(identify);
+    const preview = document.createElement("div"); preview.className = "test-preview"; preview.dataset.preview = String(id + 1);
+    const label = document.createElement("div"); label.className = "preview-label"; label.textContent = "Testvorschau · aus";
+    const strip = document.createElement("div"); strip.className = "preview-leds"; strip.setAttribute("aria-hidden", "true");
+    for (let p = 0; p < Math.min(32, out.pixelCount); p++) strip.append(document.createElement("i"));
+    preview.append(label, strip);
+    card.append(top, count, detail, preview, buttons); fragment.append(card);
   });
   $("outputCards").replaceChildren(fragment);
   $("statPixels").textContent = config.outputs.reduce((sum, out) => sum + (out.enabled ? out.pixelCount : 0), 0).toLocaleString("de-DE");
@@ -200,15 +215,23 @@ function updateControls() {
   $("export").disabled = !config || busy;
   $("import").disabled = !editable;
   $("reboot").disabled = !available || !isStopped() || !!status?.unsaved;
-  const testReady = available && !!config && isStopped() && !status?.reboot_required && !status?.configuration_fault;
+  const testReady = available && !!config && !dirty && !status?.reboot_pending && !status?.reboot_required && !status?.configuration_fault;
   $("testAll").disabled = !testReady || !config?.outputs.some(out => out.enabled && out.pixelCount > 0);
-  document.querySelectorAll("[data-test]").forEach(button => { const out = config?.outputs[Number(button.dataset.test) - 1]; button.disabled = !testReady || !out?.enabled || !out.pixelCount; });
+  $("testLoopAll").disabled = $("testAll").disabled;
+  $("testEnd").disabled = !available || !status?.test_pattern;
+  document.querySelectorAll("[data-test]").forEach(button => {
+    const out = config?.outputs[Number(button.dataset.test) - 1]; button.disabled = !testReady || !out?.enabled || !out.pixelCount;
+    button.setAttribute("aria-pressed", String(!!status?.test_pattern && status.selection === Number(button.dataset.test) && !!status.test_loop === (button.dataset.mode === "loop")));
+  });
+  for (const [id, loop] of [["testAll", false], ["testLoopAll", true]]) $(id).setAttribute("aria-pressed", String(!!status?.test_pattern && status.selection === 0 && !!status.test_loop === loop));
+  document.querySelectorAll("[data-identify]").forEach(button => { const out = config?.outputs[Number(button.dataset.identify) - 1]; button.disabled = !testReady || !isStopped() || !out?.enabled; });
   $("draftNotice").hidden = !dirty;
   $("configMsg").textContent = !config ? "Konfiguration wird geladen." : dirty ? "Formularentwurf noch nicht angewendet. Speichern ist erst nach Anwenden möglich." : !isStopped() ? "Ausgabe stoppen, um Einstellungen anzuwenden oder dauerhaft zu speichern." : status?.unsaved ? "RAM-Konfiguration geändert; noch nicht dauerhaft gespeichert." : "Konfiguration geladen. Änderungen werden nur durch die jeweiligen Schaltflächen übertragen.";
 }
 function format(value, digits = 0) { return typeof value === "number" && Number.isFinite(value) ? value.toLocaleString("de-DE", {maximumFractionDigits: digits}) : value === undefined || value === null ? "—" : String(value); }
 function renderStatus(next) {
   status = next; connected = true;
+  testSampleAt = performance.now();
   $("connectionStatus").textContent = next.ip || "Verbunden"; $("connectionStatus").className = "badge online";
   $("railState").textContent = "Verbunden"; $("railState").className = "signal online";
   const states = {DISARMED: "Ausgabe nicht gestartet", STOPPED: "Ausgabe gestoppt · Schwarzbild abgeschlossen", ARTNET_RUNNING: "Art-Net-Ausgabe aktiv", TEST_RUNNING: "Ausgangstest aktiv", STOP_WAIT_PREVIOUS_DMA: "Stopp läuft · vorherige Übertragung abwarten", STOP_WAIT_BLACK_DMA: "Stopp läuft · Schwarzbild wird übertragen"};
@@ -226,6 +249,39 @@ function renderStatus(next) {
   for (const [label, key] of metrics) { const row = document.createElement("div"), title = document.createElement("span"), value = document.createElement("strong"); title.textContent = label; value.textContent = format(next[key], 2); row.append(title, value); fragment.append(row); }
   $("diagnostics").replaceChildren(fragment); $("raw").textContent = JSON.stringify(next, null, 2);
   updateControls();
+  renderTestPreview();
+}
+function renderTestPreview() {
+  if (!config || document.hidden) return;
+  const age = performance.now() - testSampleAt;
+  const fresh = connected && age < 2500;
+  const active = fresh && status?.test_pattern && status.state === "TEST_RUNNING";
+  const elapsed = active ? status.test_duration_ms + (reducedMotion.matches ? 0 : age) : 0;
+  const cycle = status?.test_loop ? elapsed % 20000 : Math.min(elapsed, 20000);
+  const color = cycle < 1000 || cycle >= 19000 ? "black" : cycle < 7000 ? "red" : cycle < 13000 ? "green" : "blue";
+  const names = {black: "Schwarz", red: "Rot", green: "Grün", blue: "Blau"};
+  const frame = Number(status?.test_frame_index || 0) + (active && !reducedMotion.matches ? Math.floor(age / Math.max(50, Number(status.frame_period_us) / 1000)) : 0);
+  const description = active ? `${names[color]} · ${color === "black" ? "Schwarzphase" : "4er-Lauflicht"} · ${status.selection ? "OUT " + status.selection : "alle aktiven Ports"} · ${status.test_loop ? "Loop" : "einmal"}` : !fresh ? "Teststatus nicht aktuell" : status?.test_pending ? "Test wird vorbereitet …" : "Kein Test aktiv";
+  if ($("testPhase").textContent !== description) $("testPhase").textContent = description;
+  $("testProgress").value = active ? cycle / 1000 : 0;
+  document.querySelectorAll("[data-preview]").forEach(preview => {
+    const port = Number(preview.dataset.preview), out = config.outputs[port - 1];
+    const selected = active && out.enabled && (!status.selection || status.selection === port);
+    preview.dataset.color = selected ? color : "black";
+    const label = selected ? `Testvorschau · ${names[color]} · ${color === "black" ? "Schwarzphase" : "4 von 32 LEDs laufen"}` : "Testvorschau · aus";
+    if (preview.firstChild.textContent !== label) preview.firstChild.textContent = label;
+    preview.lastChild.childNodes.forEach((dot, i) => {
+      const pixel = out.reverse ? out.pixelCount - 1 - i : i;
+      dot.classList.toggle("lit", selected && color !== "black" && (pixel + frame % 32) % 32 < 4);
+    });
+  });
+}
+setInterval(renderTestPreview, 50);
+async function testAction(mode, output = 0) {
+  await action(async () => {
+    await request("/api/test-pattern", {action: mode, output});
+    notice(mode === "stop" ? "Test beendet. Der vorherige Art-Net-Betrieb wird wieder freigegeben." : `${output ? "OUT " + output : "Alle aktiven Ports"}: RGB-Lauflicht ${mode === "loop" ? "im Loop bis Test beenden oder Stop" : "einmal für 20 Sekunden"}.`);
+  });
 }
 async function loadConfig() {
   const next = validate(await request("/api/config"));
@@ -261,14 +317,17 @@ function go(page) {
 }
 document.addEventListener("click", event => {
   const nav = event.target.closest("[data-page],[data-go]"); if (nav) go(nav.dataset.page || nav.dataset.go);
-  const test = event.target.closest("[data-test]"); if (test && !test.disabled) action(async () => { await request("/api/test", {output: Number(test.dataset.test), seconds: 30}); notice(`OUT ${test.dataset.test}: Identifikation gestartet, maximal 30 Sekunden. Leuchtmuster am tatsächlichen Ausgang prüfen.`); });
+  const test = event.target.closest("[data-test]"); if (test && !test.disabled) testAction(test.dataset.mode, Number(test.dataset.test));
+  const identify = event.target.closest("[data-identify]"); if (identify && !identify.disabled) action(async () => { await request("/api/test", {output: Number(identify.dataset.identify), seconds: 30}); notice(`OUT ${identify.dataset.identify}: Portnummer blinkt für maximal 30 Sekunden.`); });
 });
 document.addEventListener("input", event => { if (event.target.matches("[data-edit]") && config) { dirty = true; updateDraftSummary(); updateControls(); } });
 document.addEventListener("change", event => { if (event.target.matches("[data-edit]") && config) { dirty = true; updateDraftSummary(); updateControls(); } });
 $("configForm").addEventListener("submit", event => event.preventDefault());
 $("start").onclick = () => action(async () => { await request("/api/start", {}); notice("Art-Net-Ausgabe gestartet."); });
 $("stop").onclick = () => action(async () => { await request("/api/stop", {}); notice("Stopp angefordert. Der Schwarzbildabschluss wird abgewartet; den bestätigten Zustand zeigt die Statuszeile. Art-Net danach bei Bedarf ausdrücklich starten."); });
-$("testAll").onclick = () => action(async () => { await request("/api/test", {output: 0, seconds: 30}); notice("Paralleler Test gestartet, maximal 30 Sekunden. Alle acht physischen Ausgänge prüfen."); });
+$("testAll").onclick = () => testAction("start");
+$("testLoopAll").onclick = () => testAction("loop");
+$("testEnd").onclick = () => testAction("stop");
 $("apply").onclick = () => action(async () => { const draft = validate(getDraft()); await request("/api/config", draft); await loadConfig(); notice("Konfiguration im RAM angewendet. Dauerhaft speichern erhält sie nach einem Neustart."); });
 $("save").onclick = () => action(async () => { await request("/api/save", {}); notice("Konfiguration dauerhaft gespeichert."); });
 $("reload").onclick = () => { if (!dirty || window.confirm("Ungespeicherten Formularentwurf verwerfen und Controller-Konfiguration neu laden?")) action(async () => { await loadConfig(); notice("Konfiguration neu geladen."); }); };

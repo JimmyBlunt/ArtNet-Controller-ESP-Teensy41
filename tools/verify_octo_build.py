@@ -36,8 +36,15 @@ def inspect(build_dir, nm):
     sources += [fw / 'platformio.ini', root / 'firmware/include/board_profiles/PjrcOctoAdapterT41.h']
     if environment == 'teensy41_octo_web_rx32':
         sources += sorted((fw / 'web').glob('*'))
+    revision = None
+    if environment == 'teensy41_octo_web_rx32':
+        match = re.search(r'out\["build_revision"\]\s*=\s*"([^"]+)"', (fw / 'src/web_main.cpp').read_text())
+        revision = match.group(1) if match else None
+        if revision and revision.encode() not in elf.read_bytes():
+            raise ValueError('Build revision absent from ELF')
     return {
         'environment': environment,
+        'build_revision': revision,
         'board_profile': 'PJRC_OCTO_ADAPTER_T41',
         'output_profile': output_profile,
         'rx_buffer_bytes': rx_buffers[0], 'rx_descriptor_bytes': rx_ring[0],

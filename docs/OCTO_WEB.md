@@ -17,9 +17,14 @@ Buchsenzuordnung sind weiter elektrisch beziehungsweise optisch zu bestätigen.
   Latchzeit. Die Zustandsanzeige unterscheidet beide Wartephasen von `STOPPED`.
   Ein manueller Stop bleibt auch bei eintreffenden Daten wirksam; der nächste
   ausdrückliche Start oder Neustart aktiviert die Ausgabe wieder.
-- Einzeltests identifizieren OUT1–OUT8 anhand von Blinkanzahl und wechselndem
+- **Einmal · 20 s** und **Im Loop** starten direkt auf der jeweiligen Portkarte
+  ein RGB-Lauflicht über die konfigurierte Kette. **Alle · Einmal / Im Loop**
+  testen alle aktivierten Ports parallel. Kein vorheriger Stop ist nötig.
+  **Test beenden** und das natürliche Ende eines Einmaldurchlaufs stellen den
+  vorherigen Art-Net-Modus wieder her. **Stop · LEDs aus** bleibt dagegen gestoppt.
+- **Portnummer blinken** identifiziert nach Stop OUT1–OUT8 anhand von Blinkanzahl und wechselndem
   Rot/Grün/Blau; bei jeder Ausgabe leuchten höchstens so viele Pixel wie die
-  Ausgangsnummer. Tests enden automatisch nach 30 Sekunden, Helligkeit maximal
+  Ausgangsnummer. Diese Identifikation endet nach 30 Sekunden, Helligkeit maximal
   8/255. Der Gesamttest umfasst alle aktiv konfigurierten Ausgänge.
 - Unter **Ausgänge** werden Länge, Startuniversum, RGB-Farbreihenfolge,
   Pixelrichtung, globale Helligkeit und Ziel-FPS eingestellt. Die GPIOs sind fest.
@@ -204,3 +209,45 @@ Das zu frühe Leeren eines Teilframes beim Warten auf den ersten Sender wurde
 im endgültigen Build korrigiert. Historische Prüfprogramme mit der Voraussetzung
 „DISARMED, keine initialisierten Kanäle“ bleiben für die älteren Builds erhalten;
 für den aktuellen Build gilt `tools/check_octo_autostart.py`.
+
+## Porttests, animierte Vorschau und 50 % Hintergrund
+
+Build `orbital-port-tests-20260913` ergänzt den aus `Schrank-LED/firmware/src/HardwareTest.cpp`
+übernommenen WS2812B-Ablauf: 1 s Schwarz, 6 s Rot, 6 s Grün, 6 s Blau, 1 s Schwarz.
+Ein Lauflichtblock enthält vier Pixel pro 32, Zielintervall 50 ms. Der Rotanteil
+ist doppelt so hoch wie Grün/Blau; globale Testhelligkeit höchstens 36/255 und
+niemals höher als die gespeicherte Einstellung. Ein einmaliger Test endet nach
+20 s; Loop läuft bis „Test beenden“ oder globalem Stop. Deaktivierte Ports bleiben aus.
+
+Vor Teststart/Portwechsel, Testende und Rückkehr zu Art-Net werden vorige DMA und
+ein eigenes Schwarzbild samt Latch abgeschlossen. Während des Tests aufgebaute
+Art-Net-Frames werden beim Übergang verworfen; der folgende vollständige Frame
+darf wieder ausgegeben werden. Manueller Stop löscht auch einen vorgemerkten Test.
+Wer einen Test aus STOP startet, bleibt nach Testende gestoppt.
+
+Neue API: `POST /api/test-pattern` mit `{"action":"start","output":6}` oder
+`{"action":"loop","output":0}`. Physische OUT1–OUT8, 0 = alle aktiven Ports.
+`{"action":"stop"}` beendet nur den Test und stellt den vorherigen Betriebsmodus
+wieder her. Die ältere `/api/test`-Identifikation bleibt erhalten.
+
+Status ergänzt `test_pattern`, `test_loop`, `test_pending`, `test_phase`,
+`test_frame_index`, `test_resume_artnet`. Die Portkarten zeigen eine animierte
+Vorschau der ersten bis zu 32 Pixel einschließlich Pixelrichtung, Farbe und Muster.
+Sie wird aus Testzeit/Framezähler zwischen Statusabfragen fortgeschrieben; sie ist
+keine optische Rückmeldung. Bei veraltetem Status (>2,5 s) wird sie ausgeblendet;
+reduzierte Bewegung verzichtet auf das Fortschreiben zwischen Statusmeldungen.
+
+Orbital Prism ist jetzt mit **50 % Deckkraft** eingebettet. Die linke Bogenposition
+bleibt erhalten. Die 100-%-Angaben im vorigen Abnahmeabschnitt sind historisch.
+Build-/Flash-/Geräte-/Browsernachweise dieser Erweiterung tragen den Präfix
+`reports/octo-web-port-tests-*`. RGB-Ausgabe wurde damit funktional geprüft;
+die optische Bestätigung der Buchsenbelegung bleibt separat.
+
+Geräteabnahme: alle sieben Portauswahlen, sämtliche RGB-Phasen des Einmaldurchlaufs,
+Wiederholung des Gesamttests nach 20 Sekunden, Moduswiederherstellung, manueller
+Stop und sieben fehlerhafte Anfragen geprüft. Browserabnahme: einzelne wandernde
+4er-Blöcke auf OUT6, sieben gleichzeitige Portvorschauen beim Gesamttest und
+Mobilansicht ohne horizontalen Überlauf bei 50 % Deckkraft. Autostart-/Empfangstest
+erneut bestanden (60/60 Bilder, 1740/1740 Pakete, keine Queue-Drops). Gespeicherte
+Konfiguration unverändert. `octo-web-port-tests-release.json` verknüpft die finalen
+Artefakte und Prüfnachweise; zum Abschluss bleibt Art-Net AN ohne laufenden Test.
