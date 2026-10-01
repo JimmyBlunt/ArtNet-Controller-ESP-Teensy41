@@ -55,6 +55,67 @@ def icon(x, y, kind, color=C):
     return ''.join(dot(x+col*14-28, y+row*14-14, color, 3) for row in range(3) for col in range(5))
 
 
+def cube(x, y, size, color=C):
+    """Small axonometric data cube with a luminous top face."""
+    a, b = size*.52, size*.28
+    return (f'<polygon points="{x},{y} {x+a},{y-b} {x+2*a},{y} {x+a},{y+b}" fill="{color}" fill-opacity=".32" stroke="{color}"/>'
+            f'<polygon points="{x},{y} {x+a},{y+b} {x+a},{y+size+b} {x},{y+size}" fill="#102238" stroke="{color}" stroke-opacity=".8"/>'
+            f'<polygon points="{x+a},{y+b} {x+2*a},{y} {x+2*a},{y+size} {x+a},{y+size+b}" fill="{color}" fill-opacity=".18" stroke="{color}" stroke-opacity=".8"/>')
+
+
+def holo_icon(x, y, kind, color=C):
+    """Glowing technical icon used as an infographic focal point."""
+    s = f'<circle cx="{x}" cy="{y}" r="36" fill="{color}" fill-opacity=".06" stroke="{color}" stroke-opacity=".55"/>'
+    if kind == 'packet':
+        s += cube(x-22,y-20,20,color)+cube(x+2,y-8,20,color)
+        s += path(f'M{x-5} {y+22} H{x+25}',color,2,True,False,True)
+    elif kind == 'route':
+        s += path(f'M{x-24} {y-18} H{x-7} V{y} H{x+9} V{y+18} H{x+25}',color,3,True,False,True)
+        for px,py in [(x-24,y-18),(x-7,y),(x+9,y+18)]: s += dot(px,py,color,4)
+    elif kind == 'mask':
+        s += '<path d="M0 0"/>'
+        for i in range(3):
+            for j in range(3):
+                s += f'<rect x="{x-20+j*14}" y="{y-20+i*14}" width="9" height="9" rx="2" fill="{color}" fill-opacity="{.9 if (i+j)%2==0 else .2}" stroke="{color}"/>'
+    elif kind == 'led':
+        for i in range(4): s += path(f'M{x-25} {y-20+i*13} H{x+18}',color,2,True)+dot(x+24,y-20+i*13,color,4)
+    elif kind == 'clock':
+        s += f'<circle cx="{x}" cy="{y}" r="22" fill="none" stroke="{color}" stroke-width="3"/><path d="M{x} {y-14} V{y} L{x+13} {y+8}" fill="none" stroke="{color}" stroke-width="3"/>'
+    elif kind == 'wave':
+        s += path(f'M{x-25} {y} H{x-16} L{x-8} {y-19} L{x+2} {y+19} L{x+12} {y-10} L{x+20} {y} H{x+26}',color,3,True)
+    elif kind == 'check':
+        s += f'<circle cx="{x}" cy="{y}" r="22" fill="none" stroke="{color}" stroke-width="3"/><path d="M{x-12} {y} l9 10 17 -22" fill="none" stroke="{color}" stroke-width="4"/>'
+    else:
+        s += icon(x,y,kind,color)
+    return s
+
+
+def platform(x, y, w, h, color=C, depth=28):
+    """Layered transparent isometric slab, sized to sit behind its contents."""
+    p1=f'{x},{y} {x+w*.5},{y-h*.29} {x+w},{y} {x+w*.5},{y+h*.29}'
+    p2=f'{x},{y} {x+w*.5},{y+h*.29} {x+w*.5},{y+h*.29+depth} {x},{y+depth}'
+    p3=f'{x+w*.5},{y+h*.29} {x+w},{y} {x+w},{y+depth} {x+w*.5},{y+h*.29+depth}'
+    return (f'<polygon points="{p1}" fill="{color}" fill-opacity=".045" stroke="{color}" stroke-opacity=".58"/>'
+            f'<polygon points="{p2}" fill="{color}" fill-opacity=".08" stroke="{color}" stroke-opacity=".65"/>'
+            f'<polygon points="{p3}" fill="{color}" fill-opacity=".13" stroke="{color}" stroke-opacity=".75"/>'
+            + path(f'M{x+8} {y+depth-2} L{x+w*.5} {y+h*.29+depth-2} L{x+w-8} {y+depth-2}',color,2,True))
+
+
+def octo_board(x, y):
+    """Tiny isometric adapter illustration: two RJ45 jacks, eight lanes."""
+    w,h=150,48
+    s=platform(x,y,w,h,V,16)
+    # Paired connectors on the board's upper surface.
+    for dx in [22,62]:
+        s += f'<polygon points="{x+dx},{y-4} {x+dx+18},{y-14} {x+dx+37},{y-4} {x+dx+19},{y+7}" fill="#142b42" stroke="{C}" stroke-width="1.5"/>'
+        s += f'<path d="M{x+dx+8} {y-4} h18 v8 h-18z" fill="{C}" fill-opacity=".3" stroke="{C}"/>'
+    for i in range(8):
+        xx=x+20+i*15
+        s += path(f'M{xx} {y+19} l17 -9',G,1,True)
+        s += dot(xx+17,y+10,G,2.5)
+    return s
+
+
 def header(n, title, subtitle):
     return label(56, 46, f'ART-NET CONTROLLER   /   {n}') + txt(56, 102, title, 43, WHITE, 650) + txt(56, 143, subtitle, 22, MUTED)
 
@@ -108,10 +169,14 @@ def pipeline():
         s += panel(x,190,w-8,95,color) + label(x+14,219,f'BYTE {offset}',color) + txt(x+14,256,name,18)
         x += w
     s += panel(56,303,1328,61,G) + txt(80,342,'18…  DMX payload: even length 2–512 bytes   •   This project maps 170 RGB pixels into 510 channels.',22,G)
+    # A floating route carries packet cubes across the four processing stages.
+    for cx,col,kind in [(208,C,'packet'),(548,C,'route'),(888,V,'mask'),(1228,G,'led')]:
+        s += path(f'M{cx} 391 V414',col,2,True,True) + holo_icon(cx,390,kind,col)
     for x,k,t,rows,col in [(56,'01 / VALIDATE','Check the datagram',['Header, opcode, version','Exact size = 18 + length'],C),(396,'02 / ROUTE','Match active output',['Universe → RGB offset','Enough bytes for this route'],C),(736,'03 / COLLECT','Set the route bit',['One shared sequence*','All expected bits received'],V),(1076,'04 / READY','Publish the frame',['Copy complete RGB data','Replace older waiting frame'],G)]:
         s += card(x,412,308,175,k,t,rows,col)
         if x<1076: s += path(f'M{x+308} 499 H{x+335}',col,3,True,False,True)
     s += panel(56,632,822,169,V) + label(80,666,'DEFAULT TEENSY MAP / 29 ACTIVE UNIVERSES',V)
+    # Raised universe tiles make the active-address mask read as a data layer.
     x=82
     for universe in range(120,150):
         col = MUTED if universe==138 else C
@@ -129,6 +194,7 @@ def tests():
     s = header('03 / CONTROL & TESTING', 'Make every output observable.', 'Start automatically, isolate a port, inspect a pattern, then return to the Art-Net stream.')
     for x,k,t,rows,col in [(56,'01 / BOOT','Art-Net ON',['Valid configuration required','Black until a complete frame'],C),(509,'02 / STREAM','Render when ready',['Armed + complete + DMA idle','Output period must be due'],V),(962,'03 / SIGNAL LOSS','Black once',['No complete frame > 1 s','Remain armed; auto-recover'],O)]:
         s += card(x,204,422,183,k,t,rows,col)
+        s += holo_icon(x+378,239,{'01 / BOOT':'chip','02 / STREAM':'wave','03 / SIGNAL LOSS':'clock'}[k],col)
         if x<962: s += path(f'M{x+422} 296 H{x+449}',col,3,True,False,True)
     s += path('M1173 387 V415 H720 V387',C,2,True,True,True) + label(867,443,'COMPLETE DATA RETURNS',C)
     s += panel(56,480,1328,231,V)
@@ -141,8 +207,9 @@ def tests():
     s += txt(647,601,'R → G → B',22) + txt(647,635,'Running-light pattern',19,MUTED)
     s += path('M873 584 H940',G,3,True,False,True)
     s += txt(968,559,'Restore',28,WHITE,600) + txt(968,598,'Return to the previous state',20,MUTED) + txt(968,631,'Confirm the physical output',20,MUTED)
+    s += holo_icon(1282,552,'check',G)
     s += txt(80,683,'Web preview shows the commanded color and pattern; a camera or direct inspection verifies actual LEDs.',21,MUTED)
-    s += panel(56,749,1328,62,G) + txt(80,789,'ACCEPTANCE   Identify and label each RJ45 lane individually → verify all active lanes in parallel → test stream recovery.',21,G)
+    s += panel(56,749,1328,62,G) + octo_board(74,778) + txt(256,789,'ACCEPTANCE   Label each RJ45 lane → test lanes together → verify stream recovery.',21,G)
     save('03-run-and-test.svg','Teensy automatic start and port test workflow','Valid configuration starts armed. Complete data, idle DMA and an elapsed output period permit rendering. Signal loss blacks out once and recovery is automatic. Select one or all active ports and a single or looping RGB running-light test. The web preview is not physical feedback.',s)
 
 
@@ -153,9 +220,14 @@ def performance():
     s = header('04 / MEASURED PERFORMANCE', 'Receive rate is not display rate.', 'Archived hardware run · 13 Sep 2026 · 4,031 pixels · 29 universes · 40 FPS sender target / 30 FPS output target')
     for x,val,title,sub,col in [(56,complete,'COMPLETE FRAMES',f"{float(row['empfang_fps']):.2f} complete frames/s",C),(509,dma,'DMA COMPLETIONS',f"{float(row['dma_fps']):.2f} completions/s",G),(962,replaced,'WAITING FRAMES REPLACED','Newest complete frame wins',P)]:
         s += panel(x,203,422,171,col) + label(x+24,237,title,col) + txt(x+24,303,f'{val:,}',59,WHITE,650) + txt(x+24,346,sub,22,MUTED)
+    s += holo_icon(447,242,'network',C)+holo_icon(900,242,'led',G)+holo_icon(1352-16,242,'clock',P)
     barw=1278
     s += label(56,417,'SETTLED RUN: 1,195 COMPLETE = 900 OUTPUT + 295 REPLACED',C)
     s += f'<rect x="56" y="441" width="{barw*dma/complete:.2f}" height="25" rx="7" fill="{G}"/><rect x="{56+barw*dma/complete:.2f}" y="441" width="{barw*replaced/complete:.2f}" height="25" rx="7" fill="{P}"/>'
+    # Extrude each proportional bar segment downward to create a compact 3D meter.
+    split=56+barw*dma/complete
+    s += f'<polygon points="56,466 {split:.2f},466 {split:.2f},480 56,480" fill="{G}" fill-opacity=".38" stroke="{G}" stroke-opacity=".7"/>'
+    s += f'<polygon points="{split:.2f},466 1334,466 1334,480 {split:.2f},480" fill="{P}" fill-opacity=".3" stroke="{P}" stroke-opacity=".7"/>'
     s += txt(56,502,'34,655 / 34,655 packets received · 0 incomplete frames · 0 UDP queue drops',23,MUTED)
     s += card(56,548,646,197,'CODE-DERIVED OUTPUT BUDGET','The longest parallel lane sets wire time.', ['Wire guard = 30 µs × longest lane + 300 µs','880 pixels → 26.70 ms guard','Period = max(ceil(1,000,000 / target FPS), guard)'],V)
     s += card(738,548,646,197,'WHERE WORK CAN ACCUMULATE','Network burst → CPU → LED output', ['32 RX descriptors → 96-packet UDP queue','Copy + FastLED.show() preparation use CPU time','DMA runs asynchronously; completion is polled'],O)
@@ -168,16 +240,19 @@ def diagnostics():
     s = header('05 / DIAGNOSE & TUNE', 'Find the first stage that stops progressing.', 'Compare counter deltas over the same interval. Change one variable, repeat, and verify recovery.')
     for x,k,t,rows,col in [(56,'01 / PACKETS','Traffic arrives',['Count includes rejected data','890 pkt/s ≠ complete frames'],C),(396,'02 / COMPLETE','Frame assembled',['Coverage + length + sequence','Check incomplete / rejected'],V),(736,'03 / SUBMIT','Output scheduled',['Armed? DMA idle? Period due?','Check waiting replacements'],G),(1076,'04 / DMA','Transfer completes',['Compare submit/completion','Check timing + physical LEDs'],O)]:
         s += card(x,204,308,177,k,t,rows,col)
+        s += holo_icon(x+268,239,{'01 / PACKETS':'packet','02 / COMPLETE':'mask','03 / SUBMIT':'wave','04 / DMA':'led'}[k],col)
         if x<1076: s += path(f'M{x+308} 293 H{x+335}',col,3,True,False,True)
     for x,col in [(210,C),(550,V),(890,G),(1230,O)]: s += path(f'M{x} 381 V423',col,2,True,False,True)
     rows=[(56,C,'CHECK THE INPUT',['Check target IP + UDP 6454','Inspect header and payload size','Compare sent / received counts']), (396,V,'CHECK FRAME CONTRACT',['Expect only active routes','Match Teensy shared sequence','Partial age >100 ms → abandon']), (736,G,'CHECK OUTPUT BUDGET',['Align input / output target FPS','Balance the longest LED chains','Separate replacement from loss']), (1076,O,'CHECK TRANSFER & LIGHT',['Compare show() / DMA timing','Use non-black test patterns','Check wiring, power, recovery'])]
     for x,col,title,lines in rows:
         s += panel(x,436,308,163,col) + label(x+20,471,title,col)
+        s += holo_icon(x+264,464,{'CHECK THE INPUT':'packet','CHECK FRAME CONTRACT':'route','CHECK OUTPUT BUDGET':'clock','CHECK TRANSFER & LIGHT':'check'}[title],col)
         for i,r in enumerate(lines): s += txt(x+20,507+i*29,r,18,MUTED)
     s += panel(56,644,1328,175,V) + label(80,679,'CONTROLLED TUNING / CANDIDATES TO MEASURE',V)
     s += txt(80,721,'PACE',25,C,600) + txt(80,756,'Spread packet bursts;',20,MUTED) + txt(80,786,'100 µs was not a universal fix.',20,MUTED)
     s += txt(489,721,'PROFILE',25,V,600) + txt(489,756,'Measure RX ring, CPU gaps,',20,MUTED) + txt(489,786,'queue occupancy and frame age.',20,MUTED)
     s += txt(937,721,'VERIFY',25,G,600) + txt(937,756,'Repeat longer runs; consider',20,MUTED) + txt(937,786,'frame IDs / CRC + optical checks.',20,MUTED)
+    s += platform(420,814,600,20,G,12)
     save('05-diagnostics.svg','Art-Net diagnostics, errors and performance tuning','Follow packet, complete-frame, submit and DMA counters in order. Validate universe coverage, length and sequence before adjusting buffering. Distinguish intentional replacement from receive loss. Measure pacing, ring pressure and timing; use non-black patterns and physical checks.',s)
 
 
