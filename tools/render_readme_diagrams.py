@@ -120,7 +120,7 @@ def header(n, title, subtitle):
     return label(56, 46, f'ART-NET CONTROLLER   /   {n}') + txt(56, 102, title, 43, WHITE, 650) + txt(56, 143, subtitle, 22, MUTED)
 
 
-def save(name, title, desc, content, height=860):
+def save(name, title, desc, content, height=860, scene=False):
     deco = ''
     for i in range(7):
         yy = 230+i*35
@@ -136,8 +136,24 @@ def save(name, title, desc, content, height=860):
 <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#c7e1f3" stroke-width="1.7"/></marker>
 </defs><rect width="1440" height="{height}" rx="24" fill="url(#bg)"/>
 <ellipse cx="400" cy="450" rx="530" ry="420" fill="url(#halo)"/>
+{f'<ellipse cx="720" cy="{height-250}" rx="760" ry="210" fill="url(#halo)"/>' if scene else ''}
+{_floor(height) if scene else ''}
 <g opacity=".2">{deco}</g><g font-family="Segoe UI,Arial,sans-serif">{content}</g></svg>\n'''
     (OUT/name).write_text(s, encoding='utf-8', newline='\n')
+
+
+def _floor(height):
+    """Perspective stage grid kept behind scene artwork and labels."""
+    horizon=height-295
+    s=f'<path d="M0 {horizon} L1440 {horizon} L1440 {height} L0 {height}Z" fill="#091326" fill-opacity=".48"/>'
+    for i in range(17):
+        x=i*90
+        s+=f'<path d="M720 {horizon} L{x} {height}" fill="none" stroke="#56cce7" stroke-opacity=".075"/>'
+    for i in range(1,8):
+        y=horizon+(height-horizon)*(i/8)**1.7
+        s+=f'<path d="M0 {y} H1440" fill="none" stroke="#8376ea" stroke-opacity=".075"/>'
+    s+=f'<path d="M0 {horizon} H1440" stroke="{C}" stroke-opacity=".2" filter="url(#glow)"/>'
+    return s
 
 
 def system():
@@ -162,98 +178,149 @@ def system():
 
 
 def pipeline():
-    s = header('02 / PACKETS → FRAMES', 'A packet carries one universe.', 'A complete LED frame is a receiver-defined set of active universes, not one UDP datagram.')
-    fields = [('0–7','Art-Net + NUL',260,C),('8–9','0x5000 / LE',208,C),('10–11','Version / BE',208,C),('12','Sequence',168,V),('13','Physical',146,V),('14–15','Address / LE',198,V),('16–17','Length / BE',140,O)]
-    x = 56
-    for offset,name,w,color in fields:
-        s += panel(x,190,w-8,95,color) + label(x+14,219,f'BYTE {offset}',color) + txt(x+14,256,name,18)
-        x += w
-    s += panel(56,303,1328,61,G) + txt(80,342,'18…  DMX payload: even length 2–512 bytes   •   This project maps 170 RGB pixels into 510 channels.',22,G)
-    # A floating route carries packet cubes across the four processing stages.
-    for cx,col,kind in [(208,C,'packet'),(548,C,'route'),(888,V,'mask'),(1228,G,'led')]:
-        s += path(f'M{cx} 391 V414',col,2,True,True) + holo_icon(cx,390,kind,col)
-    for x,k,t,rows,col in [(56,'01 / VALIDATE','Check the datagram',['Header, opcode, version','Exact size = 18 + length'],C),(396,'02 / ROUTE','Match active output',['Universe → RGB offset','Enough bytes for this route'],C),(736,'03 / COLLECT','Set the route bit',['One shared sequence*','All expected bits received'],V),(1076,'04 / READY','Publish the frame',['Copy complete RGB data','Replace older waiting frame'],G)]:
-        s += card(x,412,308,175,k,t,rows,col)
-        if x<1076: s += path(f'M{x+308} 499 H{x+335}',col,3,True,False,True)
-    s += panel(56,632,822,169,V) + label(80,666,'DEFAULT TEENSY MAP / 29 ACTIVE UNIVERSES',V)
-    # Raised universe tiles make the active-address mask read as a data layer.
-    x=82
-    for universe in range(120,150):
-        col = MUTED if universe==138 else C
-        s += f'<rect x="{x}" y="692" width="18" height="26" rx="4" fill="{col}" fill-opacity="{.12 if universe==138 else .65}"/>'
-        if universe in [120,138,149]: s += txt(x+9,741,universe,14,col,anchor='middle')
-        x+=25
-    s += txt(80,777,'120–137 + 139–149 expected; 138 and disabled OUT8 are excluded.',20,MUTED)
-    s += panel(906,632,478,169,O) + label(930,666,'SHORT LAST PACKET / OUT1',O)
-    s += txt(930,703,'203 pixels = 170 + 33',27,WHITE,600) + txt(930,740,'U120: 510 bytes · U121: 99 RGB bytes',19,MUTED) + txt(930,774,'Send 100 bytes for U121 (even padding).',20,G)
-    s += txt(56,843,'* Shared non-zero sequence is a Teensy implementation contract. ESP tracks sequence per universe. Neither path implements ArtSync.',18,MUTED)
-    save('02-frame-pipeline.svg','ArtDmx packet anatomy and Teensy frame assembly','ArtDmx has an 18-byte header and an even 2–512-byte payload. This Teensy receiver requires all active route bits under one shared non-zero sequence. Defaults expect 29 universes, excluding gaps and disabled ports. OUT1 illustrates an even-padded short last packet. ArtSync is not implemented.',s,880)
+    s=header('02 / PACKETS → FRAMES','One packet enters. One complete frame emerges.','An ArtDmx universe is a slice of channel data; the LED frame is assembled across active routes.')
+    # Abstract packet ribbons feed an exploded, three-layer rendering stack.
+    s+=path('M60 412 C145 335 230 478 315 405 S465 340 520 405',C,5,True)
+    for x,y in [(100,379),(190,425),(280,396),(380,374),(468,420)]: s+=cube(x,y,28,C)
+    s+=label(62,330,'UDP / ARTDMX',C)+txt(62,356,'one universe per packet',17,MUTED)
+    for yy,col,name,detail,kind in [(440,C,'01  VALIDATE + ROUTE','Address · length · RGB destination','route'),(625,V,'02  COLLECT THE GLOBAL MASK','Every active universe · shared sequence','mask'),(810,G,'03  PUBLISH COMPLETE RGB','The newest complete image is ready','led')]:
+        s+=platform(235,yy,750,126,col,32)+holo_icon(350,yy-4,kind,col)
+        s+=label(420,yy-17,name,col)+txt(420,yy+13,detail,18,MUTED)
+        if yy<810:
+            s+=path(f'M600 {yy+46} V{yy+142}',col,4,True,True,True)
+            for ydot in (yy+67,yy+91,yy+115): s+=dot(600,ydot,col,3)
+    # A glowing 29-bit universe mask sits in perspective on the middle layer.
+    for i in range(29):
+        xx=650+(i%15)*17; yy=606+(i//15)*17; col=MUTED if i==18 else V
+        s+=f'<polygon points="{xx},{yy} {xx+7},{yy-4} {xx+14},{yy} {xx+7},{yy+4}" fill="{col}" fill-opacity="{.14 if i==18 else .85}" stroke="{col}" stroke-opacity=".6"/>'
+    s+=txt(650,661,'29 active route bits',14,V)
+    # The protocol packet is drawn as a vertical holographic schematic.
+    s+=panel(1028,202,356,608,C)+label(1058,242,'ARTDMX DATAGRAM',C)+txt(1058,278,'18-byte header',27,WHITE,600)
+    for i,(name,detail,col) in enumerate([('ID','Art-Net + NUL',C),('OpCode','0x5000 · little-endian',C),('Version','Protocol ≥ 14',C),('Sequence','0 disables ordering',V),('Port address','15-bit universe',V),('Length','even · 2 to 512',O)]):
+        y=319+i*56
+        s+=f'<path d="M1058 {y+7} H1090" stroke="{col}" stroke-width="5" opacity=".75"/>'
+        s+=label(1106,y+7,name,col)+txt(1106,y+30,detail,16,MUTED)
+    s+=f'<path d="M1058 676 H1352" stroke="{G}" stroke-width="24" opacity=".18" filter="url(#glow)"/><path d="M1058 676 H1352" stroke="{G}" stroke-width="3"/>'
+    s+=label(1058,710,'PAYLOAD · 18 + declared length',G)+txt(1058,744,'510 RGB bytes per full mapped universe',16,MUTED)
+    s+=panel(56,890,678,88,V)+label(80,921,'DEFAULT TEENSY ROUTES',V)+txt(80,954,'120–137 + 139–149  ·  29 active  ·  U138 is a gap',17,WHITE)
+    s+=panel(762,890,622,88,O)+label(786,921,'SHORT FINAL UNIVERSE · OUT1',O)+txt(786,954,'203 LEDs → 510 + 99 RGB bytes → send 100 (even)',17,WHITE)
+    s+=txt(56,1023,'Shared non-zero sequence is Teensy-specific. ESP tracks sequence per universe. Neither path implements ArtSync.',17,MUTED)
+    save('02-frame-pipeline.svg','Isometric ArtDmx packet and frame assembly','An abstract packet ribbon feeds large isometric validation, collection and RGB output layers. The central universe mask contains 29 expected route bits. A holographic packet schematic and short final universe example explain packet boundaries.',s,1055,True)
 
 
 def tests():
-    s = header('03 / CONTROL & TESTING', 'Make every output observable.', 'Start automatically, isolate a port, inspect a pattern, then return to the Art-Net stream.')
-    for x,k,t,rows,col in [(56,'01 / BOOT','Art-Net ON',['Valid configuration required','Black until a complete frame'],C),(509,'02 / STREAM','Render when ready',['Armed + complete + DMA idle','Output period must be due'],V),(962,'03 / SIGNAL LOSS','Black once',['No complete frame > 1 s','Remain armed; auto-recover'],O)]:
-        s += card(x,204,422,183,k,t,rows,col)
-        s += holo_icon(x+378,239,{'01 / BOOT':'chip','02 / STREAM':'wave','03 / SIGNAL LOSS':'clock'}[k],col)
-        if x<962: s += path(f'M{x+422} 296 H{x+449}',col,3,True,False,True)
-    s += path('M1173 387 V415 H720 V387',C,2,True,True,True) + label(867,443,'COMPLETE DATA RETURNS',C)
-    s += panel(56,480,1328,231,V)
-    s += label(80,516,'LOCAL PORT TEST / INDEPENDENT OF INCOMING ARTDMX',V)
-    s += txt(80,559,'Select',28,WHITE,600) + txt(80,597,'One port or all active ports',20,MUTED) + txt(80,630,'Once (~20 s) or continuous loop',20,MUTED)
-    s += path('M418 584 H485',V,3,True,False,True)
-    s += txt(513,559,'Animate',28,WHITE,600)
-    for i,col in enumerate(['#ff6c85','#69e4b5','#7ca5ff']):
-        for j in range(5): s += dot(523+j*20,592+i*28,col,4 if j!=i+1 else 7)
-    s += txt(647,601,'R → G → B',22) + txt(647,635,'Running-light pattern',19,MUTED)
-    s += path('M873 584 H940',G,3,True,False,True)
-    s += txt(968,559,'Restore',28,WHITE,600) + txt(968,598,'Return to the previous state',20,MUTED) + txt(968,631,'Confirm the physical output',20,MUTED)
-    s += holo_icon(1282,552,'check',G)
-    s += txt(80,683,'Web preview shows the commanded color and pattern; a camera or direct inspection verifies actual LEDs.',21,MUTED)
-    s += panel(56,749,1328,62,G) + octo_board(74,778) + txt(256,789,'ACCEPTANCE   Label each RJ45 lane → test lanes together → verify stream recovery.',21,G)
-    save('03-run-and-test.svg','Teensy automatic start and port test workflow','Valid configuration starts armed. Complete data, idle DMA and an elapsed output period permit rendering. Signal loss blacks out once and recovery is automatic. Select one or all active ports and a single or looping RGB running-light test. The web preview is not physical feedback.',s)
+    s=header('03 / OUTPUT & TESTING','Light from a named board profile.','Boot armed. Send a test pattern through the Octo adapter. Identify and verify each physical lane.')
+    # Status rail floats above the hardware scene.
+    for x,k,title,detail,col,kind in [(72,'01 / BOOT','ART-NET ON','Valid configuration',C,'chip'),(542,'02 / STREAM','WAIT → RENDER','Complete + DMA ready',V,'wave'),(1012,'03 / RECOVERY','BLACK → RESUME','After >1 s without frame',O,'clock')]:
+        s+=panel(x,196,356,134,col)+holo_icon(x+51,255,kind,col)
+        s+=label(x+98,231,k,col)+txt(x+98,265,title,23,WHITE,650)+txt(x+98,299,detail,17,MUTED)
+    s+=path('M428 263 H526',C,4,True,False,True)+path('M898 263 H996',V,4,True,False,True)
+    s+=path('M1186 331 C1310 387 1290 431 1150 443',O,3,True,True,True)+label(1150,416,'AUTO-RECOVER',O)
+    # A large perspective stage anchors the controller and output illustration.
+    s+=f'<ellipse cx="715" cy="719" rx="435" ry="104" fill="{V}" fill-opacity=".08" filter="url(#glow)"/>'
+    s+=platform(250,650,932,197,V,46)
+    s+=f'<polygon points="467,496 687,418 908,496 687,579" fill="#17314b" stroke="{C}" stroke-width="2"/>'
+    s+=f'<polygon points="467,496 687,579 687,632 467,549" fill="#0b182b" stroke="{C}" stroke-opacity=".8"/>'
+    s+=f'<polygon points="687,579 908,496 908,549 687,632" fill="#10243b" stroke="{C}" stroke-opacity=".8"/>'
+    for i in range(8):
+        x=504+i*48
+        s+=path(f'M{x} 482 l-13 -19 M{x+13} 531 l-13 19',O,3,True)
+    s+=holo_icon(687,494,'chip',C)+label(915,472,'TEENSY 4.1',C)
+    s+=txt(915,500,'PJRC OCTO PROFILE',14,MUTED)
+    # Eight fiber-like lanes radiate to parallel pixel strips.
+    for i in range(8):
+        yy=673+i*20; col=[C,V,G,O][i%4]; xend=353+i*103
+        s+=path(f'M{535+i*43} 588 C{500+i*28} 632 {xend+70} {yy-23} {xend} {yy}',col,3,True,False,True)
+        for pix in range(8): s+=dot(xend+pix*13,yy,col,2.6 if pix!=3 else 4.5)
+    s+=label(272,638,'8 PARALLEL LED LANES',V)
+    # Twin connector housings echo the two RJ45 jacks without implying their pin orientation.
+    for x in [302,1075]:
+        s+=f'<polygon points="{x},787 {x+63},765 {x+126},787 {x+63},810" fill="#19334c" stroke="{C}" stroke-width="2"/>'
+        s+=f'<polygon points="{x+20},785 {x+63},769 {x+106},785 {x+63},801" fill="#091525" stroke="{C}" stroke-width="2"/>'
+        for pin in range(8): s+=path(f'M{x+35+pin*8} 787 v10',O,2)
+    s+=txt(518,783,'LEVEL SHIFT  /  TWO LED RJ45 CONNECTORS',16,C,600)
+    # Floating controls show the complete test interaction, apart from ArtDmx input.
+    s+=panel(54,393,294,132,V)+holo_icon(98,444,'mask',V)
+    s+=label(150,425,'SELECT PORTS',V)+txt(150,459,'One / all active lanes',16,WHITE)+txt(150,490,'Once / continuous loop',16,MUTED)
+    s+=panel(1092,469,292,132,G)+holo_icon(1135,519,'led',G)
+    s+=label(1186,500,'RGB RUNNER',G)+txt(1186,533,'R → G → B',17,WHITE)+txt(1186,562,'Single moving pixel',16,MUTED)
+    s+=path('M348 460 C410 465 433 505 484 522',V,3,True,False,True)
+    s+=path('M1250 601 C1324 654 1278 729 1196 781',G,3,True,True,True)
+    s+=panel(54,872,1330,92,O)+label(80,902,'PHYSICAL ACCEPTANCE',O)
+    s+=txt(80,934,'Identify + label each lane → test ports individually → test all active ports in parallel.',19,WHITE)
+    s+=txt(80,955,'Web preview shows software intent, not LED feedback. Confirm the adapter revision and RJ45 orientation on the hardware.',16,MUTED)
+    save('03-run-and-test.svg','Three-dimensional Teensy Octo board and output test flow','A large isometric Teensy package and Octo adapter scene connects eight parallel pixel lanes to schematic dual RJ45 connectors. Above, boot, stream and recovery states orbit the hardware; side controls show individual/all-port RGB tests. Physical connector orientation remains an acceptance item.',s,985,True)
 
 
 def performance():
     with (ROOT/'reports/ethernet-matrix-20260913/ergebnisse.csv').open(encoding='utf-8-sig',newline='') as f:
         row = next(r for r in csv.DictReader(f) if r['profile']=='aktuell' and r['soll_fps']=='40')
     complete, dma, replaced = (int(row[k]) for k in ['frames_vollstaendig','dma','ersetzt'])
-    s = header('04 / MEASURED PERFORMANCE', 'Receive rate is not display rate.', 'Archived hardware run · 13 Sep 2026 · 4,031 pixels · 29 universes · 40 FPS sender target / 30 FPS output target')
-    for x,val,title,sub,col in [(56,complete,'COMPLETE FRAMES',f"{float(row['empfang_fps']):.2f} complete frames/s",C),(509,dma,'DMA COMPLETIONS',f"{float(row['dma_fps']):.2f} completions/s",G),(962,replaced,'WAITING FRAMES REPLACED','Newest complete frame wins',P)]:
-        s += panel(x,203,422,171,col) + label(x+24,237,title,col) + txt(x+24,303,f'{val:,}',59,WHITE,650) + txt(x+24,346,sub,22,MUTED)
-    s += holo_icon(447,242,'network',C)+holo_icon(900,242,'led',G)+holo_icon(1352-16,242,'clock',P)
-    barw=1278
-    s += label(56,417,'SETTLED RUN: 1,195 COMPLETE = 900 OUTPUT + 295 REPLACED',C)
-    s += f'<rect x="56" y="441" width="{barw*dma/complete:.2f}" height="25" rx="7" fill="{G}"/><rect x="{56+barw*dma/complete:.2f}" y="441" width="{barw*replaced/complete:.2f}" height="25" rx="7" fill="{P}"/>'
-    # Extrude each proportional bar segment downward to create a compact 3D meter.
-    split=56+barw*dma/complete
-    s += f'<polygon points="56,466 {split:.2f},466 {split:.2f},480 56,480" fill="{G}" fill-opacity=".38" stroke="{G}" stroke-opacity=".7"/>'
-    s += f'<polygon points="{split:.2f},466 1334,466 1334,480 {split:.2f},480" fill="{P}" fill-opacity=".3" stroke="{P}" stroke-opacity=".7"/>'
-    s += txt(56,502,'34,655 / 34,655 packets received · 0 incomplete frames · 0 UDP queue drops',23,MUTED)
-    s += card(56,548,646,197,'CODE-DERIVED OUTPUT BUDGET','The longest parallel lane sets wire time.', ['Wire guard = 30 µs × longest lane + 300 µs','880 pixels → 26.70 ms guard','Period = max(ceil(1,000,000 / target FPS), guard)'],V)
-    s += card(738,548,646,197,'WHERE WORK CAN ACCUMULATE','Network burst → CPU → LED output', ['32 RX descriptors → 96-packet UDP queue','Copy + FastLED.show() preparation use CPU time','DMA runs asynchronously; completion is polled'],O)
-    s += txt(56,794,'~30-second black-payload run; counters do not verify optical FPS or pixel integrity. These are observations, not rated limits.',20,MUTED)
-    s += txt(56,828,'Source: reports/ethernet-matrix-20260913/ergebnisse.csv · profile “aktuell”, requested 40 FPS',18,C)
-    save('04-performance.svg','Measured frame replacement and timing bottlenecks','Measured September 13 run: 1195 complete frames, 900 DMA completions and 295 replaced waiting frames. No missing packets or incomplete frames in this case. Output target was 30 FPS. Longest-lane wire guard and CPU/network buffering are separate constraints. Black-payload counters are not optical verification.',s)
+    s=header('04 / MEASURED PERFORMANCE','1,195 frames enter the scheduler.','Archived hardware run · 4,031 LEDs · 29 universes · sender 40 FPS · output target 30 FPS')
+    # The left side is a proportional, extruded three-column telemetry sculpture.
+    s+=platform(62,635,884,112,V,42)
+    base=591; maxh=244
+    columns=[(196,complete,'COMPLETE',C),(469,dma,'DMA OUTPUT',G),(742,replaced,'REPLACED',P)]
+    for x,val,name,col in columns:
+        h=maxh*val/complete; y=base-h; w=112; dx=38; dy=19
+        s+=f'<polygon points="{x},{y} {x+dx},{y-dy} {x+w+dx},{y-dy} {x+w},{y}" fill="{col}" fill-opacity=".32" stroke="{col}" stroke-width="2"/>'
+        s+=f'<polygon points="{x},{y} {x+w},{y} {x+w},{base} {x},{base}" fill="{col}" fill-opacity=".78" stroke="{col}" stroke-width="2"/>'
+        s+=f'<polygon points="{x+w},{y} {x+w+dx},{y-dy} {x+w+dx},{base-dy} {x+w},{base}" fill="{col}" fill-opacity=".36" stroke="{col}" stroke-width="2"/>'
+        s+=f'<path d="M{x+12} {y+12} V{base-12}" stroke="white" stroke-opacity=".3" stroke-width="3"/>'
+        s+=txt(x+56,y-18,f'{val:,}',28,WHITE,700,'middle')+label(x+56,628,name,col)
+    # The stacks sit over a receding telemetry floor, with the frame equation in the field.
+    s+=path('M85 347 H916 M85 395 H916 M85 443 H916 M85 491 H916',C,1,False,True)
+    for y in [347,395,443,491]: s+=path(f'M85 {y} L172 {y+40} M916 {y} L830 {y+40}',V,1,False,True)
+    s+=panel(78,760,860,102,C)+label(104,795,'SETTLED COUNTER BALANCE',C)
+    s+=txt(104,837,f'{complete:,} complete  =  {dma:,} output  +  {replaced:,} replaced',25,WHITE,650)
+    # Separate constraint panel; bright wire paths show where time is spent.
+    s+=panel(1000,199,384,662,V)+holo_icon(1055,251,'clock',V)
+    s+=label(1105,234,'CODE-DERIVED OUTPUT BUDGET',V)+txt(1030,307,'Longest lane sets parallel wire time.',19,WHITE,600)
+    s+=path('M1030 332 H1350',V,2,True)
+    s+=txt(1030,376,'30 µs × lane pixels + 300 µs',20,MUTED)
+    s+=holo_icon(1055,447,'network',O)+label(1105,438,'RECEIVE BURST PATH',O)
+    s+=txt(1030,493,'32 RX descriptors',19,WHITE)+path('M1048 510 V554',O,3,True,False,True)
+    s+=txt(1030,578,'96-packet UDP queue',19,WHITE)+path('M1048 594 V635',O,3,True,False,True)
+    s+=txt(1072,654,'CPU preparation + DMA',19,WHITE)
+    s+=txt(1030,707,'880 LEDs → 26.70 ms wire guard',17,MUTED)
+    s+=txt(1030,738,'DMA completion is polled; show() call time',16,MUTED)+txt(1030,762,'is not the whole transfer time.',16,MUTED)
+    s+=panel(62,893,1322,84,O)+holo_icon(111,934,'check',O)
+    s+=txt(165,927,'34,655 / 34,655 packets received · 0 incomplete · 0 UDP queue drops',19,WHITE,600)
+    s+=txt(165,954,'~30 s black-payload run. Software counters are not optical FPS, pixel integrity or a rated ceiling.',16,MUTED)
+    s+=txt(62,1015,'Source: reports/ethernet-matrix-20260913/ergebnisse.csv · profile “current” · requested 40 FPS',16,C)
+    save('04-performance.svg','Three-dimensional Art-Net frame and DMA performance comparison','Proportional isometric columns visualize 1195 complete frames, 900 DMA outputs and 295 replaced waiting frames. A separate timing and receive path panel identifies the longest-lane wire guard, RX descriptors, UDP queue, CPU preparation and DMA polling. Evidence is a short black-payload run, not optical validation.',s,1045,True)
 
 
 def diagnostics():
-    s = header('05 / DIAGNOSE & TUNE', 'Find the first stage that stops progressing.', 'Compare counter deltas over the same interval. Change one variable, repeat, and verify recovery.')
-    for x,k,t,rows,col in [(56,'01 / PACKETS','Traffic arrives',['Count includes rejected data','890 pkt/s ≠ complete frames'],C),(396,'02 / COMPLETE','Frame assembled',['Coverage + length + sequence','Check incomplete / rejected'],V),(736,'03 / SUBMIT','Output scheduled',['Armed? DMA idle? Period due?','Check waiting replacements'],G),(1076,'04 / DMA','Transfer completes',['Compare submit/completion','Check timing + physical LEDs'],O)]:
-        s += card(x,204,308,177,k,t,rows,col)
-        s += holo_icon(x+268,239,{'01 / PACKETS':'packet','02 / COMPLETE':'mask','03 / SUBMIT':'wave','04 / DMA':'led'}[k],col)
-        if x<1076: s += path(f'M{x+308} 293 H{x+335}',col,3,True,False,True)
-    for x,col in [(210,C),(550,V),(890,G),(1230,O)]: s += path(f'M{x} 381 V423',col,2,True,False,True)
-    rows=[(56,C,'CHECK THE INPUT',['Check target IP + UDP 6454','Inspect header and payload size','Compare sent / received counts']), (396,V,'CHECK FRAME CONTRACT',['Expect only active routes','Match Teensy shared sequence','Partial age >100 ms → abandon']), (736,G,'CHECK OUTPUT BUDGET',['Align input / output target FPS','Balance the longest LED chains','Separate replacement from loss']), (1076,O,'CHECK TRANSFER & LIGHT',['Compare show() / DMA timing','Use non-black test patterns','Check wiring, power, recovery'])]
-    for x,col,title,lines in rows:
-        s += panel(x,436,308,163,col) + label(x+20,471,title,col)
-        s += holo_icon(x+264,464,{'CHECK THE INPUT':'packet','CHECK FRAME CONTRACT':'route','CHECK OUTPUT BUDGET':'clock','CHECK TRANSFER & LIGHT':'check'}[title],col)
-        for i,r in enumerate(lines): s += txt(x+20,507+i*29,r,18,MUTED)
-    s += panel(56,644,1328,175,V) + label(80,679,'CONTROLLED TUNING / CANDIDATES TO MEASURE',V)
-    s += txt(80,721,'PACE',25,C,600) + txt(80,756,'Spread packet bursts;',20,MUTED) + txt(80,786,'100 µs was not a universal fix.',20,MUTED)
-    s += txt(489,721,'PROFILE',25,V,600) + txt(489,756,'Measure RX ring, CPU gaps,',20,MUTED) + txt(489,786,'queue occupancy and frame age.',20,MUTED)
-    s += txt(937,721,'VERIFY',25,G,600) + txt(937,756,'Repeat longer runs; consider',20,MUTED) + txt(937,786,'frame IDs / CRC + optical checks.',20,MUTED)
-    s += platform(420,814,600,20,G,12)
-    save('05-diagnostics.svg','Art-Net diagnostics, errors and performance tuning','Follow packet, complete-frame, submit and DMA counters in order. Validate universe coverage, length and sequence before adjusting buffering. Distinguish intentional replacement from receive loss. Measure pacing, ring pressure and timing; use non-black patterns and physical checks.',s)
+    s=header('05 / DIAGNOSE & TUNE','Trace the signal through the stack.','Follow the first layer that stops advancing; tune only after the evidence points to it.')
+    layers=[(315,C,'01  NETWORK ARRIVAL','Packets · rejected · ignored','packet'),(475,V,'02  FRAME INTEGRITY','Coverage · length · sequence','mask'),(635,G,'03  OUTPUT SCHEDULER','Armed · ready · period · replaced','clock'),(795,O,'04  DMA + LED LOAD','Submit · completion · physical output','led')]
+    # Exploded stack of transparent diagnostic planes, joined by a luminous spine.
+    for y,col,title,detail,kind in layers:
+        s+=platform(65,y,820,123,col,32)
+        s+=path(f'M465 {y-71} V{y-5}',col,4,True,True,True)
+        for k in range(3): s+=dot(465,y-57+k*19,col,3)
+        s+=holo_icon(210,y-3,kind,col)+label(292,y-25,title,col)+txt(292,y+7,detail,19,WHITE)
+    # Diagnostic specimen cards orbit to the right of the stack.
+    s+=panel(965,202,419,640,V)
+    s+=label(1000,241,'READ COUNTER DELTAS TOGETHER',V)
+    s+=holo_icon(1045,309,'network',C)+txt(1100,302,'890 packets / s',24,WHITE,650)
+    s+=path('M1045 346 V396',C,3,True,False,True)
+    s+=holo_icon(1045,437,'mask',V)+txt(1100,428,'Complete frames?',22,WHITE,650)
+    s+=txt(1100,458,'Check expected universe bits',16,MUTED)
+    s+=path('M1045 472 V522',V,3,True,False,True)
+    s+=holo_icon(1045,558,'wave',G)+txt(1100,552,'Submits / DMA?',22,WHITE,650)
+    s+=txt(1100,582,'Separate scheduler from transfer',16,MUTED)
+    s+=path('M1045 596 V646',G,3,True,False,True)
+    s+=holo_icon(1045,682,'check',O)+txt(1100,676,'Light verified?',22,WHITE,650)
+    s+=txt(1100,706,'Test with non-black patterns',16,MUTED)
+    s+=path('M1000 755 H1350',V,2,True)+txt(1000,791,'890 pkt/s alone cannot prove a complete frame.',16,MUTED)
+    # Three tuning vectors descend from the exploded stack into a grounded footer.
+    s+=panel(64,925,1320,111,V)+label(94,959,'CHANGE ONE VARIABLE · REPEAT THE SAME MEASUREMENT',V)
+    for x,title,body1,body2,col in [(96,'PACE','Spread packet bursts','100 µs was not a universal fix',C),(512,'PROFILE','Measure RX queue','CPU gaps · frame age',V),(930,'VERIFY','Longer runs + frame IDs','CRC and optical checks',G)]:
+        s+=holo_icon(x+20,1001,'route' if title=='PACE' else ('chip' if title=='PROFILE' else 'check'),col)
+        s+=label(x+67,990,title,col)+txt(x+67,1013,body1+' · '+body2,15,MUTED)
+    s+=txt(65,1075,'Validate routing and payload size before changing buffers. A larger ring remains an unmeasured candidate.',16,MUTED)
+    save('05-diagnostics.svg','Exploded Art-Net diagnostics and performance tuning stack','Four large isometric layers show network arrival, frame integrity, output scheduling and DMA/physical output. A luminous vertical spine links the stages; a side diagnostic flow traces counters and a grounded tuning rail presents controlled experiments. High packet rate alone cannot prove complete frame assembly.',s,1100,True)
 
 
 def main():

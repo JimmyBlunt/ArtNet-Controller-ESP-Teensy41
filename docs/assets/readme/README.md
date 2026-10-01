@@ -1,17 +1,19 @@
 # README visual system
 
-Five English, self-contained SVG diagrams, revised 2 October 2026. Dark navy,
-transparent layers, fine circuit traces and restrained cyan / violet / mint /
-amber / pink glow follow the supplied visual references. All text remains real
-vector text; no external images, fonts, scripts or services are required.
+Five English, self-contained SVG diagrams. Diagram 1 retains the original
+architecture look. Diagrams 2–5 are full infographic scenes inspired by the
+supplied references: dark perspective stages, exploded transparent planes,
+glowing signal ribbons, isometric data objects and larger plotted structures in
+cyan / violet / mint / amber / pink. Text remains real vector lettering; no
+external images, fonts, scripts or services are required.
 
 | Asset | Purpose |
 |---|---|
 | `01-system.svg` | Layered architecture, dependencies, control and telemetry |
-| `02-frame-pipeline.svg` | ArtDmx bytes, validation, route mask, short payloads |
-| `03-run-and-test.svg` | Automatic start, recovery and port-test workflow |
-| `04-performance.svg` | Actual recorded frame counts and timing constraints |
-| `05-diagnostics.svg` | Counter progression, errors and tuning opportunities |
+| `02-frame-pipeline.svg` | Exploded packet → route mask → complete frame stack |
+| `03-run-and-test.svg` | Octo adapter scene, eight output lanes and test states |
+| `04-performance.svg` | Proportional 3D columns for measured counts and bottlenecks |
+| `05-diagnostics.svg` | Four-layer diagnostic stack and tuning path |
 
 Regenerate from the repository root:
 
