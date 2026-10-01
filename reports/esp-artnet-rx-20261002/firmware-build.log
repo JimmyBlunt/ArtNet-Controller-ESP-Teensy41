@@ -1,0 +1,625 @@
+Processing esp32-wifi-extensionboard (platform: espressif32@7.0.1; board: esp32dev; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+Shared controller UI: 50180 bytes
+CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/esp32dev.html
+PLATFORM: Espressif 32 (7.0.1) > Espressif ESP32 Dev Module
+HARDWARE: ESP32 240MHz, 320KB RAM, 4MB Flash
+DEBUG: Current (cmsis-dap) External (cmsis-dap, esp-bridge, esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
+PACKAGES:
+ - framework-arduinoespressif32 @ 3.20017.241212+sha.dcc1105b
+ - tool-esptoolpy @ 2.41100.0 (4.11.0)
+ - toolchain-xtensa-esp32 @ 8.4.0+2021r2-patch5
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ soft
+Found 35 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- FastLED @ 3.10.3
+|-- ArduinoJson @ 7.4.3
+|-- Update @ 2.0.0
+|-- WebServer @ 2.0.0
+|-- Ethernet @ 2.0.0
+|-- Preferences @ 2.0.0
+|-- WiFi @ 2.0.0
+|-- SPIFFS @ 2.0.0
+Building in release mode
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\ArtNetReceiver.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\ConfigManager.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\FirmwareUpdate.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\HardwareTest.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\LedOutputs.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\LogicalPixelBuffer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\MappingEngine.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\NetworkManager.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\OutputRouter.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\Performance.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\PerformanceMonitor.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\PowerDiagnostic.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\PreviewProtocol.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\PreviewStreamer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\UniverseAssembler.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\WebApi.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\src\main.cpp.o
+Building C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\bootloader.bin
+Generating partitions C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\partitions.bin
+esptool.py v4.11.0
+Creating esp32 image...
+Merged 1 ELF section
+Successfully created esp32 image.
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib0ce\SPI\SPI.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libfad\I2S\I2S.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libfc6\FS\FS.cpp.o
+C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.cpp: In member function 'int I2SClass::_installDriver()':
+C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.cpp:202:89: warning: 'ADC_ATTEN_DB_11' is deprecated [-Wdeprecated-declarations]
+       esp_i2s::adc1_config_channel_atten((esp_i2s::adc1_channel_t)adc_channel, esp_i2s::ADC_ATTEN_DB_11);
+                                                                                         ^~~~~~~~~~~~~~~
+In file included from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/driver/include/driver/adc.h:14,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/driver/include/driver/i2s.h:21,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.h:26,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.cpp:21:
+C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/hal/include/hal/adc_types.h:54:5: note: declared here
+     ADC_ATTEN_DB_11 __attribute__((deprecated)) = ADC_ATTEN_DB_12,  ///<This is deprecated, it behaves the same as `ADC_ATTEN_DB_12`
+     ^~~~~~~~~~~~~~~
+C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.cpp:204:89: warning: 'ADC_ATTEN_DB_11' is deprecated [-Wdeprecated-declarations]
+       esp_i2s::adc2_config_channel_atten((esp_i2s::adc2_channel_t)adc_channel, esp_i2s::ADC_ATTEN_DB_11);
+                                                                                         ^~~~~~~~~~~~~~~
+In file included from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/driver/include/driver/adc.h:14,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/driver/include/driver/i2s.h:21,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.h:26,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.cpp:21:
+C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/hal/include/hal/adc_types.h:54:5: note: declared here
+     ADC_ATTEN_DB_11 __attribute__((deprecated)) = ADC_ATTEN_DB_12,  ///<This is deprecated, it behaves the same as `ADC_ATTEN_DB_12`
+     ^~~~~~~~~~~~~~~
+firmware/src/WebApi.cpp: In function 'bool {anonymous}::parseOutputs(ArduinoJson::V743PB22::JsonVariantConst, std::vector<led::OutputConfig>*, std::__cxx11::string*)':
+firmware/src/WebApi.cpp:93:38: warning: 'bool ArduinoJson::V743PB22::JsonObjectConst::containsKey(TChar*) const [with TChar = const char]' is deprecated: use obj["key"].is<T>() instead [-Wdeprecated-declarations]
+     if (item.containsKey("colorOrder") && colorOrder == nullptr) {
+                                      ^
+In file included from C:/codex-build/artnet5-esp32/libs/esp32-wifi-extensionboard/ArduinoJson/src/ArduinoJson/Object/JsonObject.hpp:7,
+                 from C:/codex-build/artnet5-esp32/libs/esp32-wifi-extensionboard/ArduinoJson/src/ArduinoJson.hpp:39,
+                 from C:/codex-build/artnet5-esp32/libs/esp32-wifi-extensionboard/ArduinoJson/src/ArduinoJson.h:9,
+                 from firmware/src/WebApi.cpp:10:
+C:/codex-build/artnet5-esp32/libs/esp32-wifi-extensionboard/ArduinoJson/src/ArduinoJson/Object/JsonObjectConst.hpp:85:8: note: declared here
+   bool containsKey(TChar* key) const {
+        ^~~~~~~~~~~
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libfc6\FS\vfs_api.cpp.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libfad\libI2S.a
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libfad\libI2S.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libfae\SD\SD.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libfae\SD\sd_diskio.cpp.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib0ce\libSPI.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libfae\SD\sd_diskio_crc.c.o
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib0ce\libSPI.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\FastLED.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\bitswap.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\cled_controller.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\colorpalettes.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\crgb.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\allocator.cpp.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libfc6\libFS.a
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libfc6\libFS.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\async.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\audio.cpp.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libfae\libSD.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\audio_input.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\audio_reactive.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\bitset.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\blur.cpp.o
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libfae\libSD.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\bytestreammemory.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\colorutils.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\corkscrew.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\crgb_hsv16.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\downscale.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\ease.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\engine_events.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\fetch.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\fft.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\fft_impl.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\file_system.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\fill.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\gamma.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\gradient.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\hsv16.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\id_tracker.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\io.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\istream.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\json.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\leds.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\line_simplification.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\noise_woryley.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\ostream.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\ptr.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\random.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\raster_sparse.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\rectangular_draw_buffer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\referent.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\rgbw.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\screenmap.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\sin32.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\splat.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\str.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\str_ui.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\strstream.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\stub_main.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\task.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\tile2x2.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\time.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\time_alpha.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\transform.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\type_traits.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\ui.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\upscale.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\wave_simulation.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\wave_simulation_real.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\xmap.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\xymap.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\xypath.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\xypath_impls.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fl\xypath_renderer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fx\2d\blend.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fx\2d\luminova.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fx\2d\noisepalette.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fx\2d\scale_up.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fx\2d\wave.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fx\detail\fx_layer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fx\frame.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fx\fx_engine.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fx\time.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fx\video.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fx\video\frame_interpolator.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fx\video\frame_tracker.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fx\video\pixel_stream.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\fx\video\video_impl.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\hsv2rgb.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\lib8tion.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\noise.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\adafruit\clockless.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\arm\k20\clockless_objectfled.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\arm\mgm240\fastpin_arm_mgm240.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\compile_test.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\esp\32\audio\audio.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\esp\32\audio\sound_util.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\esp\32\clockless_i2s_esp32s3.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\esp\32\i2s\i2s_esp32dev.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\esp\32\rmt_4\idf4_rmt.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\esp\32\rmt_4\idf4_rmt_impl.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\esp\32\rmt_5\idf5_rmt.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\esp\32\rmt_5\strip_rmt.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\esp\32\spi_ws2812\strip_spi.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\stub\Arduino.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\stub\led_sysdefs_stub.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\stub\time_stub.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\wasm\active_strip_data.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\wasm\engine_listener.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\wasm\entry_point.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\wasm\fastspi_wasm.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\wasm\fs_wasm.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\wasm\js.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\wasm\js_bindings.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\wasm\js_fetch.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\wasm\timer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\platforms\wasm\ui.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\power_mgt.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\sensors\button.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\sensors\digital_pin.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\sensors\pir.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\simplex.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\third_party\cq_kernel\cq_kernel.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\third_party\cq_kernel\kiss_fft.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\third_party\cq_kernel\kiss_fftr.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\third_party\espressif\led_strip\src\led_strip_api.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\third_party\espressif\led_strip\src\led_strip_rmt_dev.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\third_party\espressif\led_strip\src\led_strip_rmt_encoder.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\third_party\espressif\led_strip\src\led_strip_spi_dev.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\third_party\object_fled\src\OjectFLED.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\transpose8x1_noinline.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\FastLED\wiring.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib410\Update\HttpsOTAUpdate.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib410\Update\Updater.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib4ef\WiFi\WiFi.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib4ef\WiFi\WiFiAP.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib4ef\WiFi\WiFiClient.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib4ef\WiFi\WiFiGeneric.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib4ef\WiFi\WiFiMulti.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib4ef\WiFi\WiFiSTA.cpp.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\libFastLED.a
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib42a\libFastLED.a
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib410\libUpdate.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib4ef\WiFi\WiFiScan.cpp.o
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib410\libUpdate.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib4ef\WiFi\WiFiServer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib4ef\WiFi\WiFiUdp.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libc5f\WebServer\Parsing.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libc5f\WebServer\WebServer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libc5f\WebServer\detail\mimetable.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib86b\Ethernet\ETH.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib88e\Preferences\Preferences.cpp.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib4ef\libWiFi.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libb4d\SPIFFS\SPIFFS.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\Esp.cpp.o
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib4ef\libWiFi.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\FirmwareMSC.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\FunctionalInterrupt.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\HWCDC.cpp.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libc5f\libWebServer.a
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libc5f\libWebServer.a
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib88e\libPreferences.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\HardwareSerial.cpp.o
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib88e\libPreferences.a
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libb4d\libSPIFFS.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\IPAddress.cpp.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib86b\libEthernet.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\IPv6Address.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\MD5Builder.cpp.o
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libb4d\libSPIFFS.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\Print.cpp.o
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\lib86b\libEthernet.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\Stream.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\StreamString.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\Tone.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\USB.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\USBCDC.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\USBMSC.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\WMath.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\WString.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\base64.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\cbuf.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-adc.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-bt.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-cpu.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-dac.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-gpio.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-i2c-slave.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-i2c.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-ledc.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-matrix.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-misc.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-psram.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-rgb-led.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-rmt.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-sigmadelta.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-spi.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-time.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-timer.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-tinyusb.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-touch.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\esp32-hal-uart.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\firmware_msc_fat.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\libb64\cdecode.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\libb64\cencode.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\main.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\stdlib_noniso.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\wiring_pulse.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\FrameworkArduino\wiring_shift.c.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libFrameworkArduino.a
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\libFrameworkArduino.a
+Linking C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\firmware.elf
+Retrieving maximum program size C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\firmware.elf
+Checking size C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+RAM:   [===       ]  29.3% (used 95936 bytes from 327680 bytes)
+Flash: [========= ]  94.8% (used 1242645 bytes from 1310720 bytes)
+Building C:\codex-build\esp-rx-ota-20261002\esp32-wifi-extensionboard\firmware.bin
+esptool.py v4.11.0
+Creating esp32 image...
+Merged 27 ELF sections
+Successfully created esp32 image.
+======================== [SUCCESS] Took 361.43 seconds ========================
+
+Processing esp32-wifi-esp251 (platform: espressif32@7.0.1; board: esp32dev; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+Shared controller UI: 50180 bytes
+CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/esp32dev.html
+PLATFORM: Espressif 32 (7.0.1) > Espressif ESP32 Dev Module
+HARDWARE: ESP32 240MHz, 320KB RAM, 4MB Flash
+DEBUG: Current (cmsis-dap) External (cmsis-dap, esp-bridge, esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
+PACKAGES:
+ - framework-arduinoespressif32 @ 3.20017.241212+sha.dcc1105b
+ - tool-esptoolpy @ 2.41100.0 (4.11.0)
+ - toolchain-xtensa-esp32 @ 8.4.0+2021r2-patch5
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ soft
+Found 35 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- FastLED @ 3.10.3
+|-- ArduinoJson @ 7.4.3
+|-- Update @ 2.0.0
+|-- WebServer @ 2.0.0
+|-- Ethernet @ 2.0.0
+|-- Preferences @ 2.0.0
+|-- WiFi @ 2.0.0
+|-- SPIFFS @ 2.0.0
+Building in release mode
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\ArtNetReceiver.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\ConfigManager.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\FirmwareUpdate.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\HardwareTest.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\LedOutputs.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\LogicalPixelBuffer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\MappingEngine.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\NetworkManager.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\OutputRouter.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\Performance.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\PerformanceMonitor.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\PowerDiagnostic.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\PreviewProtocol.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\PreviewStreamer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\UniverseAssembler.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\WebApi.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\src\main.cpp.o
+Building C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\bootloader.bin
+esptool.py v4.11.0
+Creating esp32 image...
+Merged 1 ELF section
+Successfully created esp32 image.
+Generating partitions C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\partitions.bin
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib0ce\SPI\SPI.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libfad\I2S\I2S.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libfc6\FS\FS.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libfc6\FS\vfs_api.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libfae\SD\SD.cpp.o
+firmware/src/WebApi.cpp: In function 'bool {anonymous}::parseOutputs(ArduinoJson::V743PB22::JsonVariantConst, std::vector<led::OutputConfig>*, std::__cxx11::string*)':
+firmware/src/WebApi.cpp:93:38: warning: 'bool ArduinoJson::V743PB22::JsonObjectConst::containsKey(TChar*) const [with TChar = const char]' is deprecated: use obj["key"].is<T>() instead [-Wdeprecated-declarations]
+     if (item.containsKey("colorOrder") && colorOrder == nullptr) {
+                                      ^
+In file included from C:/codex-build/artnet5-esp32/libs/esp32-wifi-esp251/ArduinoJson/src/ArduinoJson/Object/JsonObject.hpp:7,
+                 from C:/codex-build/artnet5-esp32/libs/esp32-wifi-esp251/ArduinoJson/src/ArduinoJson.hpp:39,
+                 from C:/codex-build/artnet5-esp32/libs/esp32-wifi-esp251/ArduinoJson/src/ArduinoJson.h:9,
+                 from firmware/src/WebApi.cpp:10:
+C:/codex-build/artnet5-esp32/libs/esp32-wifi-esp251/ArduinoJson/src/ArduinoJson/Object/JsonObjectConst.hpp:85:8: note: declared here
+   bool containsKey(TChar* key) const {
+        ^~~~~~~~~~~
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libfae\SD\sd_diskio.cpp.o
+C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.cpp: In member function 'int I2SClass::_installDriver()':
+C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.cpp:202:89: warning: 'ADC_ATTEN_DB_11' is deprecated [-Wdeprecated-declarations]
+       esp_i2s::adc1_config_channel_atten((esp_i2s::adc1_channel_t)adc_channel, esp_i2s::ADC_ATTEN_DB_11);
+                                                                                         ^~~~~~~~~~~~~~~
+In file included from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/driver/include/driver/adc.h:14,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/driver/include/driver/i2s.h:21,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.h:26,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.cpp:21:
+C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/hal/include/hal/adc_types.h:54:5: note: declared here
+     ADC_ATTEN_DB_11 __attribute__((deprecated)) = ADC_ATTEN_DB_12,  ///<This is deprecated, it behaves the same as `ADC_ATTEN_DB_12`
+     ^~~~~~~~~~~~~~~
+C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.cpp:204:89: warning: 'ADC_ATTEN_DB_11' is deprecated [-Wdeprecated-declarations]
+       esp_i2s::adc2_config_channel_atten((esp_i2s::adc2_channel_t)adc_channel, esp_i2s::ADC_ATTEN_DB_11);
+                                                                                         ^~~~~~~~~~~~~~~
+In file included from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/driver/include/driver/adc.h:14,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/driver/include/driver/i2s.h:21,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.h:26,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.cpp:21:
+C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/hal/include/hal/adc_types.h:54:5: note: declared here
+     ADC_ATTEN_DB_11 __attribute__((deprecated)) = ADC_ATTEN_DB_12,  ///<This is deprecated, it behaves the same as `ADC_ATTEN_DB_12`
+     ^~~~~~~~~~~~~~~
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib0ce\libSPI.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libfae\SD\sd_diskio_crc.c.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libfad\libI2S.a
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libfad\libI2S.a
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib0ce\libSPI.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\FastLED.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\bitswap.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\cled_controller.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\colorpalettes.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\crgb.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\allocator.cpp.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libfae\libSD.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\async.cpp.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libfc6\libFS.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\audio.cpp.o
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libfae\libSD.a
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libfc6\libFS.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\audio_input.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\audio_reactive.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\bitset.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\blur.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\bytestreammemory.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\colorutils.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\corkscrew.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\crgb_hsv16.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\downscale.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\ease.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\engine_events.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\fetch.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\fft.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\fft_impl.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\file_system.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\fill.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\gamma.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\gradient.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\hsv16.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\id_tracker.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\io.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\istream.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\json.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\leds.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\line_simplification.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\noise_woryley.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\ostream.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\ptr.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\random.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\raster_sparse.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\rectangular_draw_buffer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\referent.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\rgbw.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\screenmap.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\sin32.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\splat.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\str.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\str_ui.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\strstream.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\stub_main.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\task.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\tile2x2.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\time.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\time_alpha.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\transform.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\type_traits.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\ui.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\upscale.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\wave_simulation.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\wave_simulation_real.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\xmap.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\xymap.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\xypath.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\xypath_impls.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fl\xypath_renderer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fx\2d\blend.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fx\2d\luminova.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fx\2d\noisepalette.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fx\2d\scale_up.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fx\2d\wave.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fx\detail\fx_layer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fx\frame.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fx\fx_engine.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fx\time.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fx\video.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fx\video\frame_interpolator.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fx\video\frame_tracker.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fx\video\pixel_stream.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\fx\video\video_impl.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\hsv2rgb.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\lib8tion.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\noise.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\adafruit\clockless.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\arm\k20\clockless_objectfled.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\arm\mgm240\fastpin_arm_mgm240.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\compile_test.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\esp\32\audio\audio.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\esp\32\audio\sound_util.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\esp\32\clockless_i2s_esp32s3.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\esp\32\i2s\i2s_esp32dev.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\esp\32\rmt_4\idf4_rmt.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\esp\32\rmt_4\idf4_rmt_impl.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\esp\32\rmt_5\idf5_rmt.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\esp\32\rmt_5\strip_rmt.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\esp\32\spi_ws2812\strip_spi.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\stub\Arduino.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\stub\led_sysdefs_stub.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\stub\time_stub.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\wasm\active_strip_data.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\wasm\engine_listener.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\wasm\entry_point.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\wasm\fastspi_wasm.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\wasm\fs_wasm.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\wasm\js.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\wasm\js_bindings.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\wasm\js_fetch.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\wasm\timer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\platforms\wasm\ui.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\power_mgt.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\sensors\button.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\sensors\digital_pin.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\sensors\pir.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\simplex.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\third_party\cq_kernel\cq_kernel.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\third_party\cq_kernel\kiss_fft.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\third_party\cq_kernel\kiss_fftr.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\third_party\espressif\led_strip\src\led_strip_api.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\third_party\espressif\led_strip\src\led_strip_rmt_dev.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\third_party\espressif\led_strip\src\led_strip_rmt_encoder.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\third_party\espressif\led_strip\src\led_strip_spi_dev.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\third_party\object_fled\src\OjectFLED.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\transpose8x1_noinline.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\FastLED\wiring.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib410\Update\HttpsOTAUpdate.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib410\Update\Updater.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib4ef\WiFi\WiFi.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib4ef\WiFi\WiFiAP.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib4ef\WiFi\WiFiClient.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib4ef\WiFi\WiFiGeneric.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib4ef\WiFi\WiFiMulti.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib4ef\WiFi\WiFiSTA.cpp.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\libFastLED.a
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib410\libUpdate.a
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib410\libUpdate.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib4ef\WiFi\WiFiScan.cpp.o
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib11d\libFastLED.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib4ef\WiFi\WiFiServer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib4ef\WiFi\WiFiUdp.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libc5f\WebServer\Parsing.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libc5f\WebServer\WebServer.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libc5f\WebServer\detail\mimetable.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib86b\Ethernet\ETH.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib88e\Preferences\Preferences.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libb4d\SPIFFS\SPIFFS.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\Esp.cpp.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib4ef\libWiFi.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\FirmwareMSC.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\FunctionalInterrupt.cpp.o
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib4ef\libWiFi.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\HWCDC.cpp.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib86b\libEthernet.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\HardwareSerial.cpp.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libb4d\libSPIFFS.a
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib86b\libEthernet.a
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libb4d\libSPIFFS.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\IPAddress.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\IPv6Address.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\MD5Builder.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\Print.cpp.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib88e\libPreferences.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\Stream.cpp.o
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\lib88e\libPreferences.a
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libc5f\libWebServer.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\StreamString.cpp.o
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libc5f\libWebServer.a
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\Tone.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\USB.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\USBCDC.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\USBMSC.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\WMath.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\WString.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\base64.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\cbuf.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-adc.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-bt.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-cpu.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-dac.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-gpio.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-i2c-slave.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-i2c.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-ledc.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-matrix.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-misc.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-psram.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-rgb-led.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-rmt.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-sigmadelta.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-spi.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-time.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-timer.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-tinyusb.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-touch.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\esp32-hal-uart.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\firmware_msc_fat.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\libb64\cdecode.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\libb64\cencode.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\main.cpp.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\stdlib_noniso.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\wiring_pulse.c.o
+Compiling C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\FrameworkArduino\wiring_shift.c.o
+Archiving C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libFrameworkArduino.a
+Indexing C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\libFrameworkArduino.a
+Linking C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\firmware.elf
+Retrieving maximum program size C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\firmware.elf
+Checking size C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+RAM:   [===       ]  29.4% (used 96264 bytes from 327680 bytes)
+Flash: [==========]  95.9% (used 1257201 bytes from 1310720 bytes)
+Building C:\codex-build\esp-rx-ota-20261002\esp32-wifi-esp251\firmware.bin
+esptool.py v4.11.0
+Creating esp32 image...
+Merged 27 ELF sections
+Successfully created esp32 image.
+======================== [SUCCESS] Took 270.84 seconds ========================
+
+Environment                Status    Duration
+-------------------------  --------  ------------
+esp32-wifi-extensionboard  SUCCESS   00:06:01.435
+esp32-wifi-esp251          SUCCESS   00:04:30.837
+========================= 2 succeeded in 00:10:32.272 =========================

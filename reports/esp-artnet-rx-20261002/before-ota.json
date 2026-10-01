@@ -1,0 +1,146 @@
+[
+  {
+    "host": "10.0.0.248",
+    "elapsedSeconds": 30.055237849941477,
+    "samples": [
+      {
+        "monotonic": 394181.45527825004,
+        "httpSeconds": 0.6089405000093393,
+        "time": 1790879425.7335315,
+        "status": {
+          "pixelCount": 339,
+          "universeCount": 1,
+          "packets": 1268318,
+          "framesComplete": 1268318,
+          "framesIncomplete": 0,
+          "fps": 60,
+          "packetsPerSecond": 60,
+          "heapFree": 212496,
+          "heapMinFree": 146632,
+          "frameTimeUs": 2118,
+          "outputTimeUs": 2118,
+          "lastFrameLatencyMs": null,
+          "startUniverse": 0,
+          "outputFrames": 1255609,
+          "timeouts": 0,
+          "droppedPackets": 0,
+          "sequenceErrors": 0
+        }
+      },
+      {
+        "monotonic": 394211.5105161,
+        "httpSeconds": 0.10917419998440892,
+        "time": 1790879455.5388863,
+        "status": {
+          "pixelCount": 339,
+          "universeCount": 1,
+          "packets": 1270108,
+          "framesComplete": 1270108,
+          "framesIncomplete": 0,
+          "fps": 59,
+          "packetsPerSecond": 60,
+          "heapFree": 212704,
+          "heapMinFree": 146632,
+          "frameTimeUs": 2118,
+          "outputTimeUs": 2118,
+          "lastFrameLatencyMs": null,
+          "startUniverse": 0,
+          "outputFrames": 1257370,
+          "timeouts": 0,
+          "droppedPackets": 0,
+          "sequenceErrors": 0
+        }
+      }
+    ],
+    "delta": {
+      "packets": 1790,
+      "framesComplete": 1790,
+      "framesIncomplete": 0,
+      "outputFrames": 1761,
+      "timeouts": 0,
+      "droppedPackets": 0,
+      "sequenceErrors": 0
+    },
+    "ratesPerSecond": {
+      "packets": 59.5570066334872,
+      "framesComplete": 59.5570066334872,
+      "framesIncomplete": 0.0,
+      "outputFrames": 58.59211658188321,
+      "timeouts": 0.0,
+      "droppedPackets": 0.0,
+      "sequenceErrors": 0.0
+    }
+  },
+  {
+    "host": "10.0.0.251",
+    "elapsedSeconds": 30.05550450005103,
+    "samples": [
+      {
+        "monotonic": 394181.50989374996,
+        "httpSeconds": 0.49782330001471564,
+        "time": 1790879425.7325888,
+        "status": {
+          "pixelCount": 805,
+          "universeCount": 6,
+          "packets": 6994879,
+          "framesComplete": 1159020,
+          "framesIncomplete": 11949,
+          "fps": 59,
+          "packetsPerSecond": 360,
+          "heapFree": 193972,
+          "heapMinFree": 114440,
+          "frameTimeUs": 12179,
+          "outputTimeUs": 12179,
+          "lastFrameLatencyMs": null,
+          "startUniverse": 0,
+          "outputFrames": 1147109,
+          "timeouts": 25,
+          "droppedPackets": 0,
+          "sequenceErrors": 0
+        }
+      },
+      {
+        "monotonic": 394211.56539825,
+        "httpSeconds": 0.11054150003474206,
+        "time": 1790879455.5944521,
+        "status": {
+          "pixelCount": 805,
+          "universeCount": 6,
+          "packets": 7005438,
+          "framesComplete": 1160771,
+          "framesIncomplete": 11967,
+          "fps": 57,
+          "packetsPerSecond": 350,
+          "heapFree": 193960,
+          "heapMinFree": 114440,
+          "frameTimeUs": 12179,
+          "outputTimeUs": 12179,
+          "lastFrameLatencyMs": null,
+          "startUniverse": 0,
+          "outputFrames": 1148842,
+          "timeouts": 25,
+          "droppedPackets": 0,
+          "sequenceErrors": 0
+        }
+      }
+    ],
+    "delta": {
+      "packets": 10559,
+      "framesComplete": 1751,
+      "framesIncomplete": 18,
+      "outputFrames": 1733,
+      "timeouts": 0,
+      "droppedPackets": 0,
+      "sequenceErrors": 0
+    },
+    "ratesPerSecond": {
+      "packets": 351.31667811405634,
+      "framesComplete": 58.25887900158279,
+      "framesIncomplete": 0.5988919600391149,
+      "outputFrames": 57.65998704154368,
+      "timeouts": 0.0,
+      "droppedPackets": 0.0,
+      "sequenceErrors": 0.0
+    }
+  }
+]

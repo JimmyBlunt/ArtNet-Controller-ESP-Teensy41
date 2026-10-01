@@ -1,0 +1,14 @@
+[
+  {
+    "environment": "esp32-wifi-extensionboard",
+    "sourceCommit": "4049b602cf9b8a04321a2ddeb6d26c4cd7b20758",
+    "bytes": 1249216,
+    "sha256": "77023d698cfea42bc008fdb5fcd1fe5e628242b8a492bdecff314e66cb4f0597"
+  },
+  {
+    "environment": "esp32-wifi-esp251",
+    "sourceCommit": "4049b602cf9b8a04321a2ddeb6d26c4cd7b20758",
+    "bytes": 1263776,
+    "sha256": "e4fbdbdecf9649a3d635f499be9fca4abd1d3658df0237e4ccaab6acbd1e6b7b"
+  }
+]

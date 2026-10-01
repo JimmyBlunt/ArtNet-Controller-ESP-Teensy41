@@ -1,0 +1,37 @@
+PXLBLZ Art-Net Router v0.2.0
+Pixels: 941 (2823 bytes/frame) | Art-Net FPS target: 60 | UDP: 6454 | input: pattern | dry-run: false
+Routes:
+  10.0.0.248-output6 10.0.0.248      P7  pixels 0..135  U1149..U1149  RGB
+  10.0.0.251-output0 10.0.0.251      P1  pixels 136..391  U1156..U1157  RGB
+  10.0.0.251-output1 10.0.0.251      P2  pixels 392..940  U1158..U1161  RGB
+TX  42.0 fps |   294 pkt/s | frame-send last   0.103 ms max   5.075 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   5.075 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   5.075 ms | errors 0
+TX  58.0 fps |   406 pkt/s | frame-send last   0.000 ms max   5.075 ms | errors 0
+TX  48.0 fps |   336 pkt/s | frame-send last   0.000 ms max   5.075 ms | errors 0
+TX  54.0 fps |   378 pkt/s | frame-send last   0.000 ms max   5.075 ms | errors 0
+TX  52.0 fps |   364 pkt/s | frame-send last   0.000 ms max   5.075 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   5.075 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   5.075 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   5.075 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.159 ms max   5.075 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   5.075 ms | errors 0
+TX  52.0 fps |   364 pkt/s | frame-send last   0.000 ms max   8.787 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   8.787 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   8.787 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   8.787 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   8.787 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   8.787 ms | errors 0
+TX  58.0 fps |   406 pkt/s | frame-send last   0.000 ms max   8.787 ms | errors 0
+TX  59.0 fps |   413 pkt/s | frame-send last   0.000 ms max   8.787 ms | errors 0
+TX  56.0 fps |   392 pkt/s | frame-send last   0.000 ms max   8.787 ms | errors 0
+TX  53.0 fps |   371 pkt/s | frame-send last   0.976 ms max   8.787 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   8.787 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   8.787 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   8.787 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   8.787 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   8.787 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.126 ms max   8.787 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   8.787 ms | errors 0
+
+Final TX: 1732 frames, 12124 packets, 57.73 avg fps, 404.12 packets/s, 0 send errors

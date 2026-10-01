@@ -1,0 +1,10 @@
+[
+  {
+    "Path": "C:\\codex-build\\esp-rx-ota-20261002\\esp32-wifi-extensionboard\\firmware.bin",
+    "Hash": "77023D698CFEA42BC008FDB5FCD1FE5E628242B8A492BDECFF314E66CB4F0597"
+  },
+  {
+    "Path": "C:\\codex-build\\esp-rx-ota-20261002\\esp32-wifi-esp251\\firmware.bin",
+    "Hash": "E4FBDBDECF9649A3D635F499BE9FCA4ABD1D3658DF0237E4CCAAB6ACBD1E6B7B"
+  }
+]

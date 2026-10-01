@@ -1,0 +1,85 @@
+{
+  "checkedAt": "2026-10-01T19:35:16.940014+00:00",
+  "sourceCommit": "4049b602cf9b8a04321a2ddeb6d26c4cd7b20758",
+  "originalBackupHashesVerified": true,
+  "controllers": {
+    "10.0.0.248": {
+      "configExactlyMatchesOriginalBackup": true,
+      "profile": "esp32-wroom-flex-8ws-2apa",
+      "storage": {
+        "saved": true,
+        "matches": true
+      },
+      "status": {
+        "pixelCount": 339,
+        "universeCount": 1,
+        "packets": 0,
+        "rxPackets": 599,
+        "rxQueueDrops": 0,
+        "rxOversizedPackets": 0,
+        "rxSocketErrors": 0,
+        "framesComplete": 0,
+        "framesIncomplete": 0,
+        "fps": 0,
+        "packetsPerSecond": 0,
+        "heapFree": 176992,
+        "heapMinFree": 113440,
+        "frameTimeUs": 2523,
+        "outputTimeUs": 2523,
+        "lastFrameLatencyMs": null,
+        "startUniverse": 0,
+        "outputFrames": 1,
+        "timeouts": 0,
+        "droppedPackets": 0,
+        "sequenceErrors": 0
+      },
+      "test": {
+        "active": false,
+        "phase": "stopped",
+        "loop": false,
+        "blackout": false,
+        "outputId": -1
+      },
+      "flashedBinarySha256": "77023d698cfea42bc008fdb5fcd1fe5e628242b8a492bdecff314e66cb4f0597"
+    },
+    "10.0.0.251": {
+      "configExactlyMatchesOriginalBackup": true,
+      "profile": "flex8-ws2812-apa102",
+      "storage": {
+        "saved": true,
+        "matches": true
+      },
+      "status": {
+        "pixelCount": 805,
+        "universeCount": 6,
+        "packets": 19619,
+        "rxPackets": 54987,
+        "rxQueueDrops": 0,
+        "rxOversizedPackets": 0,
+        "rxSocketErrors": 0,
+        "framesComplete": 3247,
+        "framesIncomplete": 44,
+        "fps": 60,
+        "packetsPerSecond": 395,
+        "heapFree": 161552,
+        "heapMinFree": 92280,
+        "frameTimeUs": 13476,
+        "outputTimeUs": 13476,
+        "lastFrameLatencyMs": null,
+        "startUniverse": 0,
+        "outputFrames": 3166,
+        "timeouts": 0,
+        "droppedPackets": 0,
+        "sequenceErrors": 0
+      },
+      "test": {
+        "active": false,
+        "phase": "stopped",
+        "loop": false,
+        "blackout": false,
+        "outputId": -1
+      },
+      "flashedBinarySha256": "e4fbdbdecf9649a3d635f499be9fca4abd1d3658df0237e4ccaab6acbd1e6b7b"
+    }
+  }
+}

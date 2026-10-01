@@ -1,0 +1,16 @@
+Verbosity level can be increased via `-v, -vv, or -vvv` option
+Collected 1 tests
+
+Processing test_rx_queue in native environment
+--------------------------------------------------------------------------------
+Building...
+Testing...
+test\test_rx_queue\../../tests/test_artnet_rx_queue.cpp:79: testOrderCapacityAndBufferOwnership	[PASSED]
+test\test_rx_queue\../../tests/test_artnet_rx_queue.cpp:80: testOversizedAndMalformedDatagrams	[PASSED]
+--------------- native:test_rx_queue [PASSED] Took 56.23 seconds ---------------
+
+=================================== SUMMARY ===================================
+Environment    Test           Status    Duration
+-------------  -------------  --------  ------------
+native         test_rx_queue  PASSED    00:00:56.227
+================== 2 test cases: 2 succeeded in 00:00:56.227 ==================

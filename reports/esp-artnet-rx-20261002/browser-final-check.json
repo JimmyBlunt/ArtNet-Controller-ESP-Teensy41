@@ -1,0 +1,224 @@
+{
+  "checkedAt": "2026-10-01T19:31:48.636Z",
+  "checksPassed": true,
+  "controllers": [
+    {
+      "host": "10.0.0.248",
+      "config": {
+        "pixelCount": 339,
+        "startUniverse": 0,
+        "universeCount": 1,
+        "targetFps": 60,
+        "hardwareProfile": "esp32-wroom-flex-8ws-2apa",
+        "outputs": [
+          {
+            "id": 0,
+            "type": "WS2812B",
+            "enabled": false,
+            "startPixel": 0,
+            "pixelCount": 203,
+            "dataPin": 26,
+            "clockPin": -1,
+            "colorOrder": "GRB",
+            "reverse": false,
+            "spiHz": 0,
+            "startUniverse": 120,
+            "targetFps": 60
+          },
+          {
+            "id": 1,
+            "type": "WS2812B",
+            "enabled": false,
+            "startPixel": 203,
+            "pixelCount": 738,
+            "dataPin": 27,
+            "clockPin": -1,
+            "colorOrder": "GRB",
+            "reverse": false,
+            "spiHz": 0,
+            "startUniverse": 122,
+            "targetFps": 60
+          },
+          {
+            "id": 2,
+            "type": "WS2812B",
+            "enabled": false,
+            "startPixel": 203,
+            "pixelCount": 880,
+            "dataPin": 25,
+            "clockPin": -1,
+            "colorOrder": "GRB",
+            "reverse": false,
+            "spiHz": 0,
+            "startUniverse": 127,
+            "targetFps": 60
+          },
+          {
+            "id": 3,
+            "type": "WS2812B",
+            "enabled": false,
+            "startPixel": 203,
+            "pixelCount": 810,
+            "dataPin": 14,
+            "clockPin": -1,
+            "colorOrder": "GRB",
+            "reverse": false,
+            "spiHz": 0,
+            "startUniverse": 133,
+            "targetFps": 60
+          },
+          {
+            "id": 4,
+            "type": "WS2812B",
+            "enabled": false,
+            "startPixel": 203,
+            "pixelCount": 352,
+            "dataPin": 19,
+            "clockPin": -1,
+            "colorOrder": "GRB",
+            "reverse": false,
+            "spiHz": 0,
+            "startUniverse": 139,
+            "targetFps": 60
+          },
+          {
+            "id": 5,
+            "type": "WS2812B",
+            "enabled": false,
+            "startPixel": 203,
+            "pixelCount": 1122,
+            "dataPin": 17,
+            "clockPin": -1,
+            "colorOrder": "GRB",
+            "reverse": false,
+            "spiHz": 0,
+            "startUniverse": 142,
+            "targetFps": 60
+          },
+          {
+            "id": 6,
+            "type": "APA102",
+            "enabled": true,
+            "startPixel": 203,
+            "pixelCount": 136,
+            "dataPin": 18,
+            "clockPin": 5,
+            "colorOrder": "BGR",
+            "reverse": false,
+            "spiHz": 4000000,
+            "startUniverse": 149,
+            "targetFps": 60
+          }
+        ]
+      },
+      "storage": {
+        "saved": true,
+        "matches": true
+      },
+      "status": {
+        "pixelCount": 339,
+        "universeCount": 1,
+        "packets": 0,
+        "rxPackets": 0,
+        "rxQueueDrops": 0,
+        "rxOversizedPackets": 0,
+        "rxSocketErrors": 0,
+        "framesComplete": 0,
+        "framesIncomplete": 0,
+        "fps": 0,
+        "packetsPerSecond": 0,
+        "heapFree": 176452,
+        "heapMinFree": 113700,
+        "frameTimeUs": 0,
+        "outputTimeUs": 0,
+        "lastFrameLatencyMs": null,
+        "startUniverse": 0,
+        "outputFrames": 0,
+        "timeouts": 0,
+        "droppedPackets": 0,
+        "sequenceErrors": 0
+      },
+      "test": {
+        "active": false,
+        "phase": "idle",
+        "loop": false,
+        "blackout": false,
+        "outputId": -1
+      }
+    },
+    {
+      "host": "10.0.0.251",
+      "config": {
+        "pixelCount": 805,
+        "startUniverse": 0,
+        "universeCount": 6,
+        "targetFps": 60,
+        "hardwareProfile": "flex8-ws2812-apa102",
+        "outputs": [
+          {
+            "id": 0,
+            "type": "APA102",
+            "enabled": true,
+            "startPixel": 0,
+            "pixelCount": 256,
+            "dataPin": 18,
+            "clockPin": 19,
+            "colorOrder": "RGB",
+            "reverse": false,
+            "spiHz": 4000000,
+            "startUniverse": 156,
+            "targetFps": 60
+          },
+          {
+            "id": 1,
+            "type": "APA102",
+            "enabled": true,
+            "startPixel": 256,
+            "pixelCount": 549,
+            "dataPin": 25,
+            "clockPin": 26,
+            "colorOrder": "RGB",
+            "reverse": false,
+            "spiHz": 4000000,
+            "startUniverse": 158,
+            "targetFps": 60
+          }
+        ]
+      },
+      "storage": {
+        "saved": true,
+        "matches": true
+      },
+      "status": {
+        "pixelCount": 805,
+        "universeCount": 6,
+        "packets": 6733,
+        "rxPackets": 6733,
+        "rxQueueDrops": 0,
+        "rxOversizedPackets": 0,
+        "rxSocketErrors": 0,
+        "framesComplete": 1122,
+        "framesIncomplete": 1,
+        "fps": 30,
+        "packetsPerSecond": 180,
+        "heapFree": 162128,
+        "heapMinFree": 92280,
+        "frameTimeUs": 12179,
+        "outputTimeUs": 12179,
+        "lastFrameLatencyMs": null,
+        "startUniverse": 0,
+        "outputFrames": 1119,
+        "timeouts": 0,
+        "droppedPackets": 0,
+        "sequenceErrors": 0
+      },
+      "test": {
+        "active": false,
+        "phase": "idle",
+        "loop": false,
+        "blackout": false,
+        "outputId": -1
+      }
+    }
+  ]
+}

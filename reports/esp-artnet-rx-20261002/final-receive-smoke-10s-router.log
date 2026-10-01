@@ -1,0 +1,17 @@
+PXLBLZ Art-Net Router v0.2.0
+Pixels: 941 (2823 bytes/frame) | Art-Net FPS target: 60 | UDP: 6454 | input: pattern | dry-run: false
+Routes:
+  10.0.0.248-output6 10.0.0.248      P7  pixels 0..135  U1149..U1149  RGB
+  10.0.0.251-output0 10.0.0.251      P1  pixels 136..391  U1156..U1157  RGB
+  10.0.0.251-output1 10.0.0.251      P2  pixels 392..940  U1158..U1161  RGB
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   3.907 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   3.907 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   3.907 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   3.907 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max   3.907 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max  11.719 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max  11.719 ms | errors 0
+TX  59.0 fps |   413 pkt/s | frame-send last   0.000 ms max  11.719 ms | errors 0
+TX  60.0 fps |   420 pkt/s | frame-send last   0.000 ms max  11.719 ms | errors 0
+
+Final TX: 599 frames, 4193 packets, 59.90 avg fps, 419.28 packets/s, 0 send errors
