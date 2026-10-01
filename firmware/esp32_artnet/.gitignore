@@ -1,0 +1,10 @@
+build/
+.pio/
+.venv-platformio/
+firmware/include/WifiSecrets.h
+*.tmp
+reports/*.log
+reports/*.err
+reports/*.pid
+output/
+.playwright-cli/

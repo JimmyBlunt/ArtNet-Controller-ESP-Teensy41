@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-01",
+  "reason": "Pin dependencies, clarify build docs and redact private WiFi values from historical STATUS. Runtime C++/web unchanged; new helpers tracked in Git.",
+  "files": [
+    {
+      "path": "docs/BUILD_AND_TEST_CHECKS.md",
+      "import_sha256": "9e0e41883f1d90d43a9268dc0de9c40a32dc7459a16501ecdd56ea2191ce9c8c",
+      "sha256": "c8cae97c750ca103a8a565cc59cbeb1f2d4415b3421c28f223998a434c9f7b40"
+    },
+    {
+      "path": "docs/EXTENSION_BOARD_PROFILE.md",
+      "import_sha256": "cb4699da3a56445adc4a47c0446e3454a731b0e3b662b9818b8cf56f1f6a68f4",
+      "sha256": "ca348bfa3207fa8656e5a7d09058715bf437622a027c50d05b757a2dadf82e29"
+    },
+    {
+      "path": "platformio.ini",
+      "import_sha256": "f3b32bbfa2bd1bf4510e94cba567f92f0a0691dd10f0b0122a867a1d693a1d50",
+      "sha256": "14fdbec4adf6042cc2032c418e9ec449b4f9049eb5422b57cb7cd6d043577d8c"
+    },
+    {
+      "path": "README.md",
+      "import_sha256": "7a1e18e1640d338c41351ccbdac171ecfb7d356912fd1c6b5fc9e3c5387c1f48",
+      "sha256": "57ade6fadba21a5498e0c07be29ab236323b626a3909060efce2a97e344fb950"
+    },
+    {
+      "path": "STATUS.md",
+      "import_sha256": "02ec244e9796198ca6b8685f71835e403ebe5fcfd9660ddb5fe58c7d1aa129bd",
+      "sha256": "1f4e80e82485162b3193a742d775eee17eaf84db1b7ae57dc5482e7103b64cb3"
+    }
+  ]
+}

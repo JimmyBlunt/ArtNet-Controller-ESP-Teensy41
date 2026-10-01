@@ -1,0 +1,6 @@
+shared_sequence_valid_lengths: complete=1 rejected=0 ignored=0 incomplete=0 duplicate=0
+old_OUT6_length_78: complete=0 rejected=1 ignored=0 incomplete=1 duplicate=0
+missing_universe_149: complete=0 rejected=0 ignored=0 incomplete=1 duplicate=0
+sequence_incremented_per_packet: complete=0 rejected=0 ignored=0 incomplete=29 duplicate=0
+extra_unused_universes: complete=1 rejected=0 ignored=4 incomplete=0 duplicate=0
+sequence_zero: complete=1 rejected=0 ignored=0 incomplete=0 duplicate=0

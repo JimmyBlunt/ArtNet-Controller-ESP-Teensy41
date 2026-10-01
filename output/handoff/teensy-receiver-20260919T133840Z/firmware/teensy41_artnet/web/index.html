@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="de">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ArtNet LED Controller · Teensy</title><link rel="stylesheet" href="/styles.css"></head>
+<body>
+<div class="app-shell">
+  <aside class="side-rail">
+    <a class="brand" href="#overview"><span class="brand-mark">A</span><span>ARTNET<b>LED CONTROLLER</b></span></a>
+    <div class="nav-label">CONTROL DESK</div>
+    <nav aria-label="Bereiche"><button data-page="overview" class="active" aria-current="page">◈ Übersicht</button><button data-page="outputs">▦ Ausgänge</button><button data-page="diagnostics">⌁ Diagnose</button><button data-page="system">⚙ System</button></nav>
+    <div class="rail-foot"><span id="railState" class="signal">Verbinde …</span><small>TEENSY 4.1 · OCTO ADAPTER</small></div>
+  </aside>
+  <main>
+    <header class="topbar"><div><p class="eyebrow">ART-NET / NATIVE ETHERNET</p><h1>LED control desk<span class="title-dot">.</span></h1></div><span id="connectionStatus" class="badge">Verbinde …</span></header>
+    <section class="panel transport" aria-label="Ausgabe steuern"><div><strong id="runtimeState">Status wird geladen</strong><p id="runtimeDetail" class="muted">Verbindung mit diesem Controller</p></div><div class="actions"><button id="start" class="primary" disabled>Art-Net starten</button><button id="stop" class="danger" disabled>Stop · LEDs aus</button></div></section>
+    <div id="notice" role="status" aria-live="polite"></div>
+    <div id="rebootNotice" class="callout" hidden>Die geänderte Konfiguration benötigt einen Neustart. Zuerst dauerhaft speichern, anschließend unter System neu starten.</div>
+    <div id="draftNotice" class="callout" hidden>Formular geändert. „Anwenden“ überträgt die Einstellungen in den RAM; „Dauerhaft speichern“ erhält sie nach einem Neustart.</div>
+    <section data-view="overview"><section class="panel test-deck"><div><p class="eyebrow">PORT TEST</p><h2>RGB-Lauflicht testen</h2><p class="muted">Wie beim ESP: 1 s Schwarz, je 6 s Rot, Grün und Blau, 1 s Schwarz. Alle aktiven Ports laufen gemeinsam; einzelne Ports unten auswählen. Nach Testende wird der vorherige Art-Net-Betrieb fortgesetzt.</p><p id="testPhase" role="status">Kein Test aktiv</p><progress id="testProgress" max="20" value="0" aria-label="Fortschritt des 20-Sekunden-Testzyklus"></progress></div><div class="actions"><button id="testAll" disabled>Alle · Einmal</button><button id="testLoopAll" disabled>Alle · Im Loop</button><button id="testEnd" disabled>Test beenden</button></div></section>
+      <div class="section-heading"><div><p class="eyebrow">OVERVIEW</p><h2>Dein Licht. Im Blick.</h2></div><span class="badge pending">Optische Prüfung ausstehend</span></div>
+      <div class="stats"><div class="panel"><span>Aktive LEDs · Konfiguration</span><strong id="statPixels">—</strong></div><div class="panel"><span>DMA-Abschlüsse / s</span><strong id="statDma">—</strong></div><div class="panel"><span>Art-Net Pakete / s</span><strong id="statPackets">—</strong></div><div class="panel"><span>Unvollständige Bilder</span><strong id="statIncomplete">—</strong></div></div>
+      <div class="section-heading"><h2>Die acht Ausgänge</h2><button data-go="outputs" class="quiet">Konfigurieren ↗</button></div>
+      <div id="outputCards" class="output-cards"><div class="panel muted">Konfiguration wird geladen …</div></div>
+      <section class="panel"><h3>Portnummer identifizieren</h3><p class="muted">Nach Stop zeigt „Portnummer blinken“ die Ausgangsnummer in RGB-Blinkfolgen. Die Testvorschau oben bildet das RGB-Lauflicht anhand des Controllerstatus nach; sie ist keine optische Rückmeldung der LEDs.</p></section>
+    </section>
+    <section data-view="outputs" hidden>
+      <div class="section-heading"><div><p class="eyebrow">OUTPUT PATCH</p><h2>Ausgänge konfigurieren</h2></div><span id="storageState" class="badge">Speicherstatus unbekannt</span></div>
+      <form id="configForm"><section class="panel"><h3>PJRC_OCTO_ADAPTER_T41</h3><p class="muted">Feste Ausgangsfolge: 2, 14, 7, 8, 6, 20, 21, 5. WS2812B mit FastLED/ObjectFLED. Einstellungen lassen sich nur bei gestoppter Ausgabe anwenden und speichern.</p><div class="config-grid"><label>Helligkeit · 0–255<input id="cfgBrightness" type="number" min="0" max="255" required data-edit disabled></label><label>Ziel-FPS · 1–60<input id="cfgFps" type="number" min="1" max="60" required data-edit disabled></label><label>LEDs gesamt<input id="cfgPixels" readonly></label><label>Universes aktiv<input id="cfgUniverses" readonly></label></div><div id="outputEditor"></div></section></form>
+      <section class="panel"><div class="actions"><button id="apply" class="primary" disabled>Anwenden · RAM</button><button id="save" disabled>Dauerhaft speichern</button><button id="reload" disabled>Neu laden</button></div><p id="configMsg" class="muted" role="status">Konfiguration wird geladen.</p><p class="muted">170 RGB-Pixel pro Universe. Startuniverses sind 0-basiert; aktive Universe-Bereiche dürfen sich nicht überschneiden. Neue Ausgabelängen und aktivierte Ausgänge können einen Neustart benötigen.</p></section>
+    </section>
+    <section data-view="diagnostics" hidden><div class="section-heading"><div><p class="eyebrow">SIGNAL & HEALTH</p><h2>Diagnose</h2></div></div><section class="panel"><div id="diagnostics" class="diagnostic-grid"></div><p class="muted">Submit-FPS zählen eingereichte Bilder, DMA-FPS abgeschlossene Übertragungen. Beide Werte sind keine gemessene optische Bildrate. Unvollständige Bilder, verworfene UDP-Pakete und ersetzte wartende Bilder werden getrennt gezählt.</p></section><section class="panel"><h3>Ereignisse dieser Sitzung</h3><pre id="logs">Noch keine Ereignisse.</pre></section></section>
+    <section data-view="system" hidden>
+      <div class="section-heading"><div><p class="eyebrow">DEVICE</p><h2>System</h2></div></div>
+      <section class="panel"><h3>Netzwerk</h3><p class="muted">Eine Netzwerkänderung wird mit der gesamten Konfiguration übernommen. Dauerhaft speichern und neu starten; anschließend die neue IP-Adresse öffnen.</p><label class="toggle"><input id="cfgDhcp" type="checkbox" data-edit disabled>IP-Adresse automatisch beziehen (DHCP)</label><div class="config-grid network-grid"><label>IPv4-Adresse<input id="cfgIp" inputmode="decimal" data-network data-edit disabled></label><label>Netzmaske<input id="cfgNetmask" inputmode="decimal" data-network data-edit disabled></label><label>Gateway<input id="cfgGateway" inputmode="decimal" data-network data-edit disabled></label><label>DNS-Server<input id="cfgDns" inputmode="decimal" data-network data-edit disabled></label></div><div class="actions"><button data-go="outputs">Einstellungen anwenden ↗</button></div></section>
+      <section class="panel"><h3>Konfiguration sichern & wiederherstellen</h3><p class="muted">Vollständige JSON-Konfiguration inklusive Netzwerk. Import lädt zuerst das Formular. Nur Schema 1 und das feste Teensy-Octo-Profil werden akzeptiert.</p><div class="actions"><button id="export" disabled>JSON herunterladen</button><button id="import" disabled>JSON ins Formular laden</button><input id="importFile" type="file" accept=".json,application/json" hidden></div></section>
+      <section class="panel"><h3>Neustart · automatisch AN</h3><p class="muted">Zum Neustarten zuerst die Ausgabe stoppen und geänderte RAM-Einstellungen dauerhaft speichern. Nach jedem Einschalten oder Neustart ist Art-Net automatisch AN. Der Controller wartet auf vollständige Daten und setzt die Ausgabe auch nach einer Signalunterbrechung selbstständig fort. Ein manueller Stop gilt bis zum nächsten Start oder Neustart.</p><button id="reboot" disabled>Controller neu starten</button></section>
+      <section class="panel"><h3>Laufzeitstatus</h3><pre id="raw">Verbinde …</pre></section>
+    </section>
+    <footer>ARTNET LED CONTROLLER<span>Teensy 4.1 · FastLED / ObjectFLED</span></footer>
+  </main>
+</div><script src="/app.js" defer></script>
+</body></html>

@@ -1,0 +1,16 @@
+{
+  "svg_xml_valid": true,
+  "browser_images_decoded": 3,
+  "desktop_viewport": [
+    1280,
+    1900
+  ],
+  "mobile_viewport": [
+    390,
+    844
+  ],
+  "mobile_horizontal_overflow": false,
+  "visual_review": "Three diagrams inspected; no clipped text or overlapping nodes",
+  "missing_documentation_links": [],
+  "hardware_access": false
+}

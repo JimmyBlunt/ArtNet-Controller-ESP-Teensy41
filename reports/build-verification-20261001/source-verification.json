@@ -1,0 +1,28 @@
+{
+  "imported_files_verified": 116,
+  "documented_adaptations": 5,
+  "shared_artwork_sha256": "b4c8fa2e64357b95541509f430a0799301b410abf5d43823dba5e825d924be35",
+  "environments": {
+    "esp32_artnet": [
+      "native",
+      "esp32-power-diagnostic",
+      "esp32-wifi",
+      "esp32-wifi-matrix16",
+      "esp32-wifi-ws2812-output0",
+      "esp32-wifi-ws2812-apa102-1679",
+      "esp32-wifi-flex8",
+      "esp32-wifi-extensionboard",
+      "esp32-wifi-esp251",
+      "esp32-rmii-ethernet",
+      "esp32-w5500"
+    ],
+    "teensy41_artnet": [
+      "teensy41_safe",
+      "teensy41_driver_compile",
+      "teensy41_hardware",
+      "teensy41_unwired_bench",
+      "teensy41_octo_identify_rx32",
+      "teensy41_octo_web_rx32"
+    ]
+  }
+}

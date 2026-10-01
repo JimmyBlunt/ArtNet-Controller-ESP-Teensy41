@@ -1,0 +1,97 @@
+[
+  {
+    "InterfaceAlias": "VirtualBox Host-Only Ethernet  #3 192.168.118.1",
+    "IPAddress": "192.168.118.1",
+    "PrefixLength": 24
+  },
+  {
+    "InterfaceAlias": "VirtualBox Host-Only Ethernet #2 192.168.66.1",
+    "IPAddress": "192.168.66.1",
+    "PrefixLength": 24
+  },
+  {
+    "InterfaceAlias": "Ethernet",
+    "IPAddress": "169.254.254.2",
+    "PrefixLength": 16
+  },
+  {
+    "InterfaceAlias": "VirtualBox Host-Only Ethernet 192.168.56.1",
+    "IPAddress": "192.168.56.1",
+    "PrefixLength": 24
+  },
+  {
+    "InterfaceAlias": "vEthernet (Default Switch)",
+    "IPAddress": "172.29.32.1",
+    "PrefixLength": 20
+  },
+  {
+    "InterfaceAlias": "NordLynx",
+    "IPAddress": "169.254.5.254",
+    "PrefixLength": 16
+  },
+  {
+    "InterfaceAlias": "NordLynx",
+    "IPAddress": "10.5.0.2",
+    "PrefixLength": 16
+  },
+  {
+    "InterfaceAlias": "Tailscale",
+    "IPAddress": "169.254.83.107",
+    "PrefixLength": 16
+  },
+  {
+    "InterfaceAlias": "LAN-Verbindung 2 Wintun Userspace Tunnel",
+    "IPAddress": "169.254.201.82",
+    "PrefixLength": 16
+  },
+  {
+    "InterfaceAlias": "LAN-Verbindung* 10",
+    "IPAddress": "169.254.98.146",
+    "PrefixLength": 16
+  },
+  {
+    "InterfaceAlias": "LAN-Verbindung",
+    "IPAddress": "169.254.170.21",
+    "PrefixLength": 16
+  },
+  {
+    "InterfaceAlias": "Ethernet 2 - Intel(R) I211 Gigabit Network Connection",
+    "IPAddress": "192.168.1.99",
+    "PrefixLength": 24
+  },
+  {
+    "InterfaceAlias": "Ethernet 2 - Intel(R) I211 Gigabit Network Connection",
+    "IPAddress": "169.254.75.63",
+    "PrefixLength": 16
+  },
+  {
+    "InterfaceAlias": "LAN-Verbindung* 1",
+    "IPAddress": "169.254.120.131",
+    "PrefixLength": 16
+  },
+  {
+    "InterfaceAlias": "Ethernet 1 - Intel(R) Ethernet Connection (2) I219-V",
+    "IPAddress": "10.0.0.173",
+    "PrefixLength": 8
+  },
+  {
+    "InterfaceAlias": "WLAN Intel(R) Dual Band Wireless-AC 8265",
+    "IPAddress": "169.254.69.156",
+    "PrefixLength": 16
+  },
+  {
+    "InterfaceAlias": "OpenVPN Data Channel Offload for NordVPN",
+    "IPAddress": "169.254.141.221",
+    "PrefixLength": 16
+  },
+  {
+    "InterfaceAlias": "OpenVPN Data Channel Offload for NordVPN",
+    "IPAddress": "10.100.0.2",
+    "PrefixLength": 22
+  },
+  {
+    "InterfaceAlias": "Loopback Pseudo-Interface 1",
+    "IPAddress": "127.0.0.1",
+    "PrefixLength": 8
+  }
+]

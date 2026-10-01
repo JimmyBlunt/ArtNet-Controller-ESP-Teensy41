@@ -1,0 +1,17 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "A7A14C2130B03AE33CD6EC62FAAC006AB305A361CCB675C9D5E9FC04D60ACAE2",
+    "Path": "C:\\Users\\jimmy\\Documents\\ChatGPT\\ArtNet-Controller 5\\firmware\\teensy41_artnet\\artifacts\\octo-web-port-tests-20260913.hex"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "576BBE1AB64F0D73E15FADCA8C940B460AE13C138A9E86CBF14843E3606259D1",
+    "Path": "C:\\Users\\jimmy\\Documents\\ChatGPT\\ArtNet-Controller 5\\firmware\\teensy41_artnet\\src\\web_main.cpp"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "1CF5373D27957128A188E585DC3D0E8CA94969188E499BC0B8B18C380A758EEB",
+    "Path": "C:\\Users\\jimmy\\Documents\\ChatGPT\\ArtNet-Controller 5\\firmware\\teensy41_artnet\\include\\runtime_receiver.h"
+  }
+]

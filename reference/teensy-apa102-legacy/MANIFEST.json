@@ -1,0 +1,27 @@
+{
+  "source_directory": "C:\\Users\\jimmy\\Documents\\Teensy-ArtNet",
+  "captured_date": "2026-10-01",
+  "purpose": "Historical APA102 test, no Art-Net; not an Octo profile",
+  "files": [
+    {
+      "path": "platformio.ini",
+      "sha256": "2c5bd973ab55c89e2428c86c0d163ce15ea43c2cac0534056908265ad60bbbb0",
+      "bytes": 177
+    },
+    {
+      "path": "src/main.cpp",
+      "sha256": "3e0a0f78f8623d247d9ce9f9ca40d92dbae9cef66246771ebeaa4fd6b1961297",
+      "bytes": 2797
+    },
+    {
+      "path": "README.md",
+      "sha256": "e7368cfd501a9d93e6fa5d18e74c4108e74c4f46b07f7694e7dc536ccccb4d98",
+      "bytes": 1990
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "5e093508053b6df66e430f39edcfc79ab6d08741f0e50280b1bb08239b28f2cc",
+      "bytes": 27
+    }
+  ]
+}

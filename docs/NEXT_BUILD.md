@@ -1,5 +1,31 @@
 # Für den nächsten Controller-Build vorgemerkt
 
+Repository-Abgleich 01.10.2026: ESP-Quellen liegen jetzt unter
+`firmware/esp32_artnet`; Buildprofile und offene Einschränkungen stehen in
+[NODE_BUILDS.md](NODE_BUILDS.md). Autostart, Porttests, animierte Vorschau und
+50 % Orbital-Hintergrund sind im Teensy-Webstand bereits umgesetzt. Die unten
+vorgemerkte APA102-Erweiterung des Octo bleibt offen. Dieser Abgleich hat keine
+Geräte geflasht oder gespeicherte LED-/Universe-Konfigurationen verändert.
+
+## APA102-Erweiterung: Octo später, ESP zuerst
+
+Nutzerentscheidung vom 15.09.2026: Zwei zusätzliche APA102-Ausgänge an der
+seitlichen Octo-Pinleiste vorerst nur vormerken; zunächst den ESP verwenden.
+
+- Octo-Kandidaten: DATA/CLOCK 23/22 und 19/18 am Teensy 4.1, per Software-SPI.
+  Keine dieser Leitungen ist im aktuellen Octo-Ausgangsprofil belegt.
+- Noch nicht implementiert oder am Board getestet. Vor einer Umsetzung
+  Pegelanpassung für DATA und CLOCK, Art-Net-Zuordnung und Laufzeitbudget prüfen.
+- Für zuverlässige 5-V-APA102-Ansteuerung vier Pegelwandlerkanäle vorsehen,
+  beispielsweise einen 74AHCT125 für beide Ausgänge.
+- ESP-Expansion-Board laut Nutzerfoto: ESP32S 38P/V4/Goouuu, violette Platine.
+  Der 3,3-V/5-V-Jumper wählt die Versorgung der V-Pinreihe; er ist keine
+  Pegelanpassung der GPIO-Signale. Das genaue eingesteckte ESP-Modul und seine
+  APA102-Pinbelegung sind noch zu klären.
+
+Referenzen: https://www.pjrc.com/store/octo28_adaptor.html und
+https://learn.adafruit.com/adafruit-dotstar-leds/power-and-connections
+
 ## Automatischer Art-Net-Start
 
 Nutzerwunsch vom 13.09.2026: Der Controller soll nach Einschalten beziehungsweise

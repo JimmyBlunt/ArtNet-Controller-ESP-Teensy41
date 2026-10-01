@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ArtNet LED Controller</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="side-rail">
+    <a class="brand" href="#overview"><span class="brand-mark">A</span><span>ARTNET<b>LED CONTROLLER</b></span></a>
+    <div class="nav-label">CONTROL DESK</div>
+    <nav aria-label="Bereiche">
+      <button data-page="overview" class="active" aria-current="page"><span>◈</span>Übersicht</button>
+      <button data-page="outputs"><span>▦</span>Ausgänge</button>
+      <button data-page="mapping"><span>⌘</span>Mapping</button>
+      <button data-page="diagnostics"><span>⌁</span>Diagnose</button>
+      <button data-page="system"><span>⚙</span>System</button>
+    </nav>
+    <div class="rail-foot"><span id="railState" class="signal">Nicht verbunden</span><small>WS2812B / APA102</small></div>
+  </aside>
+  <main>
+    <header class="topbar"><div><p class="eyebrow">ART-NET / LIGHT CONTROL</p><h1>LED control desk<span class="title-dot">.</span></h1></div><span id="connectionStatus" class="badge">Offline</span></header>
+    <section class="connection panel" aria-label="Verbindung">
+      <label>Controller-Adresse<input id="controllerHost" placeholder="IP-Adresse oder Hostname" autocomplete="off" inputmode="url"></label>
+      <button id="connectController" class="primary">Verbinden</button>
+      <span id="lastSeen" class="muted">Noch keine Controllerdaten</span>
+      <button id="blackout" class="danger" data-live disabled>Blackout</button>
+    </section>
+    <div id="notice" role="status" aria-live="polite"></div>
+    <section data-view="overview">
+      <div class="section-heading"><div><p class="eyebrow">OVERVIEW</p><h2>Dein Licht. Im Blick.</h2></div><span id="signalState" class="badge">Signal unbekannt</span></div>
+      <div class="stats">
+        <div class="panel"><span>LEDs gesamt</span><strong id="statPixels">—</strong></div>
+        <div class="panel"><span>Ausgabe FPS</span><strong id="statFps">—</strong></div>
+        <div class="panel"><span>Art-Net Pakete/s</span><strong id="statPackets">—</strong></div>
+        <div class="panel"><span>Unvollständige Bilder</span><strong id="statIncomplete">—</strong></div>
+      </div>
+      <div class="section-heading"><h2>Deine Ausgänge</h2><button data-go="outputs" class="quiet">Konfigurieren ↗</button></div>
+      <div id="outputCards" class="output-cards"><div class="empty panel">Verbinde den Controller, um seine tatsächlichen Ausgänge zu laden.</div></div>
+      <section class="panel test-deck"><div><p class="eyebrow">HARDWARE CHECK</p><h2 id="testDeckTitle">Ausgänge testen</h2><p class="muted">Gedimmte RGB-Lauflichter. Die Live-Anzeige zeigt, welche Testdaten der ESP gerade an den Ausgang sendet.</p></div><div class="actions"><button data-action="start" data-live disabled>Einmal</button><button data-action="loop" data-live disabled>Im Loop</button><button data-action="stop" data-live disabled>Stop → Art-Net</button></div><span id="testPhase" class="badge">Kein Teststatus</span><div id="testVisual" class="test-visual" aria-live="polite"><div class="test-visual-head"><strong id="testVisualState">Keine Testdaten</strong><span id="testVisualTarget" class="muted">Kein Ausgang aktiv</span></div><div class="test-strip" aria-hidden="true"><span id="testBlock"></span></div><div id="testVisualDetail" class="muted">Der ESP gibt derzeit kein Testmuster aus.</div></div></section>
+    </section>
+    <section data-view="outputs" hidden>
+      <div class="section-heading"><div><p class="eyebrow">OUTPUT PATCH</p><h2>Ausgänge konfigurieren</h2></div><span id="storageState" class="badge">Speicherstatus unbekannt</span></div>
+      <section class="panel">
+        <div class="config-grid"><label>Auto-Layout ab Universe (0-basiert)<input id="cfgUniverse" type="number" min="0" max="32767" data-edit disabled></label><label>Gesamtpixel<input id="cfgPixels" readonly></label><label>Ziel-FPS<input id="cfgFps" type="number" min="1" max="60" data-edit disabled></label><label>Empfangene Universes<input id="cfgUniverseCount" readonly></label></div>
+        <p class="muted">Jeder Ausgang beginnt bei Kanal 1 seines eigenen Start-Universe. Auto Layout vergibt freie Universe-Bereiche hintereinander.</p>
+        <p id="hardwareNote" class="muted"></p>
+        <div id="outputEditor"></div>
+        <div class="actions"><button id="addOutput" data-live disabled>+ Ausgang hinzufügen</button><button id="applyConfig" class="primary" data-live disabled>Anwenden</button><button id="saveConfig" data-live disabled>Dauerhaft speichern</button><button id="autoLayout" data-live disabled>Auto Layout</button><button id="reloadConfig" data-live disabled>Neu laden</button></div>
+        <p id="configMsg" role="status">Noch keine Konfiguration geladen.</p>
+      </section>
+    </section>
+    <section data-view="mapping" hidden>
+      <div class="section-heading"><div><p class="eyebrow">SPATIAL PATCH</p><h2>Mapping & Vorschau</h2></div><span class="badge">PC-seitig</span></div>
+      <section class="panel"><h3>Ausgangsübersicht</h3><div id="patchOverview" class="patch-overview"></div><p class="muted">Zeigt Pixelbereiche und Anschlüsse aus der Konfiguration. Keine Live-Farben und keine optische Rückmeldung.</p></section>
+      <section class="panel"><h3>Mapping bleibt auf dem Rechner</h3><p>Pixelblaze-/MariMapper-Konvertierung und räumliches Mapping laufen in den vorhandenen PC-Werkzeugen. Der ESP gibt die empfangenen RGB-Pixel in der angezeigten Reihenfolge aus.</p><p class="muted">Pro Universe: 170 RGB-Pixel / 510 Kanäle. Ein Ausgang kann mitten in einem Universe beginnen.</p></section>
+      <section class="panel"><h3>Processing-Preview verbinden</h3><div class="actions"><label>Empfänger-IP<input id="previewHost" placeholder="z. B. 10.0.0.173"></label><label>UDP-Port<input id="previewPort" type="number" min="1" max="65535" value="6455"></label><button id="savePreview" data-live disabled>Ziel setzen</button></div><p id="previewMsg" role="status" class="muted">Vorschauziel gilt bis zum Neustart.</p></section>
+    </section>
+    <section data-view="diagnostics" hidden>
+      <div class="section-heading"><div><p class="eyebrow">SIGNAL & HEALTH</p><h2>Diagnose</h2></div></div>
+      <section class="panel"><div id="diagnostics" class="diagnostic-grid"></div><p class="muted">Art-Net-Sammlung mit Timeout; ohne ArtSync keine garantierte Synchronisation zwischen Universes. Ausgabetiming umfasst die Verarbeitung und LED-Übertragung.</p></section>
+      <section class="panel"><h3>Ereignisse dieser Sitzung</h3><pre id="logs">Noch keine Ereignisse.</pre></section>
+    </section>
+    <section data-view="system" hidden>
+      <section class="panel"><h3>Firmware-Update über WLAN</h3><p>Eine neue firmware.bin direkt auf den Controller übertragen. Gespeicherte LED-Einstellungen bleiben erhalten.</p><button id="firmwareUpdate" data-live disabled>Firmware-Update öffnen</button></section>
+      <div class="section-heading"><div><p class="eyebrow">DEVICE</p><h2>System</h2></div></div>
+      <section class="panel"><h3>Konfiguration sichern & wiederherstellen</h3><p>LED-Typen, Pinbelegung, LED-Anzahlen, Pixelbereiche, Art-Net-Universes und Ziel-FPS als JSON-Datei sichern. WLAN-Passwort, Testmodus und Laufzeitstatistiken werden aus Sicherheitsgründen nicht exportiert.</p><div class="actions"><button id="exportConfig" data-live disabled>JSON-Backup herunterladen</button><button id="importConfig" data-live disabled>JSON-Backup wiederherstellen</button><input id="importConfigFile" type="file" accept=".json,application/json" hidden></div><p id="backupMsg" role="status" class="muted">Noch kein Backup erstellt oder eingespielt.</p></section>
+      <section class="panel"><h3>Neustart</h3><p>„Anwenden“ ändert die laufende Konfiguration. Erst „Dauerhaft speichern“ erhält sie über einen Neustart hinweg. Test und Blackout werden nicht gespeichert.</p><button id="rebootController" data-live disabled>Controller neu starten</button></section>
+      <section class="panel"><h3>Statusdaten</h3><pre id="raw">Nicht verbunden.</pre></section>
+    </section>
+    <footer>ARTNET LED CONTROLLER<span id="footerMode">Lokales Bedienpult</span></footer>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

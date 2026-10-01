@@ -1,0 +1,9 @@
+{
+  "name": "artnet-node-build-tools",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Local browser test dependency for the ESP and Teensy node sources",
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

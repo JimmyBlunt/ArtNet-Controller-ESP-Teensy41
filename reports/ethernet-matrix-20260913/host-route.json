@@ -1,0 +1,16 @@
+[
+  {
+    "IPAddress": "10.0.0.173",
+    "InterfaceAlias": "Ethernet 1 - Intel(R) Ethernet Connection (2) I219-V",
+    "DestinationPrefix": null,
+    "NextHop": null,
+    "RouteMetric": null
+  },
+  {
+    "IPAddress": null,
+    "InterfaceAlias": "Ethernet 1 - Intel(R) Ethernet Connection (2) I219-V",
+    "DestinationPrefix": "10.0.0.0/8",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256
+  }
+]

@@ -163,7 +163,7 @@ Ein vollständig gesendeter übergroßer Body wird mit HTTP 413 beantwortet.
 Die physische Abnahme der Adapterbuchsen, LED-Ketten und parallelen Ausgabe bleibt
 offen; sämtliche Gerätetests dieser früheren Abnahme liefen ohne LED-Ausgabe.
 
-## Orbital Prism und Autostart – aktueller Build
+## Orbital Prism und Autostart – historische Abnahme vor Porttests
 
 `orbital-prism-autostart-20260913` wurde auf denselben Teensy übertragen.
 Autostart ist AN, mit den unveränderten gespeicherten 4031 LEDs und 29 Universen.

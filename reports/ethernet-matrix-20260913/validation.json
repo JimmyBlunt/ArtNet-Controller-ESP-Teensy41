@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "cases": 42,
+  "series": [
+    {
+      "series": "ethernet-matrix-20260913",
+      "cases": 25,
+      "integrity_checks": 5,
+      "restoration_verified": true,
+      "all_counter_identities_valid": true
+    },
+    {
+      "series": "ethernet-capacity-20260913",
+      "cases": 10,
+      "integrity_checks": 5,
+      "restoration_verified": true,
+      "all_counter_identities_valid": true
+    },
+    {
+      "series": "ethernet-paced-20260913",
+      "cases": 7,
+      "integrity_checks": 3,
+      "restoration_verified": true,
+      "all_counter_identities_valid": true
+    }
+  ],
+  "frames_sent": 41201,
+  "complete_frames": 40154,
+  "packets_sent": 1670814,
+  "packets_received": 1661956,
+  "nominal_stream_seconds": 1260,
+  "min_case_seconds": 30.000223099999857,
+  "max_case_seconds": 30.045453599999746
+}

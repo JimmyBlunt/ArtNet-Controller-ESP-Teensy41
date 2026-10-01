@@ -1,0 +1,221 @@
+[
+  {
+    "name": "embedded_ui",
+    "command": [
+      "node",
+      "tools/build-web-ui.js",
+      "--check"
+    ],
+    "returncode": 0,
+    "output": "Shared controller UI: 50180 bytes\n"
+  },
+  {
+    "name": "test_firmware_core_compile",
+    "command": [
+      "g++",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-O2",
+      "-Ifirmware/include",
+      "firmware\\src\\ArtNetReceiver.cpp",
+      "firmware\\src\\ConfigManager.cpp",
+      "firmware\\src\\FirmwareUpdate.cpp",
+      "firmware\\src\\HardwareTest.cpp",
+      "firmware\\src\\LedOutputs.cpp",
+      "firmware\\src\\LogicalPixelBuffer.cpp",
+      "firmware\\src\\main.cpp",
+      "firmware\\src\\MappingEngine.cpp",
+      "firmware\\src\\NetworkManager.cpp",
+      "firmware\\src\\OutputRouter.cpp",
+      "firmware\\src\\Performance.cpp",
+      "firmware\\src\\PerformanceMonitor.cpp",
+      "firmware\\src\\PowerDiagnostic.cpp",
+      "firmware\\src\\PreviewProtocol.cpp",
+      "firmware\\src\\PreviewStreamer.cpp",
+      "firmware\\src\\UniverseAssembler.cpp",
+      "firmware\\src\\WebApi.cpp",
+      "tests/test_firmware_core.cpp",
+      "-o",
+      "C:\\Users\\jimmy\\Documents\\ChatGPT\\ArtNet-Controller 5\\firmware\\esp32_artnet\\build\\test_firmware_core.exe"
+    ],
+    "returncode": 0,
+    "output": ""
+  },
+  {
+    "name": "test_firmware_core",
+    "command": [
+      "C:\\Users\\jimmy\\Documents\\ChatGPT\\ArtNet-Controller 5\\firmware\\esp32_artnet\\build\\test_firmware_core.exe"
+    ],
+    "returncode": 0,
+    "output": "All firmware core tests passed\n"
+  },
+  {
+    "name": "test_network_boot_guard_compile",
+    "command": [
+      "g++",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-O2",
+      "-Itests/stubs/network",
+      "-DARDUINO",
+      "-Ifirmware/include",
+      "firmware/src/NetworkManager.cpp",
+      "tests/test_network_boot_guard.cpp",
+      "-o",
+      "C:\\Users\\jimmy\\Documents\\ChatGPT\\ArtNet-Controller 5\\firmware\\esp32_artnet\\build\\test_network_boot_guard.exe"
+    ],
+    "returncode": 0,
+    "output": ""
+  },
+  {
+    "name": "test_network_boot_guard",
+    "command": [
+      "C:\\Users\\jimmy\\Documents\\ChatGPT\\ArtNet-Controller 5\\firmware\\esp32_artnet\\build\\test_network_boot_guard.exe"
+    ],
+    "returncode": 0,
+    "output": "Network boot guard tests passed\n"
+  },
+  {
+    "name": "test_flexible_output_profile_compile",
+    "command": [
+      "g++",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-O2",
+      "-DLED_PROFILE_FLEX8",
+      "-Ifirmware/include",
+      "firmware/src/ConfigManager.cpp",
+      "firmware/src/OutputRouter.cpp",
+      "firmware/src/Performance.cpp",
+      "firmware/src/LogicalPixelBuffer.cpp",
+      "tests/test_flexible_output_profile.cpp",
+      "-o",
+      "C:\\Users\\jimmy\\Documents\\ChatGPT\\ArtNet-Controller 5\\firmware\\esp32_artnet\\build\\test_flexible_output_profile.exe"
+    ],
+    "returncode": 0,
+    "output": ""
+  },
+  {
+    "name": "test_flexible_output_profile",
+    "command": [
+      "C:\\Users\\jimmy\\Documents\\ChatGPT\\ArtNet-Controller 5\\firmware\\esp32_artnet\\build\\test_flexible_output_profile.exe"
+    ],
+    "returncode": 0,
+    "output": "Flexible output profile tests passed\n"
+  },
+  {
+    "name": "test_extension_board_profile_compile",
+    "command": [
+      "g++",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-O2",
+      "-DLED_PROFILE_FLEX8",
+      "-DLED_PROFILE_EXTENSION_BOARD",
+      "-Ifirmware/include",
+      "firmware/src/ConfigManager.cpp",
+      "firmware/src/OutputRouter.cpp",
+      "firmware/src/Performance.cpp",
+      "firmware/src/LogicalPixelBuffer.cpp",
+      "tests/test_extension_board_profile.cpp",
+      "-o",
+      "C:\\Users\\jimmy\\Documents\\ChatGPT\\ArtNet-Controller 5\\firmware\\esp32_artnet\\build\\test_extension_board_profile.exe"
+    ],
+    "returncode": 0,
+    "output": ""
+  },
+  {
+    "name": "test_extension_board_profile",
+    "command": [
+      "C:\\Users\\jimmy\\Documents\\ChatGPT\\ArtNet-Controller 5\\firmware\\esp32_artnet\\build\\test_extension_board_profile.exe"
+    ],
+    "returncode": 0,
+    "output": "Extension-board profile tests passed\n"
+  },
+  {
+    "name": "test_esp251_profile_compile",
+    "command": [
+      "g++",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-O2",
+      "-DLED_PROFILE_FLEX8",
+      "-DLED_PROFILE_EXTENSION_BOARD",
+      "-DLED_PROFILE_ESP251",
+      "-Ifirmware/include",
+      "firmware/src/ConfigManager.cpp",
+      "firmware/src/OutputRouter.cpp",
+      "firmware/src/Performance.cpp",
+      "firmware/src/LogicalPixelBuffer.cpp",
+      "firmware/src/UniverseAssembler.cpp",
+      "tests/test_esp251_profile.cpp",
+      "-o",
+      "C:\\Users\\jimmy\\Documents\\ChatGPT\\ArtNet-Controller 5\\firmware\\esp32_artnet\\build\\test_esp251_profile.exe"
+    ],
+    "returncode": 0,
+    "output": ""
+  },
+  {
+    "name": "test_esp251_profile",
+    "command": [
+      "C:\\Users\\jimmy\\Documents\\ChatGPT\\ArtNet-Controller 5\\firmware\\esp32_artnet\\build\\test_esp251_profile.exe"
+    ],
+    "returncode": 3,
+    "output": "Assertion failed: led::validateRuntimeHardwareConfig(config, &error), file tests/test_esp251_profile.cpp, line 9\n"
+  },
+  {
+    "name": "test_mapping_schema",
+    "command": [
+      "node",
+      "tests/test_mapping_schema.js"
+    ],
+    "returncode": 0,
+    "output": "Mapping schema tests passed\n"
+  },
+  {
+    "name": "test_web_calculations",
+    "command": [
+      "node",
+      "tests/test_web_calculations.js"
+    ],
+    "returncode": 0,
+    "output": "Web calculation tests passed\n"
+  },
+  {
+    "name": "test_processing_protocol",
+    "command": [
+      "node",
+      "tests/test_processing_protocol.js"
+    ],
+    "returncode": 0,
+    "output": "Processing preview protocol tests passed\n"
+  },
+  {
+    "name": "test_processing_visualizer",
+    "command": [
+      "node",
+      "tests/test_processing_visualizer.js"
+    ],
+    "returncode": 0,
+    "output": "Processing visualizer tests passed\n"
+  },
+  {
+    "name": "test_hardware_benchmark_tool",
+    "command": [
+      "node",
+      "tests/test_hardware_benchmark_tool.js"
+    ],
+    "returncode": 0,
+    "output": "Hardware benchmark tool tests passed\n"
+  }
+]

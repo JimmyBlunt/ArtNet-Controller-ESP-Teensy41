@@ -1,0 +1,86 @@
+[
+  {
+    "Name": "NordLynx",
+    "InterfaceDescription": "NordLynx Tunnel",
+    "Status": "Disconnected",
+    "LinkSpeed": "100 Gbps"
+  },
+  {
+    "Name": "Ethernet 2 - Intel(R) I211 Gigabit Network Connection",
+    "InterfaceDescription": "Intel(R) I211 Gigabit Network Connection",
+    "Status": "Disconnected",
+    "LinkSpeed": "0 bps"
+  },
+  {
+    "Name": "WLAN Intel(R) Dual Band Wireless-AC 8265",
+    "InterfaceDescription": "Intel(R) Dual Band Wireless-AC 8265",
+    "Status": "Disconnected",
+    "LinkSpeed": "0 bps"
+  },
+  {
+    "Name": "LAN-Verbindung",
+    "InterfaceDescription": "TAP-NordVPN Windows Adapter V9",
+    "Status": "Disconnected",
+    "LinkSpeed": "1 Gbps"
+  },
+  {
+    "Name": "VirtualBox Host-Only Ethernet #2 192.168.66.1",
+    "InterfaceDescription": "VirtualBox Host-Only Ethernet Adapter #2",
+    "Status": "Up",
+    "LinkSpeed": "1 Gbps"
+  },
+  {
+    "Name": "vEthernet (Default Switch)",
+    "InterfaceDescription": "Hyper-V Virtual Ethernet Adapter",
+    "Status": "Up",
+    "LinkSpeed": "10 Gbps"
+  },
+  {
+    "Name": "OpenVPN Data Channel Offload for NordVPN",
+    "InterfaceDescription": "OpenVPN Data Channel Offload",
+    "Status": "Disconnected",
+    "LinkSpeed": "1 Gbps"
+  },
+  {
+    "Name": "NordLynx 1",
+    "InterfaceDescription": "VirtualBox Host-Only Ethernet Adapter",
+    "Status": "Not Present",
+    "LinkSpeed": "0 bps"
+  },
+  {
+    "Name": "LAN-Verbindung 2 Wintun Userspace Tunnel",
+    "InterfaceDescription": "Wintun Userspace Tunnel",
+    "Status": "Disconnected",
+    "LinkSpeed": "100 Gbps"
+  },
+  {
+    "Name": "Ethernet 1 - Intel(R) Ethernet Connection (2) I219-V",
+    "InterfaceDescription": "Intel(R) Ethernet Connection (2) I219-V",
+    "Status": "Up",
+    "LinkSpeed": "1 Gbps"
+  },
+  {
+    "Name": "VirtualBox Host-Only Ethernet 192.168.56.1",
+    "InterfaceDescription": "VirtualBox Host-Only Ethernet Adapter #4",
+    "Status": "Up",
+    "LinkSpeed": "1 Gbps"
+  },
+  {
+    "Name": "Tailscale",
+    "InterfaceDescription": "Tailscale Tunnel",
+    "Status": "Up",
+    "LinkSpeed": "100 Gbps"
+  },
+  {
+    "Name": "VirtualBox Host-Only Ethernet  #3 192.168.118.1",
+    "InterfaceDescription": "VirtualBox Host-Only Ethernet Adapter #3",
+    "Status": "Up",
+    "LinkSpeed": "1 Gbps"
+  },
+  {
+    "Name": "Ethernet",
+    "InterfaceDescription": "VirtualBox Host-Only Ethernet Adapter",
+    "Status": "Up",
+    "LinkSpeed": "1 Gbps"
+  }
+]

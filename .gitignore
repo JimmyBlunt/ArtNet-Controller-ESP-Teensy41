@@ -5,3 +5,12 @@
 **/test/native/*.exe
 __pycache__/
 /.playwright-cli/
+**/node_modules/
+**/.venv-platformio/
+**/firmware/include/WifiSecrets.h
+**/.env
+**/.env.*
+/firmware/esp32_artnet/build/
+/reports/build-verification-*/artifacts/
+**/.report-deps/
+/reports/**/*.exe

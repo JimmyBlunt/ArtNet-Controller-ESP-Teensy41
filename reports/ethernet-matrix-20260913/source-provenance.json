@@ -1,0 +1,18 @@
+[
+  {
+    "path": "firmware/teensy41_artnet/include/runtime_receiver.h",
+    "sha256": "1cf5373d27957128a188e585dc3d0e8ca94969188e499bc0b8b18c380a758eeb"
+  },
+  {
+    "path": "firmware/teensy41_artnet/src/web_main.cpp",
+    "sha256": "576bbe1ab64f0d73e15fadca8c940b460ae13c138a9e86cbf14843e3606259d1"
+  },
+  {
+    "path": "firmware/teensy41_artnet/tools/patch_qnethernet.py",
+    "sha256": "e43ce56e927bed144d4f3ba6e2f8e51f42bee8690e15d75667e9722644fef416"
+  },
+  {
+    "path": "C:/codex-build/artnet5-rx32/libs/teensy41_octo_web_rx32/QNEthernet/src/qnethernet/drivers/driver_teensy41.cpp",
+    "sha256": "9c0febb4f48d73c4be001e777208bcf8368f6b0d8153e41378a486e24dbc6e6e"
+  }
+]

@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schrank LED Player</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Arial, sans-serif;
+      background: #151716;
+      color: #f2f5f3;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      background: #232625;
+      border-bottom: 1px solid #3c4240;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px;
+      display: grid;
+      gap: 16px;
+    }
+
+    section {
+      border-top: 1px solid #343a38;
+      padding-top: 16px;
+    }
+
+    section:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .status-row,
+    .controls,
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 8px;
+    }
+
+    .playlist {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 8px;
+    }
+
+    .pattern-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #353b39;
+      border-radius: 6px;
+      padding: 9px 10px;
+      color: #e0e7e4;
+      font-size: 14px;
+    }
+
+    .pattern-option input {
+      min-height: auto;
+      width: auto;
+    }
+
+    .metric {
+      border: 1px solid #353b39;
+      border-radius: 6px;
+      padding: 10px;
+      min-height: 54px;
+    }
+
+    .metric span {
+      display: block;
+      color: #aeb8b4;
+      font-size: 12px;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 18px;
+    }
+
+    label {
+      display: grid;
+      gap: 5px;
+      color: #cbd3d0;
+      font-size: 12px;
+    }
+
+    input,
+    select,
+    button {
+      min-height: 36px;
+      border: 1px solid #59625f;
+      border-radius: 6px;
+      background: #2e3331;
+      color: #f2f5f3;
+      padding: 7px 10px;
+      font: inherit;
+      box-sizing: border-box;
+    }
+
+    input[type="text"] {
+      width: 150px;
+    }
+
+    input[type="number"] {
+      width: 94px;
+    }
+
+    input[type="range"] {
+      width: 180px;
+      padding: 0;
+    }
+
+    button {
+      cursor: pointer;
+      min-width: 96px;
+    }
+
+    button.primary {
+      border-color: #2dd4bf;
+      color: #a7fff1;
+      background: #163c38;
+    }
+
+    button.stop {
+      border-color: #ef8a8a;
+      color: #ffd1d1;
+      background: #432323;
+    }
+
+    button:disabled {
+      opacity: 0.55;
+      cursor: default;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      border: 1px solid #59625f;
+      border-radius: 6px;
+      padding: 0 10px;
+      color: #cbd3d0;
+    }
+
+    .online {
+      border-color: #2dd4bf;
+      color: #a7fff1;
+    }
+
+    .offline {
+      border-color: #ef8a8a;
+      color: #ffd1d1;
+    }
+
+    .warn {
+      border-color: #e3b65d;
+      color: #ffe0a1;
+    }
+
+    pre {
+      margin: 0;
+      min-height: 150px;
+      max-height: 260px;
+      overflow: auto;
+      border: 1px solid #353b39;
+      border-radius: 6px;
+      padding: 10px;
+      background: #070807;
+      white-space: pre-wrap;
+      font-size: 12px;
+    }
+
+    @media (max-width: 620px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      input[type="range"],
+      input[type="text"],
+      input[type="number"],
+      select,
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Schrank LED Player</h1>
+    <div class="status-row">
+      <span id="playerStatus" class="pill offline">Player aus</span>
+      <span id="espStatus" class="pill warn">ESP wird geprüft</span>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Player</h2>
+      <div class="buttons">
+        <button id="start" class="primary">Start</button>
+        <button id="stop" class="stop">Stop</button>
+        <button id="restart">Restart</button>
+        <button id="refresh">Refresh</button>
+        <span id="liveStatus" class="pill online">Live-Regler aktiv</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Einstellungen</h2>
+      <div class="controls">
+        <label>ESP IP
+          <input id="host" type="text" value="10.0.0.246" autocomplete="off">
+        </label>
+        <label>Helligkeit <span id="brightnessValue">100%</span>
+          <input id="brightness" type="range" min="0" max="100" value="100">
+        </label>
+        <label>Bewegung <span id="speedValue">0.35x</span>
+          <input id="speed" type="range" min="5" max="150" value="35">
+        </label>
+        <label>FPS
+          <input id="fps" type="number" min="1" max="120" value="60">
+        </label>
+        <label>Pattern Sekunden
+          <input id="patternSeconds" type="number" min="5" max="600" value="75">
+        </label>
+        <label>Crossfade Sekunden
+          <input id="crossfade" type="number" min="0" max="120" value="18">
+        </label>
+        <label>Mapping
+          <select id="mode">
+            <option value="fit16">16x16 Testmatrix</option>
+                                                                                                                                                                                                                                                                                                                                <option value="native24x32">24x32 Native</option>
+            <option value="schrankwand_onlyu">Schrankwand OnlyU 1183</option>
+          </select>
+        </label>
+        <label>Wiring
+          <select id="wiring">
+            <option value="serpentine">Serpentine</option>
+            <option value="straight">Straight</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section>
+      <h2>Playlist Loop</h2>
+      <div id="playlist" class="playlist"></div>
+    </section>
+
+    <section>
+      <h2>Status</h2>
+      <div class="status-grid">
+        <div class="metric"><span>PID</span><strong id="pid">-</strong></div>
+        <div class="metric"><span>Laufzeit</span><strong id="uptime">-</strong></div>
+        <div class="metric"><span>ESP FPS</span><strong id="espFps">-</strong></div>
+        <div class="metric"><span>Frames</span><strong id="frames">-</strong></div>
+        <div class="metric"><span>Incomplete</span><strong id="incomplete">-</strong></div>
+        <div class="metric"><span>Output us</span><strong id="outputUs">-</strong></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Log</h2>
+      <pre id="log"></pre>
+    </section>
+  </main>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    let patternCatalog = [];
+    let localDirty = false;
+    let liveTimer = null;
+
+    function settingsFromForm() {
+      return {
+        host: $("host").value,
+        brightness: Number($("brightness").value) / 100,
+        speed: Number($("speed").value) / 100,
+        fps: Number($("fps").value),
+        patternSeconds: Number($("patternSeconds").value),
+        crossfade: Number($("crossfade").value),
+        mode: $("mode").value,
+        wiring: $("wiring").value,
+        playlist: Array.from(document.querySelectorAll("[data-pattern]:checked")).map(input => input.dataset.pattern),
+      };
+    }
+
+    function applySettings(settings) {
+      if (localDirty) return;
+      $("host").value = settings.host;
+      $("brightness").value = Math.round(settings.brightness * 100);
+      $("speed").value = Math.round(settings.speed * 100);
+      $("fps").value = settings.fps;
+      $("patternSeconds").value = settings.patternSeconds;
+      $("crossfade").value = settings.crossfade;
+      $("mode").value = settings.mode;
+      $("wiring").value = settings.wiring;
+      for (const input of document.querySelectorAll("[data-pattern]")) {
+        input.checked = (settings.playlist || []).includes(input.dataset.pattern);
+      }
+      updateLabels();
+    }
+
+    function updateLabels() {
+      $("brightnessValue").textContent = `${$("brightness").value}%`;
+      $("speedValue").textContent = `${(Number($("speed").value) / 100).toFixed(2)}x`;
+    }
+
+    async function postJson(url, body = {}) {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      return response.json();
+    }
+
+    function scheduleLiveUpdate() {
+      localDirty = true;
+      $("liveStatus").textContent = "Sende live...";
+      $("liveStatus").className = "pill warn";
+      clearTimeout(liveTimer);
+      liveTimer = setTimeout(async () => {
+        await postJson("/api/settings", settingsFromForm());
+        localDirty = false;
+        $("liveStatus").textContent = "Live-Regler aktiv";
+        $("liveStatus").className = "pill online";
+      }, 120);
+    }
+
+    async function loadPatterns() {
+      const result = await fetch("/api/patterns").then(response => response.json());
+      patternCatalog = result.patterns || [];
+      $("playlist").innerHTML = patternCatalog.map(pattern => `
+        <label class="pattern-option">
+          <input type="checkbox" data-pattern="${pattern.id}">
+          <span>${pattern.label}</span>
+        </label>
+      `).join("");
+      for (const input of document.querySelectorAll("[data-pattern]")) {
+        input.addEventListener("change", scheduleLiveUpdate);
+      }
+    }
+
+    async function refreshState() {
+      const state = await fetch("/api/state").then(response => response.json());
+      applySettings(state.settings);
+      $("playerStatus").textContent = state.running ? "Player läuft" : "Player aus";
+      $("playerStatus").className = `pill ${state.running ? "online" : "offline"}`;
+      $("pid").textContent = state.pid || "-";
+      $("uptime").textContent = state.running ? `${state.uptimeSeconds}s` : "-";
+      $("start").disabled = state.running;
+      $("stop").disabled = !state.running;
+      await refreshEsp();
+      await refreshLog();
+    }
+
+    async function refreshEsp() {
+      try {
+        const result = await fetch("/api/esp-status").then(response => response.json());
+        if (!result.ok) throw new Error(`HTTP ${result.statusCode}`);
+        const data = result.data;
+        $("espStatus").textContent = "ESP online";
+        $("espStatus").className = "pill online";
+        $("espFps").textContent = data.fps ?? "-";
+        $("frames").textContent = data.framesComplete ?? "-";
+        $("incomplete").textContent = data.framesIncomplete ?? "-";
+        $("outputUs").textContent = data.outputTimeUs ?? "-";
+      } catch (error) {
+        $("espStatus").textContent = "ESP offline";
+        $("espStatus").className = "pill offline";
+      }
+    }
+
+    async function refreshLog() {
+      const result = await fetch("/api/log").then(response => response.json());
+      $("log").textContent = result.log || "";
+      $("log").scrollTop = $("log").scrollHeight;
+    }
+
+    $("start").addEventListener("click", async () => {
+      await postJson("/api/start", settingsFromForm());
+      await refreshState();
+    });
+
+    $("stop").addEventListener("click", async () => {
+      await postJson("/api/stop");
+      await refreshState();
+    });
+
+    $("restart").addEventListener("click", async () => {
+      await postJson("/api/stop");
+      await postJson("/api/start", settingsFromForm());
+      await refreshState();
+    });
+
+    $("refresh").addEventListener("click", refreshState);
+
+    for (const id of ["brightness", "speed"]) {
+      $(id).addEventListener("input", () => {
+        updateLabels();
+        scheduleLiveUpdate();
+      });
+    }
+
+    for (const id of ["host", "fps", "patternSeconds", "crossfade", "mode", "wiring"]) {
+      $(id).addEventListener("change", scheduleLiveUpdate);
+    }
+
+    loadPatterns().then(refreshState);
+    setInterval(refreshState, 3000);
+  </script>
+</body>
+</html>

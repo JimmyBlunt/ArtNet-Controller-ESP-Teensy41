@@ -3,3 +3,10 @@ reference/** -text
 firmware/teensy41_artnet/artifacts/** -text -diff
 # Preserve raw build output while allowing the tool's trailing spaces.
 reports/*-log.txt -whitespace
+# Preserve imported provenance hashes across Windows checkout conversions.
+firmware/esp32_artnet/** -text whitespace=cr-at-eol,-blank-at-eof
+reference/teensy-apa102-legacy/** whitespace=cr-at-eol,-blank-at-eof
+reports/build-verification-*/*.txt -whitespace
+reports/ethernet-*/** -text -whitespace
+*.pdf -text -diff
+output/handoff/** -text -whitespace
