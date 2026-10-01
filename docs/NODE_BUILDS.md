@@ -95,6 +95,20 @@ Die Ergebnisse des Repository-Abgleichs werden unter
 bleiben unter `reports/octo-*`, `reports/esp-color-order-20260915.md` und
 `reports/esp-usb-diagnostic-20260915.md` getrennt erhalten.
 
+Abschluss der lokalen Prüfung am 02.10.2026:
+
+| Prüfung | Ergebnis |
+|---|---|
+| Teensy Safe, Octo Identify und Octo Web | Build bestanden |
+| Teensy acht C++-Hostprogramme und acht Vendor-/Patchtests | Bestanden; Web-ELF mit RX32/ObjectFLED geprüft |
+| ESP Flex8 Firmware und SPIFFS-Hintergrund | Build bestanden, ohne private WLAN-Konfiguration |
+| ESP Core, Bootschutz, Flex8, Extensionboard und fünf JS-Gruppen | Bestanden; generierter Webheader aktuell |
+| Historischer ESP251-Profiltest | Bekannter Defaultpin-Konflikt bestätigt |
+| Übrige Firmwareprofile | Dokumentiert, bei diesem Abgleich nicht frisch fertig gebaut |
+| Drei README-SVGs | Im Browser und auf mobilen Überlauf geprüft |
+
+Details und Grenzen: [Abschlussbericht](../reports/build-verification-20261001/README.md).
+
 Offen bleiben insbesondere die physische Octo-Buchsenabnahme, die APA102-
 Erweiterung des Teensy und der ESP251-Profilkonflikt. Die controllerweite
 Teensy-Sequence-Verarbeitung wird durch das Zusammenführen nicht geändert.

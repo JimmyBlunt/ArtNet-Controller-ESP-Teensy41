@@ -1,0 +1,84 @@
+{
+  "completed_utc": "2026-10-01T14:03:36.027284+00:00",
+  "source_commit": "fc8fa5b2524d5eeb289cbb5d1b820f3d2cf44b12",
+  "environment": "esp32-wifi-flex8",
+  "firmware_build": "PASS",
+  "filesystem_build": "PASS",
+  "private_wifi_header_present": false,
+  "hardware_flashed": false,
+  "runtime_wifi_or_led_test": false,
+  "build_core": "C:/Users/jimmy/.platformio",
+  "build_directory": "C:\\codex-build\\artnet5-esp32\\build\\esp32-wifi-flex8",
+  "artifacts": {
+    "firmware.bin": {
+      "bytes": 844784,
+      "sha256": "79d40efc4f725d0d75f869b20633c9e33f2a29c22d459b849d6bbef1c5d49a26"
+    },
+    "firmware.elf": {
+      "bytes": 21958568,
+      "sha256": "b7947c90190b76d63d7d1b5e787086aaa2ca912cd7c5478f6e24875b389f6812"
+    },
+    "bootloader.bin": {
+      "bytes": 17536,
+      "sha256": "3d234a7471f67b013686dabd4dee7c1fa915c9928463616a94bc9297acf1abf8"
+    },
+    "partitions.bin": {
+      "bytes": 3072,
+      "sha256": "148b959cbff1c38aa8e1d5c0ba9d612c54997b945e56a63f41223eef650653a1"
+    },
+    "spiffs.bin": {
+      "bytes": 1441792,
+      "sha256": "aac008f62706407021c415c8c91b183275cb15235cd848c7ea01fe7124d41204"
+    }
+  },
+  "source_sha256": {
+    "build.ps1": "fe49d428a9f91f2087ae31dd3febddcd221af2674c24f4c78e0340af620d43cb",
+    "firmware/include/ArtNetReceiver.h": "eb46a6b616ec0e8d258443bda8d22a976a89421dea0de37c78927f0239d925ee",
+    "firmware/include/ConfigManager.h": "64a41c16a18ccbcb7bde38847e420319cfd3ea74ef8217ec9fe046cafc54310d",
+    "firmware/include/FirmwareUpdate.h": "c70beb90ef572a90a79714c0d1e9b8cbd3cc5f74f81c8d3cc7e90a1c62bcc52e",
+    "firmware/include/HardwareTest.h": "474042e4281ab69ba9a4aeda8f363152852067fc29a3428409b724dcde0bae86",
+    "firmware/include/LedColorOrder.h": "c4d80682604980a0165a50b22becfd42be4e3633cd5e3eed84a79bbd4aa78776",
+    "firmware/include/LedOutputs.h": "47915e9cd44dbc302aeee2a18ebc8f331c8ec692168f903dbe09e3077dab3942",
+    "firmware/include/LogicalPixelBuffer.h": "1f452d502554112421f827261bc8d88a4a6a806b318b4b437ba9fcc77b8f396b",
+    "firmware/include/MappingEngine.h": "948ed0ca39b40623f85c0312af677c73b80d0fcb5d3ac1ae86a5c420e126fbb4",
+    "firmware/include/NetworkManager.h": "b2c7c45fb24e16a37c8b35fe468fc80f18dc9320abf9b34b909a0cb0e8315e38",
+    "firmware/include/OutputRouter.h": "897b58c3cf2356260b96074ac313af84e5a1320eabc5a5b5f357f577309b548e",
+    "firmware/include/Performance.h": "59d38453e52215613a34360c2d899069943559b5ba1e97e05fcec07ebd8187af",
+    "firmware/include/PerformanceMonitor.h": "cfc42dee55814edce124fb5ba2c5d00eb0ff8159cf256955e9b90a2b6ec5c013",
+    "firmware/include/PreviewProtocol.h": "68c06a13d3c5e28bce4db2704c2220b32f3966ea36c21eeadbdcb240989ac17f",
+    "firmware/include/PreviewStreamer.h": "f824ee69ae27cd567273d15a08cb60e7bc5f42631e4e2c46ee4dec655c6c3e6b",
+    "firmware/include/SystemStats.h": "5dcea4301e6838052283d49180f7d1d33dbb0e9a92e25e6d8bf3fbe2a19f1475",
+    "firmware/include/Types.h": "3c35aa849fdf614469733d0facacc6d5ed030568f5ed99730e2fde3fd0c9914f",
+    "firmware/include/UniverseAssembler.h": "6879769617a8dcee9fb682a7197e4c9999ac96e5b7334397ba1d79d661b77c65",
+    "firmware/include/WebApi.h": "1b1247712df9a8bae7bc43bffd41683b89272784373959a7eb5cb7c8abdf5afd",
+    "firmware/include/WebUi.generated.h": "fba2847839d731259b06ef7418549694b9aa6c355272c2da81617b2bef59dab8",
+    "firmware/include/WifiSecrets.example.h": "485866a73efb4e0f1d95861065623a886f98cfd9b56b5ff56e6c71e6baa85539",
+    "firmware/src/ArtNetReceiver.cpp": "3659f794c36cc7d9279ba6505362e2475edb3de89b566a2d7a86eee5c85d759e",
+    "firmware/src/ConfigManager.cpp": "9b793d02e41d447bda3cdb5daf1c610d1290e4d3c585c62f0e0f3d2a881ea680",
+    "firmware/src/FirmwareUpdate.cpp": "3273717d99dcd48b343da8c88d94a2eb1adc3e2b5140659ed76b096ed6035246",
+    "firmware/src/HardwareTest.cpp": "ab6f49ae899434e54ac40b636b4690a4483ca1be1d48d06ce2ee5c5d9bac0335",
+    "firmware/src/LedOutputs.cpp": "a50f069a831be0c480506fa1a5a3bff2e2fb12a6dc6c6fbe8778de82c4a7abc9",
+    "firmware/src/LogicalPixelBuffer.cpp": "366a6e7b46fa6925134f1e7faa2dbf2aac019dd00007940efa7f6c5cb8f54f37",
+    "firmware/src/main.cpp": "4d26ff99678e8411dcb894afe8371be5dd69c63eb295196d69ad900442536c5d",
+    "firmware/src/MappingEngine.cpp": "082bf3e3302d99446b775e34ac4d6284edf46d5ed4e9ba1bab9696b445158804",
+    "firmware/src/NetworkManager.cpp": "833f4ef98d6409b8872818752cdf1eb73b49230071ba394ba6863d8890ddc5a1",
+    "firmware/src/OutputRouter.cpp": "a999b83090b96ba752823bfc5da2bf924dad712c9c14ea2f62a5aa94736a68ca",
+    "firmware/src/Performance.cpp": "da3c8ed44e9a36963ac3513c5942a28cec606ba1df80acd73d1afc77ef3353c6",
+    "firmware/src/PerformanceMonitor.cpp": "b3a3d95ec965d10e91626a3c6c96f4efc58e073de5ffc9add3a9392d5354894b",
+    "firmware/src/PowerDiagnostic.cpp": "bcfb5c857ff0640b140f0b2b27037335da42596fea498964910e3c955fd4a735",
+    "firmware/src/PreviewProtocol.cpp": "146dc31c23c238885eddb37e24641c7f88a5257f18df4cb0772e89a188f0dc32",
+    "firmware/src/PreviewStreamer.cpp": "21965d4f6fc90f54ae599227b918b8d9965c4b0170d2040ea9a05e38232ed537",
+    "firmware/src/UniverseAssembler.cpp": "6266a701464606b49fa3515807eed413db7ae77e11efad0d10422f5d9032f706",
+    "firmware/src/WebApi.cpp": "60717d754bd4d6af243d6bb8764139250bf0445d987d3fd0f1d80e52d88399c1",
+    "platformio.ini": "14fdbec4adf6042cc2032c418e9ec449b4f9049eb5422b57cb7cd6d043577d8c",
+    "requirements-build.txt": "e8817d1fce41ec2c149a8db4b32d1875701af4bb4a5d87483d153c244e12ce64",
+    "tools/build-web-ui.js": "8a5e879a58ffb8f2a9fb0b3f109290f76a986745fb8ccc77bf4f02ad4a1e5e0b",
+    "tools/pio-build-web.py": "6ee7397551980ae6fd3913f1bbd62acb6bd91d4082ebea61ef6bba387c40237f",
+    "web/app.js": "6e5dbcbc7914baf5e26e45ec1e7d2c029f9d307e338885565980ebe8526ed158",
+    "web/assets/orbital-prism.webp": "b4c8fa2e64357b95541509f430a0799301b410abf5d43823dba5e825d924be35",
+    "web/calculations.js": "2024bc732b3a4ae3d8a57584036042f6dba742d7db3e02020bace4b4df9a3804",
+    "web/index.html": "15deb703ff64c5e52f372748a016c74c3d980799c3d0654580f042514598206d",
+    "web/player-control.html": "f4c45accbb16d5dd7d18b57c067afd7c272ea3f1aad1adc681154ddba77954db",
+    "web/styles.css": "9fdeecd3370e824ef1350354bbcd394e0d0e793765acb66c5ae62386d128ae9e"
+  }
+}

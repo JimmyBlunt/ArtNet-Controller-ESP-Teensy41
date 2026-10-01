@@ -1,0 +1,402 @@
+Requirement already satisfied: platformio==6.1.19 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from -r requirements-build.txt (line 1)) (6.1.19)
+Requirement already satisfied: pyserial==3.5 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from -r requirements-build.txt (line 2)) (3.5)
+Collecting esptool==4.11.0 (from -r requirements-build.txt (line 3))
+  Downloading esptool-4.11.0.tar.gz (471 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: bottle==0.13.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from platformio==6.1.19->-r requirements-build.txt (line 1)) (0.13.4)
+Requirement already satisfied: click<8.4,>=8.0.4 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from platformio==6.1.19->-r requirements-build.txt (line 1)) (8.3.3)
+Requirement already satisfied: colorama in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from platformio==6.1.19->-r requirements-build.txt (line 1)) (0.4.6)
+Requirement already satisfied: marshmallow==3.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from platformio==6.1.19->-r requirements-build.txt (line 1)) (3.26.2)
+Requirement already satisfied: pyelftools<1,>=0.27 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from platformio==6.1.19->-r requirements-build.txt (line 1)) (0.33)
+Requirement already satisfied: requests==2.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from platformio==6.1.19->-r requirements-build.txt (line 1)) (2.34.2)
+Requirement already satisfied: semantic_version==2.10.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from platformio==6.1.19->-r requirements-build.txt (line 1)) (2.10.0)
+Requirement already satisfied: tabulate==0.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from platformio==6.1.19->-r requirements-build.txt (line 1)) (0.10.0)
+Requirement already satisfied: ajsonrpc==1.2.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from platformio==6.1.19->-r requirements-build.txt (line 1)) (1.2.0)
+Requirement already satisfied: starlette<0.53,>=0.19 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from platformio==6.1.19->-r requirements-build.txt (line 1)) (0.52.1)
+Requirement already satisfied: uvicorn<0.41,>=0.16 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from platformio==6.1.19->-r requirements-build.txt (line 1)) (0.40.0)
+Requirement already satisfied: wsproto==1.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from platformio==6.1.19->-r requirements-build.txt (line 1)) (1.3.2)
+Collecting bitstring!=4.2.0,>=3.1.6 (from esptool==4.11.0->-r requirements-build.txt (line 3))
+  Downloading bitstring-4.4.0-py3-none-any.whl.metadata (5.6 kB)
+Collecting cryptography>=2.1.4 (from esptool==4.11.0->-r requirements-build.txt (line 3))
+  Downloading cryptography-50.0.2-cp311-abi3-win_amd64.whl.metadata (4.4 kB)
+Collecting ecdsa>=0.16.0 (from esptool==4.11.0->-r requirements-build.txt (line 3))
+  Downloading ecdsa-0.19.2-py2.py3-none-any.whl.metadata (29 kB)
+Collecting reedsolo<1.8,>=1.5.3 (from esptool==4.11.0->-r requirements-build.txt (line 3))
+  Downloading reedsolo-1.7.0-py3-none-any.whl.metadata (23 kB)
+Collecting PyYAML>=5.1 (from esptool==4.11.0->-r requirements-build.txt (line 3))
+  Downloading pyyaml-6.0.3-cp314-cp314-win_amd64.whl.metadata (2.4 kB)
+Collecting intelhex (from esptool==4.11.0->-r requirements-build.txt (line 3))
+  Using cached intelhex-2.3.0-py2.py3-none-any.whl.metadata (2.7 kB)
+Requirement already satisfied: packaging>=17.0 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from marshmallow==3.*->platformio==6.1.19->-r requirements-build.txt (line 1)) (26.3)
+Requirement already satisfied: charset_normalizer<4,>=2 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from requests==2.*->platformio==6.1.19->-r requirements-build.txt (line 1)) (3.5.2)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from requests==2.*->platformio==6.1.19->-r requirements-build.txt (line 1)) (3.20)
+Requirement already satisfied: urllib3<3,>=1.26 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from requests==2.*->platformio==6.1.19->-r requirements-build.txt (line 1)) (2.8.0)
+Requirement already satisfied: certifi>=2023.5.7 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from requests==2.*->platformio==6.1.19->-r requirements-build.txt (line 1)) (2026.7.22)
+Requirement already satisfied: anyio<5,>=3.6.2 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from starlette<0.53,>=0.19->platformio==6.1.19->-r requirements-build.txt (line 1)) (4.15.1)
+Requirement already satisfied: typing_extensions>=4.16.0 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from anyio<5,>=3.6.2->starlette<0.53,>=0.19->platformio==6.1.19->-r requirements-build.txt (line 1)) (4.16.0)
+Requirement already satisfied: h11>=0.8 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\esp32_artnet\.toolchain\lib\site-packages (from uvicorn<0.41,>=0.16->platformio==6.1.19->-r requirements-build.txt (line 1)) (0.16.0)
+Collecting bitarray<4.0,>=3.0.0 (from bitstring!=4.2.0,>=3.1.6->esptool==4.11.0->-r requirements-build.txt (line 3))
+  Downloading bitarray-3.11.0-cp314-cp314-win_amd64.whl.metadata (39 kB)
+Collecting tibs<0.6,>=0.5.6 (from bitstring!=4.2.0,>=3.1.6->esptool==4.11.0->-r requirements-build.txt (line 3))
+  Downloading tibs-0.5.7-cp38-abi3-win_amd64.whl.metadata (8.3 kB)
+Collecting cffi>=2.0.0 (from cryptography>=2.1.4->esptool==4.11.0->-r requirements-build.txt (line 3))
+  Downloading cffi-2.1.1-cp314-cp314-win_amd64.whl.metadata (2.6 kB)
+Collecting pycparser (from cffi>=2.0.0->cryptography>=2.1.4->esptool==4.11.0->-r requirements-build.txt (line 3))
+  Using cached pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting six>=1.9.0 (from ecdsa>=0.16.0->esptool==4.11.0->-r requirements-build.txt (line 3))
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Downloading reedsolo-1.7.0-py3-none-any.whl (32 kB)
+Downloading bitstring-4.4.0-py3-none-any.whl (76 kB)
+Downloading bitarray-3.11.0-cp314-cp314-win_amd64.whl (170 kB)
+Downloading tibs-0.5.7-cp38-abi3-win_amd64.whl (304 kB)
+Downloading cryptography-50.0.2-cp311-abi3-win_amd64.whl (3.8 MB)
+   ---------------------------------------- 3.8/3.8 MB 2.7 MB/s  0:00:01
+Downloading cffi-2.1.1-cp314-cp314-win_amd64.whl (187 kB)
+Downloading ecdsa-0.19.2-py2.py3-none-any.whl (150 kB)
+Downloading pyyaml-6.0.3-cp314-cp314-win_amd64.whl (156 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Using cached intelhex-2.3.0-py2.py3-none-any.whl (50 kB)
+Using cached pycparser-3.0-py3-none-any.whl (48 kB)
+Building wheels for collected packages: esptool
+  Building wheel for esptool (pyproject.toml): started
+  Building wheel for esptool (pyproject.toml): finished with status 'done'
+  Created wheel for esptool: filename=esptool-4.11.0-py3-none-any.whl size=596603 sha256=f35d2d890dbf2856dffd9c855ed102037d486d0094a67181f7b1df4673e0a111
+  Stored in directory: c:\users\jimmy\appdata\local\pip\cache\wheels\3d\98\1e\398011abd5d27638aab86fb9c3c3262dad63f537b4dd9dbd74
+Successfully built esptool
+Installing collected packages: reedsolo, intelhex, tibs, six, PyYAML, pycparser, bitarray, ecdsa, cffi, bitstring, cryptography, esptool
+
+Successfully installed PyYAML-6.0.3 bitarray-3.11.0 bitstring-4.4.0 cffi-2.1.1 cryptography-50.0.2 ecdsa-0.19.2 esptool-4.11.0 intelhex-2.3.0 pycparser-3.0 reedsolo-1.7.0 six-1.17.0 tibs-0.5.7
+
+[notice] A new release of pip is available: 25.3 -> 26.2.1
+[notice] To update, run: C:\Users\jimmy\Documents\ChatGPT\ArtNet-Controller 5\firmware\esp32_artnet\.toolchain\Scripts\python.exe -m pip install --upgrade pip
+Processing esp32-wifi-flex8 (platform: espressif32@7.0.1; board: esp32dev; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+Shared controller UI: 50180 bytes
+CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/esp32dev.html
+PLATFORM: Espressif 32 (7.0.1) > Espressif ESP32 Dev Module
+HARDWARE: ESP32 240MHz, 320KB RAM, 4MB Flash
+DEBUG: Current (cmsis-dap) External (cmsis-dap, esp-bridge, esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
+PACKAGES: 
+ - framework-arduinoespressif32 @ 3.20017.241212+sha.dcc1105b 
+ - tool-esptoolpy @ 2.41100.0 (4.11.0) 
+ - toolchain-xtensa-esp32 @ 8.4.0+2021r2-patch5
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ soft
+Found 35 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- FastLED @ 3.10.3
+|-- ArduinoJson @ 7.4.3
+|-- WiFi @ 2.0.0
+|-- Update @ 2.0.0
+|-- WebServer @ 2.0.0
+|-- Ethernet @ 2.0.0
+|-- Preferences @ 2.0.0
+|-- SPIFFS @ 2.0.0
+Building in release mode
+Building C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\bootloader.bin
+Archiving C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib0ce\libSPI.a
+Indexing C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib0ce\libSPI.a
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libfad\I2S\I2S.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libfc6\FS\FS.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libfc6\FS\vfs_api.cpp.o
+esptool.py v4.11.0
+Creating esp32 image...
+Merged 1 ELF section
+Successfully created esp32 image.
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libfae\SD\SD.cpp.o
+C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.cpp: In member function 'int I2SClass::_installDriver()':
+C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.cpp:202:89: warning: 'ADC_ATTEN_DB_11' is deprecated [-Wdeprecated-declarations]
+       esp_i2s::adc1_config_channel_atten((esp_i2s::adc1_channel_t)adc_channel, esp_i2s::ADC_ATTEN_DB_11);
+                                                                                         ^~~~~~~~~~~~~~~
+In file included from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/driver/include/driver/adc.h:14,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/driver/include/driver/i2s.h:21,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.h:26,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.cpp:21:
+C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/hal/include/hal/adc_types.h:54:5: note: declared here
+     ADC_ATTEN_DB_11 __attribute__((deprecated)) = ADC_ATTEN_DB_12,  ///<This is deprecated, it behaves the same as `ADC_ATTEN_DB_12`
+     ^~~~~~~~~~~~~~~
+C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.cpp:204:89: warning: 'ADC_ATTEN_DB_11' is deprecated [-Wdeprecated-declarations]
+       esp_i2s::adc2_config_channel_atten((esp_i2s::adc2_channel_t)adc_channel, esp_i2s::ADC_ATTEN_DB_11);
+                                                                                         ^~~~~~~~~~~~~~~
+In file included from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/driver/include/driver/adc.h:14,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/driver/include/driver/i2s.h:21,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.h:26,
+                 from C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src/I2S.cpp:21:
+C:/Users/jimmy/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/hal/include/hal/adc_types.h:54:5: note: declared here
+     ADC_ATTEN_DB_11 __attribute__((deprecated)) = ADC_ATTEN_DB_12,  ///<This is deprecated, it behaves the same as `ADC_ATTEN_DB_12`
+     ^~~~~~~~~~~~~~~
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libfae\SD\sd_diskio.cpp.o
+Archiving C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libfc6\libFS.a
+Archiving C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libfad\libI2S.a
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libfae\SD\sd_diskio_crc.c.o
+Indexing C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libfad\libI2S.a
+Indexing C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libfc6\libFS.a
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\FastLED.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\bitswap.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\cled_controller.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\colorpalettes.cpp.o
+Archiving C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libfae\libSD.a
+Indexing C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libfae\libSD.a
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\crgb.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\allocator.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\async.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\audio.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\audio_input.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\audio_reactive.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\bitset.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\blur.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\bytestreammemory.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\colorutils.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\corkscrew.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\crgb_hsv16.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\downscale.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\ease.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\engine_events.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\fetch.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\fft.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\fft_impl.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\file_system.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\fill.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\gamma.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\gradient.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\hsv16.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\id_tracker.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\io.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\istream.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\json.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\leds.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\line_simplification.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\noise_woryley.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\ostream.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\ptr.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\random.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\raster_sparse.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\rectangular_draw_buffer.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\referent.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\rgbw.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\screenmap.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\sin32.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\splat.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\str.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\str_ui.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\strstream.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\stub_main.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\task.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\tile2x2.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\time.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\time_alpha.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\transform.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\type_traits.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\ui.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\upscale.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\wave_simulation.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\wave_simulation_real.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\xmap.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\xymap.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\xypath.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\xypath_impls.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fl\xypath_renderer.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fx\2d\blend.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fx\2d\luminova.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fx\2d\noisepalette.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fx\2d\scale_up.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fx\2d\wave.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fx\detail\fx_layer.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fx\frame.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fx\fx_engine.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fx\time.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fx\video.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fx\video\frame_interpolator.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fx\video\frame_tracker.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fx\video\pixel_stream.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\fx\video\video_impl.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\hsv2rgb.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\lib8tion.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\noise.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\adafruit\clockless.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\arm\k20\clockless_objectfled.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\arm\mgm240\fastpin_arm_mgm240.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\compile_test.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\esp\32\audio\audio.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\esp\32\audio\sound_util.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\esp\32\clockless_i2s_esp32s3.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\esp\32\i2s\i2s_esp32dev.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\esp\32\rmt_4\idf4_rmt.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\esp\32\rmt_4\idf4_rmt_impl.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\esp\32\rmt_5\idf5_rmt.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\esp\32\rmt_5\strip_rmt.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\esp\32\spi_ws2812\strip_spi.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\stub\Arduino.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\stub\led_sysdefs_stub.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\stub\time_stub.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\wasm\active_strip_data.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\wasm\engine_listener.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\wasm\entry_point.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\wasm\fastspi_wasm.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\wasm\fs_wasm.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\wasm\js.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\wasm\js_bindings.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\wasm\js_fetch.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\wasm\timer.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\platforms\wasm\ui.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\power_mgt.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\sensors\button.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\sensors\digital_pin.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\sensors\pir.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\simplex.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\third_party\cq_kernel\cq_kernel.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\third_party\cq_kernel\kiss_fft.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\third_party\cq_kernel\kiss_fftr.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\third_party\espressif\led_strip\src\led_strip_api.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\third_party\espressif\led_strip\src\led_strip_rmt_dev.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\third_party\espressif\led_strip\src\led_strip_rmt_encoder.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\third_party\espressif\led_strip\src\led_strip_spi_dev.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\third_party\object_fled\src\OjectFLED.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\transpose8x1_noinline.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\FastLED\wiring.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib4ef\WiFi\WiFi.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib4ef\WiFi\WiFiAP.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib4ef\WiFi\WiFiClient.cpp.o
+Archiving C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\libFastLED.a
+Indexing C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib38e\libFastLED.a
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib4ef\WiFi\WiFiGeneric.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib4ef\WiFi\WiFiMulti.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib4ef\WiFi\WiFiSTA.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib4ef\WiFi\WiFiScan.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib4ef\WiFi\WiFiServer.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib4ef\WiFi\WiFiUdp.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib410\Update\HttpsOTAUpdate.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib410\Update\Updater.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libc5f\WebServer\Parsing.cpp.o
+Archiving C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib410\libUpdate.a
+Archiving C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib4ef\libWiFi.a
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libc5f\WebServer\WebServer.cpp.o
+Indexing C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib410\libUpdate.a
+Indexing C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib4ef\libWiFi.a
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libc5f\WebServer\detail\mimetable.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib86b\Ethernet\ETH.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib88e\Preferences\Preferences.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libb4d\SPIFFS\SPIFFS.cpp.o
+Archiving C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libc5f\libWebServer.a
+Indexing C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libc5f\libWebServer.a
+Archiving C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib86b\libEthernet.a
+Indexing C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib86b\libEthernet.a
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\Esp.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\FirmwareMSC.cpp.o
+Archiving C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib88e\libPreferences.a
+Indexing C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\lib88e\libPreferences.a
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\FunctionalInterrupt.cpp.o
+Archiving C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libb4d\libSPIFFS.a
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\HWCDC.cpp.o
+Indexing C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libb4d\libSPIFFS.a
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\HardwareSerial.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\IPAddress.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\IPv6Address.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\MD5Builder.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\Print.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\Stream.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\StreamString.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\Tone.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\USB.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\USBCDC.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\USBMSC.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\WMath.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\WString.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\base64.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\cbuf.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-adc.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-bt.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-cpu.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-dac.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-gpio.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-i2c-slave.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-i2c.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-ledc.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-matrix.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-misc.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-psram.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-rgb-led.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-rmt.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-sigmadelta.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-spi.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-time.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-timer.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-tinyusb.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-touch.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\esp32-hal-uart.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\firmware_msc_fat.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\libb64\cdecode.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\libb64\cencode.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\main.cpp.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\stdlib_noniso.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\wiring_pulse.c.o
+Compiling C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\FrameworkArduino\wiring_shift.c.o
+Archiving C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libFrameworkArduino.a
+Indexing C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\libFrameworkArduino.a
+Linking C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\firmware.elf
+Retrieving maximum program size C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\firmware.elf
+Checking size C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+RAM:   [=         ]  13.4% (used 43772 bytes from 327680 bytes)
+Flash: [======    ]  64.4% (used 844421 bytes from 1310720 bytes)
+Building C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\firmware.bin
+esptool.py v4.11.0
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+======================== [SUCCESS] Took 787.74 seconds ========================
+
+Environment       Status    Duration
+----------------  --------  ------------
+esp32-wifi-flex8  SUCCESS   00:13:07.741
+========================= 1 succeeded in 00:13:07.741 =========================
+
+********************************************************************************
+There is a new version 6.2.0 of PlatformIO available.
+Please upgrade it via `platformio upgrade` or `python -m pip install -U platformio` command.
+Changes: https://docs.platformio.org/en/latest/history.html
+********************************************************************************
+
+Processing esp32-wifi-flex8 (platform: espressif32@7.0.1; board: esp32dev; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+Shared controller UI: 50180 bytes
+CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/esp32dev.html
+PLATFORM: Espressif 32 (7.0.1) > Espressif ESP32 Dev Module
+HARDWARE: ESP32 240MHz, 320KB RAM, 4MB Flash
+DEBUG: Current (cmsis-dap) External (cmsis-dap, esp-bridge, esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
+PACKAGES: 
+ - framework-arduinoespressif32 @ 3.20017.241212+sha.dcc1105b 
+ - tool-esptoolpy @ 2.41100.0 (4.11.0) 
+ - tool-mkspiffs @ 2.230.0 (2.30) 
+ - toolchain-xtensa-esp32 @ 8.4.0+2021r2-patch5
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ soft
+Found 35 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- FastLED @ 3.10.3
+|-- ArduinoJson @ 7.4.3
+|-- WiFi @ 2.0.0
+|-- Update @ 2.0.0
+|-- WebServer @ 2.0.0
+|-- Ethernet @ 2.0.0
+|-- Preferences @ 2.0.0
+|-- SPIFFS @ 2.0.0
+Building in release mode
+Building FS image from 'web\assets' directory to C:\codex-build\artnet5-esp32\build\esp32-wifi-flex8\spiffs.bin
+/orbital-prism.webp
+========================= [SUCCESS] Took 51.65 seconds =========================
+
+Environment       Status    Duration
+----------------  --------  ------------
+esp32-wifi-flex8  SUCCESS   00:00:51.652
+========================= 1 succeeded in 00:00:51.652 =========================

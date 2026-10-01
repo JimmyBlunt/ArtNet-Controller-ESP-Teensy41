@@ -1,0 +1,84 @@
+Requirement already satisfied: platformio==6.1.18 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from -r requirements-build.txt (line 1)) (6.1.18)
+Requirement already satisfied: pyserial==3.5 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from -r requirements-build.txt (line 2)) (3.5)
+Requirement already satisfied: bottle==0.13.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (0.13.4)
+Requirement already satisfied: click<8.1.8,>=8.0.4 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (8.1.7)
+Requirement already satisfied: colorama in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (0.4.6)
+Requirement already satisfied: marshmallow==3.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (3.26.2)
+Requirement already satisfied: pyelftools<1,>=0.27 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (0.33)
+Requirement already satisfied: requests==2.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (2.34.2)
+Requirement already satisfied: semantic_version==2.10.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (2.10.0)
+Requirement already satisfied: tabulate==0.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (0.10.0)
+Requirement already satisfied: ajsonrpc==1.2.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (1.2.0)
+Requirement already satisfied: starlette<0.47,>=0.19 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (0.46.2)
+Requirement already satisfied: uvicorn<0.35,>=0.16 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (0.34.3)
+Requirement already satisfied: wsproto==1.* in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from platformio==6.1.18->-r requirements-build.txt (line 1)) (1.3.2)
+Requirement already satisfied: packaging>=17.0 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from marshmallow==3.*->platformio==6.1.18->-r requirements-build.txt (line 1)) (26.3)
+Requirement already satisfied: charset_normalizer<4,>=2 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from requests==2.*->platformio==6.1.18->-r requirements-build.txt (line 1)) (3.5.1)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from requests==2.*->platformio==6.1.18->-r requirements-build.txt (line 1)) (3.19)
+Requirement already satisfied: urllib3<3,>=1.26 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from requests==2.*->platformio==6.1.18->-r requirements-build.txt (line 1)) (2.7.0)
+Requirement already satisfied: certifi>=2023.5.7 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from requests==2.*->platformio==6.1.18->-r requirements-build.txt (line 1)) (2026.7.22)
+Requirement already satisfied: anyio<5,>=3.6.2 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from starlette<0.47,>=0.19->platformio==6.1.18->-r requirements-build.txt (line 1)) (4.15.1)
+Requirement already satisfied: typing_extensions>=4.16.0 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from anyio<5,>=3.6.2->starlette<0.47,>=0.19->platformio==6.1.18->-r requirements-build.txt (line 1)) (4.16.0)
+Requirement already satisfied: h11>=0.8 in c:\users\jimmy\documents\chatgpt\artnet-controller 5\firmware\teensy41_artnet\.toolchain\lib\site-packages (from uvicorn<0.35,>=0.16->platformio==6.1.18->-r requirements-build.txt (line 1)) (0.16.0)
+
+[notice] A new release of pip is available: 25.3 -> 26.2.1
+[notice] To update, run: C:\Users\jimmy\Documents\ChatGPT\ArtNet-Controller 5\firmware\teensy41_artnet\.toolchain\Scripts\python.exe -m pip install --upgrade pip
+Processing teensy41_safe (platform: teensy@6.0.0; board: teensy41; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+CONFIGURATION: https://docs.platformio.org/page/boards/teensy/teensy41.html
+PLATFORM: Teensy (6.0.0) > Teensy 4.1
+HARDWARE: IMXRT1062 600MHz, 512KB RAM, 7.75MB Flash
+DEBUG: Current (jlink) External (jlink)
+PACKAGES: 
+ - framework-arduinoteensy @ 1.162.0 (1.62) 
+ - tool-scons @ 4.40801.0 (4.8.1) 
+ - tool-teensy @ 1.162.0 (1.62) 
+ - toolchain-gccarmnoneeabi-teensy @ 1.150201.0 (15.2.1)
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ off, Compatibility ~ soft
+Found 92 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- SPI @ 1.0
+|-- QNEthernet @ 0.37.0
+Building in release mode
+Linking C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.elf
+Calculating size C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.elf
+Checking size C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+teensy_size: Memory Usage on Teensy 4.1:
+teensy_size:   FLASH: code:118516, data:18376, headers:8512   free for files:7981060
+teensy_size:    RAM1: variables:60160, code:111544, padding:19528   free for local variables:333056
+teensy_size:    RAM2: variables:55712  free for malloc/new:468576
+Building C:\codex-build\artnet5-rx32\build\teensy41_safe\firmware.hex
+========================= [SUCCESS] Took 81.60 seconds =========================
+
+Processing teensy41_driver_compile (platform: teensy@6.0.0; board: teensy41; framework: arduino)
+--------------------------------------------------------------------------------
+Library Manager: Installing https://github.com/FastLED/FastLED/archive/refs/tags/3.10.4.zip
+Unpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Library Manager: FastLED@3.10.3 has been installed!
+Library Manager: Installing https://github.com/ssilverman/QNEthernet/archive/refs/tags/v0.37.0.zip
+Unpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Library Manager: QNEthernet@0.37.0 has been installed!
+Verbose mode can be enabled via `-v, --verbose` option
+FastLED modern Channel engine; unmodified legacy source SHA256: 3ff259b7a15b3172fd16dc342e928e1ccfa71f313a54b6bb2b9fbf782a63f2e8
+CONFIGURATION: https://docs.platformio.org/page/boards/teensy/teensy41.html
+PLATFORM: Teensy (6.0.0) > Teensy 4.1
+HARDWARE: IMXRT1062 600MHz, 512KB RAM, 7.75MB Flash
+DEBUG: Current (jlink) External (jlink)
+PACKAGES: 
+ - framework-arduinoteensy @ 1.162.0 (1.62) 
+ - tool-scons @ 4.40801.0 (4.8.1) 
+ - tool-teensy @ 1.162.0 (1.62) 
+ - toolchain-gccarmnoneeabi-teensy @ 1.150201.0 (15.2.1)
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ off, Compatibility ~ soft
+Found 93 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- SPI @ 1.0
+|-- FastLED @ 3.10.3
+|-- QNEthernet @ 0.37.0
+Building in release mode
