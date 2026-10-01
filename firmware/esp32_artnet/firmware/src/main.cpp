@@ -38,6 +38,8 @@ uint32_t lastStatsFrames = 0;
 uint32_t lastOutputMs = 0;
 bool framePending = false;
 bool networkServicesStarted = false;
+bool receiverStarted = false;
+uint32_t lastReceiverAttemptMs = 0;
 std::vector<uint32_t> lastOutputUpdates;
 
 #if defined(LED_PROFILE_FLEX8)
@@ -59,7 +61,6 @@ void updateNetworkErrorLed(uint32_t nowMs) {
 
 void startNetworkServices() {
   if (networkServicesStarted || !network.connected()) return;
-  artnet.begin();
   preview.begin();
   webApi.begin(&config, &stats, &performance, &preview, &hardwareTest);
   networkServicesStarted = true;
@@ -226,6 +227,13 @@ void loop() {
   startNetworkServices();
   const uint32_t now = millis();
 
+  if (networkServicesStarted && !receiverStarted &&
+      (lastReceiverAttemptMs == 0 || now - lastReceiverAttemptMs >= 1000)) {
+    lastReceiverAttemptMs = now;
+    receiverStarted = artnet.begin();
+    if (!receiverStarted) Serial.println("[artnet] RX task allocation failed; retrying");
+  }
+
   if (networkServicesStarted) webApi.handleClient();
 
   const bool testControlsOutput = hardwareTest.active();
@@ -240,11 +248,13 @@ void loop() {
     }
   }
 
-  // Drain a bounded burst every loop, including during tests/blackout, so stale
+  // Drain the entire RX queue every loop, including during tests/blackout, so stale
   // queued Art-Net data cannot take over after a test is stopped.
   if (assembler != nullptr) {
     assembler->expire(now);
-    for (int i = 0; networkServicesStarted && i < 32 && artnet.poll(*assembler); ++i) {
+    bool accepted = false;
+    while (receiverStarted && artnet.poll(*assembler, &accepted)) {
+      if (!accepted) continue;
       performance.markPacket(now);
       if (testControlsOutput || hardwareTest.active()) {
         assembler->discard();
@@ -256,6 +266,10 @@ void loop() {
     }
     stats.artnet = assembler->stats();
   }
+  stats.rxPackets = artnet.rxPackets();
+  stats.rxQueueDrops = artnet.rxQueueDrops();
+  stats.rxOversizedPackets = artnet.rxOversizedPackets();
+  stats.rxSocketErrors = artnet.rxSocketErrors();
   if (!testControlsOutput && !hardwareTest.active() && framePending &&
       now - lastOutputMs >= 1000u / config.targetFps) {
     performance.markFrameStart(micros());

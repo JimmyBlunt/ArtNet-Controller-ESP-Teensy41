@@ -3,11 +3,9 @@
 #include <cstring>
 
 #ifdef ARDUINO
-#include <WiFiUdp.h>
 #include <Arduino.h>
-namespace {
-WiFiUDP artnetUdp;
-}
+#include <cerrno>
+#include <lwip/sockets.h>
 #endif
 
 namespace led {
@@ -27,16 +25,81 @@ bool ArtNetReceiver::parseArtDmx(const uint8_t* bytes, size_t length, UniversePa
 }
 
 #ifdef ARDUINO
-bool ArtNetReceiver::begin(uint16_t port) { return artnetUdp.begin(port) == 1; }
+bool ArtNetReceiver::begin(uint16_t port) {
+  if (task_) return true;
+  if (!queue_.begin()) return false;
+  port_ = port;
+  // loopTask runs at priority 1 on core 1. Only this task owns the UDP socket;
+  // parsing, configuration, the assembler and LED output stay on loopTask.
+  return xTaskCreatePinnedToCore(receiveTask, "artnet-rx", 4096, this, 2,
+                                &task_, 0) == pdPASS;
+}
 
-bool ArtNetReceiver::poll(UniverseAssembler& assembler) {
-  const int packetSize = artnetUdp.parsePacket();
-  if (packetSize <= 0) return false;
-  uint8_t buffer[530];
-  const int read = artnetUdp.read(buffer, sizeof(buffer));
+int ArtNetReceiver::openSocket() {
+  const int fd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+  if (fd < 0) return -1;
+  timeval timeout{};
+  timeout.tv_usec = 20000;
+  sockaddr_in address{};
+  address.sin_family = AF_INET;
+  address.sin_port = htons(port_);
+  address.sin_addr.s_addr = htonl(INADDR_ANY);
+  if (setsockopt(fd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) != 0 ||
+      bind(fd, reinterpret_cast<sockaddr*>(&address), sizeof(address)) != 0) {
+    close(fd);
+    return -1;
+  }
+#if LWIP_SO_RCVBUF
+  // This byte limit does not enlarge lwIP's compiled UDP mailbox. The RX task
+  // must still drain that mailbox while core 1 is inside FastLED.show().
+  const int receiveBytes = ArtNetRxQueue::kCapacity * sizeof(ArtNetDatagram);
+  if (setsockopt(fd, SOL_SOCKET, SO_RCVBUF, &receiveBytes, sizeof(receiveBytes)) != 0) {
+    socketErrors_.fetch_add(1, std::memory_order_relaxed);
+  }
+#endif
+  return fd;
+}
+
+void ArtNetReceiver::receiveTask(void* context) {
+  static_cast<ArtNetReceiver*>(context)->receiveLoop();
+}
+
+void ArtNetReceiver::receiveLoop() {
+  int fd = -1;
+  // One extra byte detects oversized datagrams, even when recvfrom truncates.
+  // Never accept a valid-looking 530-byte prefix of a larger UDP datagram.
+  uint8_t buffer[sizeof(ArtNetDatagram::bytes) + 1];
+  for (;;) {
+    if (fd < 0) {
+      fd = openSocket();
+      if (fd < 0) {
+        socketErrors_.fetch_add(1, std::memory_order_relaxed);
+        vTaskDelay(pdMS_TO_TICKS(250));
+        continue;
+      }
+    }
+    const int length = recvfrom(fd, buffer, sizeof(buffer), 0, nullptr, nullptr);
+    if (length >= 0) {
+      queue_.push(buffer, static_cast<size_t>(length));
+      continue;
+    }
+    if (errno == EAGAIN || errno == EWOULDBLOCK || errno == EINTR) continue;
+    socketErrors_.fetch_add(1, std::memory_order_relaxed);
+    close(fd);
+    fd = -1;
+    vTaskDelay(pdMS_TO_TICKS(250));
+  }
+}
+
+bool ArtNetReceiver::poll(UniverseAssembler& assembler, bool* accepted) {
+  if (accepted) *accepted = false;
+  ArtNetDatagram raw;
+  if (!queue_.pop(raw)) return false;
   UniversePacket packet;
-  if (!parseArtDmx(buffer, read, packet)) return false;
-  assembler.accept(packet, millis());
+  if (parseArtDmx(raw.bytes, raw.length, packet)) {
+    assembler.accept(packet, millis());
+    if (accepted) *accepted = true;
+  }
   return true;
 }
 #endif

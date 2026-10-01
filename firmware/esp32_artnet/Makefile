@@ -29,7 +29,7 @@ build/test_extension_board_profile: firmware/src/ConfigManager.cpp firmware/src/
 	$(CXX) $(CXXFLAGS) -DLED_PROFILE_FLEX8 -DLED_PROFILE_EXTENSION_BOARD firmware/src/ConfigManager.cpp firmware/src/OutputRouter.cpp firmware/src/Performance.cpp firmware/src/LogicalPixelBuffer.cpp tests/test_extension_board_profile.cpp -o $@
 
 build/test_esp251_profile: firmware/src/ConfigManager.cpp firmware/src/OutputRouter.cpp firmware/src/Performance.cpp firmware/src/LogicalPixelBuffer.cpp firmware/src/UniverseAssembler.cpp tests/test_esp251_profile.cpp $(wildcard firmware/include/*.h) | build
-	$(CXX) $(CXXFLAGS) -DLED_PROFILE_FLEX8 -DLED_PROFILE_EXTENSION_BOARD -DLED_PROFILE_ESP251 firmware/src/ConfigManager.cpp firmware/src/OutputRouter.cpp firmware/src/Performance.cpp firmware/src/LogicalPixelBuffer.cpp firmware/src/UniverseAssembler.cpp tests/test_esp251_profile.cpp -o $@
+	$(CXX) $(CXXFLAGS) -DLED_PROFILE_FLEX8 -DLED_PROFILE_ESP251 firmware/src/ConfigManager.cpp firmware/src/OutputRouter.cpp firmware/src/Performance.cpp firmware/src/LogicalPixelBuffer.cpp firmware/src/UniverseAssembler.cpp tests/test_esp251_profile.cpp -o $@
 
 test: build/test_firmware_core build/test_network_boot_guard build/test_flexible_output_profile build/test_extension_board_profile build/test_esp251_profile
 	./build/test_firmware_core

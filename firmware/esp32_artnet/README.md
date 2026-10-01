@@ -54,9 +54,10 @@ WS-Pins 25,26,27,14,19,18,5,17; APA102 DATA/CLOCK 18/5 oder 26/27;
 Default GPIO25 mit 256 LEDs. Das ist die Softwarebelegung, keine hier neu bestätigte
 physische Platinenabnahme. Die früher beschriebene 30P-Belegung ist überholt.
 
-`esp32-wifi-esp251` erbt dieses eingeschränkte Profil, hat aber noch Defaults
-GPIO32 und APA102 18/19. Deshalb scheitert sein vorhandener Profiltest.
-Es ist weder der Flex8-Betriebsbuild noch als Ersatz dafür freigegeben.
+`esp32-wifi-esp251` erbt jetzt das flexible Profil `esp32-wifi-flex8`, damit
+die gespeicherte `.251`-Konfiguration (APA102 18/19 und 25/26) wieder geladen wird.
+Die historischen Defaults GPIO32 und APA102 18/19 bleiben erhalten; gespeicherte
+NVS-Konfiguration hat Vorrang. `.248` verwendet `esp32-wifi-extensionboard`.
 `esp32-w5500` enthält weiterhin nur einen Netzwerk-Platzhalter.
 RMII und allgemeine Testprofile sind ebenfalls nicht automatisch Hardwarefreigaben.
 
@@ -66,14 +67,18 @@ Aus diesem Verzeichnis:
 
 ```powershell
 python tools/test_host.py
-python tools/test_host.py --include-historical
+python -m platformio test -e native
 node tools/build-web-ui.js --check
 ```
 
-Der erste Lauf prüft Firmwarekern, Bootschutz, Flex8, Extensionboard und fünf
+Der erste Lauf prüft Firmwarekern, Bootschutz, Flex8, Extensionboard, ESP251,
+die RX-Queue und fünf
 JavaScript-Gruppen, ohne Netzwerkgeräte zu kontaktieren. Ergebnisse stehen in
-`build/host-test-results.json`. Der zweite Lauf nimmt den bekannten ESP251-Fehler
-hinzu und meldet ihn mit einem Fehlerexitcode; er wird nicht als Erfolg kaschiert.
+`build/host-test-results.json`. PlatformIO `native` prüft die Queue-Übergabe mit
+einem Hostmodell der FreeRTOS-Kopierqueue; Scheduling und WLAN benötigen Hardware.
+`--include-historical` bleibt als kompatibler Hosttest-Schalter ohne Zusatzwirkung.
+
+Art-Net-Empfang und neue Statuszähler: [ARTNET_RX_TASK.md](docs/ARTNET_RX_TASK.md).
 
 Die beiden bestehenden Browsertests benötigen zusätzlich Playwright samt Chromium.
 Einmal im Repository-Root `npm ci` und `npx playwright install chromium` ausführen;

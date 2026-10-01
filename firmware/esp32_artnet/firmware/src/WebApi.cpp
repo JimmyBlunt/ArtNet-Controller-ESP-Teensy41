@@ -136,6 +136,10 @@ std::string WebApi::statusJson(const ControllerConfig& config, const SystemStats
   out << "{\"pixelCount\":" << config.pixelCount
       << ",\"universeCount\":" << config.universeCount
       << ",\"packets\":" << stats.artnet.packets
+      << ",\"rxPackets\":" << stats.rxPackets
+      << ",\"rxQueueDrops\":" << stats.rxQueueDrops
+      << ",\"rxOversizedPackets\":" << stats.rxOversizedPackets
+      << ",\"rxSocketErrors\":" << stats.rxSocketErrors
       << ",\"framesComplete\":" << stats.artnet.framesComplete
       << ",\"framesIncomplete\":" << stats.artnet.framesIncomplete
       << ",\"fps\":" << performance.fps

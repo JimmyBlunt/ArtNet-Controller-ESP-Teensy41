@@ -51,7 +51,7 @@ Die nachstehenden Werte sind Quellcode-Defaults; NVS-Konfigurationen können sie
 |---|---|---|
 | `esp32-wifi-flex8` | Ein WS2812B-Port GPIO32, 256 LEDs ab U0; konfigurierbare WS-/APA-Ausgänge | Profil des zuletzt am 15.09. dokumentierten ESP `.251`; Farbreihenfolge pro Port und SPIFFS-Hintergrund enthalten |
 | `esp32-wifi-extensionboard` | Ein WS2812B-Port GPIO25, 256 LEDs ab U0; eingeschränkte Pinliste | Eigenes Boardprofil; Quellcode-Pins siehe ESP-README, ältere 30P-Dokumentation ist überholt |
-| `esp32-wifi-esp251` | WS2812B 285 an GPIO32 + APA102 1024 an 18/19; U0/U2 | Historisch; Defaults passen nicht zur aktuellen geerbten Extensionboard-Validierung. Profiltest scheitert; nicht als aktueller `.251`-Build verwenden |
+| `esp32-wifi-esp251` | WS2812B 285 an GPIO32 + APA102 1024 an 18/19; U0/U2 | Erbt Flex8; historische Defaults und gespeicherte `.251`-Konfiguration mit APA102 18/19 und 25/26 werden durch den Profiltest geprüft |
 | `esp32-wifi-ws2812-apa102-1679` | WS2812B 512 an GPIO23 + APA102 1167 an 18/19 | Feste ältere Mischkonfiguration |
 | `esp32-wifi-ws2812-output0` | WS2812B 256 an GPIO23 | Einzelport-Testprofil |
 | `esp32-wifi-matrix16` | APA102 256 an DATA23/CLOCK18 | 16×16-Testprofil |
@@ -109,8 +109,10 @@ Abschluss der lokalen Prüfung am 02.10.2026:
 
 Details und Grenzen: [Abschlussbericht](../reports/build-verification-20261001/README.md).
 
-Offen bleiben insbesondere die physische Octo-Buchsenabnahme, die APA102-
-Erweiterung des Teensy und der ESP251-Profilkonflikt. Die controllerweite
+Der ESP251-Profilkonflikt wurde anschließend im Art-Net-RX-Task-Fix durch
+Flex8-Vererbung behoben und mit der gespeicherten Pinbelegung getestet.
+Offen bleiben insbesondere die physische Octo-Buchsenabnahme und die APA102-
+Erweiterung des Teensy. Die controllerweite
 Teensy-Sequence-Verarbeitung wird durch das Zusammenführen nicht geändert.
 Der ESP-Receiver hat einen eigenen Empfangspfad; Teensy-Frame-Regeln dürfen
 nicht ungeprüft auf ihn übertragen werden.

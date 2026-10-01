@@ -11,7 +11,7 @@ def main():
     parser.add_argument('--cxx', default='g++')
     parser.add_argument('--node', default='node')
     parser.add_argument('--include-historical', action='store_true',
-                        help='Also run the known-failing esp251 profile test; failures stay failures')
+                        help='Compatibility flag; the repaired esp251 profile is always tested')
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     os.chdir(root)
@@ -24,10 +24,10 @@ def main():
         ('test_network_boot_guard', ['-Itests/stubs/network', '-DARDUINO'], ['firmware/src/NetworkManager.cpp']),
         ('test_flexible_output_profile', ['-DLED_PROFILE_FLEX8'], base),
         ('test_extension_board_profile', ['-DLED_PROFILE_FLEX8', '-DLED_PROFILE_EXTENSION_BOARD'], base),
+        ('test_esp251_profile', ['-DLED_PROFILE_FLEX8', '-DLED_PROFILE_ESP251'],
+         base + ['firmware/src/UniverseAssembler.cpp']),
+        ('test_artnet_rx_queue', ['-Itests/stubs/rtos'], ['firmware/src/ArtNetReceiver.cpp']),
     ]
-    if args.include_historical:
-        tests.append(('test_esp251_profile', ['-DLED_PROFILE_FLEX8', '-DLED_PROFILE_EXTENSION_BOARD', '-DLED_PROFILE_ESP251'],
-                      base + ['firmware/src/UniverseAssembler.cpp']))
     results = []
 
     def run(name, command):

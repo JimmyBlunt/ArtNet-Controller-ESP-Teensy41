@@ -2,8 +2,9 @@
 
 Stand 01.10.2026: Aktuelle Befehle stehen in [../README.md](../README.md).
 `build.ps1` nutzt kurze isolierte Cachepfade; `python tools/test_host.py` prüft
-Hostcode ohne Gerätezugriff. Mit `--include-historical` bleibt der bekannte
-ESP251-Profilfehler sichtbar. Die folgenden Pfade, Profile und COM6-Angaben
+Hostcode ohne Gerätezugriff. Der ESP251-Profiltest ist nach der Korrektur seiner
+Flex8-Vererbung regulär enthalten; `--include-historical` bleibt kompatibel.
+Die folgenden Pfade, Profile und COM6-Angaben
 stammen aus der ursprünglichen Projektchronik und sind keine aktuelle Uploadvorgabe.
 
 ---

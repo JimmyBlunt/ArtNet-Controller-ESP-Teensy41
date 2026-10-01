@@ -167,12 +167,20 @@ static void testPerformanceMonitor() {
 static void testWebApiJsonAndLedManager() {
   ControllerConfig config = defaultMixedConfig();
   SystemStats stats;
+  stats.rxPackets = 65;
+  stats.rxQueueDrops = 1;
+  stats.rxOversizedPackets = 2;
+  stats.rxSocketErrors = 3;
   PerformanceMonitor perf;
   perf.begin(0);
   perf.update(1000, 777, 555);
   const auto status = WebApi::statusJson(config, stats, perf.snapshot());
   const auto outputs = WebApi::outputsJson(config);
   expect(status.find("\"pixelCount\":4500") != std::string::npos, "status json pixel count");
+  expect(status.find("\"rxPackets\":65") != std::string::npos, "raw receive count");
+  expect(status.find("\"rxQueueDrops\":1") != std::string::npos, "RX queue loss count");
+  expect(status.find("\"rxOversizedPackets\":2") != std::string::npos, "oversized datagram count");
+  expect(status.find("\"rxSocketErrors\":3") != std::string::npos, "socket error count");
   expect(status.find("\"frameTimeUs\":0") != std::string::npos, "status json frame time");
   expect(status.find("\"outputTimeUs\":0") != std::string::npos, "status json output time");
   expect(status.find("\"lastFrameLatencyMs\":null") != std::string::npos, "unmeasured latency is null");
